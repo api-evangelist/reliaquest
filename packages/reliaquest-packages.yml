@@ -1,0 +1,47 @@
+generated: '2026-09-18'
+method: searched
+source: >-
+  https://github.com/digitalshadows/shadowline-api (README, setup.py, VERSION, fetched 2026-09-18);
+  registry checks of npm, PyPI (shadowline, reliaquest, greymatter, digitalshadows), RubyGems, crates.io,
+  and the reliaquest + digitalshadows GitHub orgs on 2026-09-18.
+package_count: 1
+official_count: 1
+packages:
+  - name: shadowline
+    language: python
+    registry: github
+    url: https://github.com/digitalshadows/shadowline-api
+    api: reliaquest:searchlight-portal-api
+    official: true
+    official_basis: >-
+      Published under the digitalshadows GitHub org by Digital Shadows Ltd (author richard.gold@digitalshadows.com,
+      Technical Tool License Agreement naming Digital Shadows Limited); Digital Shadows was acquired by
+      ReliaQuest in 2022 and the API it wraps now answers with a ReliaQuest support address.
+    version: 0.0.1
+    version_source: VERSION file in the repository (no GitHub releases or tags)
+    published: null
+    published_note: >-
+      Not on PyPI (pypi.org/pypi/shadowline/json has no project) — installed from source with `pip install .`.
+      No release or tag exists, so there is no publish date; the repository's last push was 2023-07-20.
+    last_push: '2023-07-20'
+    install: pip install .   # from a clone of the repository
+    kind: CLI + library
+    license: Technical Tool License Agreement (Digital Shadows Limited, 2019) — not OSI
+    note: >-
+      Click-based CLI ("shadowline") wrapping https://portal-digitalshadows.com/api/ — commands
+      cve_search, databreach_list, databreach_summary, databreach_username, domain_lookup, domain_whois,
+      incidents, indicator, ipaddr_whois, setup_profile, threats. Requires a Digital Shadows Portal API key.
+      A first-party client last touched in 2023 against a portal API that is still live is a currency
+      signal in its own right.
+not_found:
+  - registry: pypi
+    names_checked: [shadowline, reliaquest, greymatter, digitalshadows]
+    note: >-
+      `greymatter` and `searchlight` on PyPI belong to unrelated projects (a Selenium helper and OpenStack
+      Searchlight); `greymatter-mcp` is a community, explicitly unofficial MCP server (see mcp/).
+  - registry: npm
+    note: no @reliaquest scope or reliaquest/greymatter package found
+sdk_note: >-
+  ReliaQuest publishes no SDK for the GreyMatter GraphQL API; the docs point developers at a Postman
+  collection and GraphQL introspection. No `SDKs` pointer is emitted for GreyMatter. shadowline is a CLI
+  for the legacy SearchLight API rather than an SDK, so no `SDKs` pointer is emitted for it either.

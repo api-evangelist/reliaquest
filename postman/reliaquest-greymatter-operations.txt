@@ -1,0 +1,7126 @@
+# GreyMatter API — GraphQL operation documents / examples (NOT a schema/SDL — see header)
+# generated: 2026-09-18 | method: derived
+# source: https://apidocs.myreliaquest.com/api/collections/39440280/2sAYQZJYMC (ReliaQuest's public Postman collection, fetched 2026-09-18)
+# This file is NOT the schema (SDL). Introspection on https://greymatter.myreliaquest.com/graphql returned 403 to an
+# unauthenticated POST on 2026-09-18, and the SDL text file is attached to a customer-only knowledge-base article.
+# Each operation below is the provider's own example query/mutation document, copied verbatim from the collection,
+# grouped by the collection's folders; the leading comment carries the provider's description of that operation.
+
+# ===== Access Groups (16 operations) =====
+# --- createAccessGroup
+# Create an access group
+# Inputs:
+# CreateAccessGroupInput,
+# Return:
+# CreateAccessGroupResponse
+mutation createAccessGroup ($after: String, $filter: PodFilter, $first: Int, $order: PodOrder, $after1: String, $filter1: RoleFilter, $first1: Int, $order1: RoleOrder, $after2: String, $filter2: UserFilter, $first2: Int, $order2: UserOrder, $input: CreateAccessGroupInput!) {
+    createAccessGroup (input: $input) {
+        accessGroup {
+            createdAt
+            description
+            id
+            isDefault
+            name
+            pods (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            roles (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+                totalCount
+            }
+            ssoGroups
+            updatedAt
+            users (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+                totalCount
+            }
+        }
+        success
+    }
+}
+
+# --- createPod
+# Create a pod
+# Inputs:
+# CreatePodInput,
+# Return:
+# CreatePodResponse
+mutation createPod ($after: String, $filter: AccessGroupFilter, $first: Int, $order: AccessGroupOrder, $after1: String, $filter1: CustomerFilter, $first1: Int, $notFilter: CustomerFilter, $order1: CustomerOrder, $after2: String, $filter2: UserFilter, $first2: Int, $order2: UserOrder, $input: CreatePodInput!) {
+    createPod (input: $input) {
+        pod {
+            accessGroups (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            createdAt
+            customers (after: $after1, filter: $filter1, first: $first1, notFilter: $notFilter, order: $order1) {
+                totalCount
+            }
+            description
+            id
+            name
+            updatedAt
+            users (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+                totalCount
+            }
+        }
+        success
+    }
+}
+
+# --- createRole
+# Create a role
+# Inputs:
+# CreateRoleInput,
+# Return:
+# CreateRoleResponse
+mutation createRole ($after: String, $filter: AccessGroupFilter, $first: Int, $order: AccessGroupOrder, $after1: String, $filter1: UserFilter, $first1: Int, $order1: UserOrder, $input: CreateRoleInput!) {
+    createRole (input: $input) {
+        role {
+            accessGroups (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            createdAt
+            description
+            id
+            name
+            permissions
+            type
+            updatedAt
+            users (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+                totalCount
+            }
+        }
+        success
+    }
+}
+
+# --- deleteAccessGroup
+# Delete an access group
+# Inputs:
+# ID,
+# Return:
+# DeleteAccessGroupResponse
+mutation deleteAccessGroup ($id: ID!) {
+    deleteAccessGroup (id: $id) {
+        success
+    }
+}
+
+# --- deletePod
+# Delete a pod
+# Inputs:
+# ID,
+# Return:
+# DeletePodResponse
+mutation deletePod ($id: ID!) {
+    deletePod (id: $id) {
+        success
+    }
+}
+
+# --- deleteRole
+# Delete a pod
+# Inputs:
+# ID,
+# Return:
+# DeleteRoleResponse
+mutation deleteRole ($id: ID!) {
+    deleteRole (id: $id) {
+        success
+    }
+}
+
+# --- updateAccessGroup
+# Update an access group
+# Inputs:
+# UpdateAccessGroupInput,
+# Return:
+# UpdateAccessGroupResponse
+mutation updateAccessGroup ($after: String, $filter: PodFilter, $first: Int, $order: PodOrder, $after1: String, $filter1: RoleFilter, $first1: Int, $order1: RoleOrder, $after2: String, $filter2: UserFilter, $first2: Int, $order2: UserOrder, $input: UpdateAccessGroupInput!) {
+    updateAccessGroup (input: $input) {
+        accessGroup {
+            createdAt
+            description
+            id
+            isDefault
+            name
+            pods (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            roles (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+                totalCount
+            }
+            ssoGroups
+            updatedAt
+            users (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+                totalCount
+            }
+        }
+        success
+    }
+}
+
+# --- updatePod
+# Update a pod
+# Inputs:
+# UpdatePodInput,
+# Return:
+# UpdatePodResponse
+mutation updatePod ($after: String, $filter: AccessGroupFilter, $first: Int, $order: AccessGroupOrder, $after1: String, $filter1: CustomerFilter, $first1: Int, $notFilter: CustomerFilter, $order1: CustomerOrder, $after2: String, $filter2: UserFilter, $first2: Int, $order2: UserOrder, $input: UpdatePodInput!) {
+    updatePod (input: $input) {
+        pod {
+            accessGroups (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            createdAt
+            customers (after: $after1, filter: $filter1, first: $first1, notFilter: $notFilter, order: $order1) {
+                totalCount
+            }
+            description
+            id
+            name
+            updatedAt
+            users (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+                totalCount
+            }
+        }
+        success
+    }
+}
+
+# --- updateRole
+# Update a pod
+# Inputs:
+# UpdateRoleInput,
+# Return:
+# UpdateRoleResponse
+mutation updateRole ($after: String, $filter: AccessGroupFilter, $first: Int, $order: AccessGroupOrder, $after1: String, $filter1: UserFilter, $first1: Int, $order1: UserOrder, $input: UpdateRoleInput!) {
+    updateRole (input: $input) {
+        role {
+            accessGroups (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            createdAt
+            description
+            id
+            name
+            permissions
+            type
+            updatedAt
+            users (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+                totalCount
+            }
+        }
+        success
+    }
+}
+
+# --- accessGroup
+# Inputs:
+# ID,
+# Return:
+# AccessGroup
+query accessGroup ($after: String, $filter: PodFilter, $first: Int, $order: PodOrder, $after1: String, $filter1: RoleFilter, $first1: Int, $order1: RoleOrder, $after2: String, $filter2: UserFilter, $first2: Int, $order2: UserOrder, $id: ID!) {
+    accessGroup (id: $id) {
+        createdAt
+        description
+        id
+        isDefault
+        name
+        pods (after: $after, filter: $filter, first: $first, order: $order) {
+            edges {
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+        roles (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+            edges {
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+        ssoGroups
+        updatedAt
+        users (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+            edges {
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+    }
+}
+
+# --- accessGroups
+# Query the access groups
+# Inputs:
+# String, AccessGroupFilter, Int, AccessGroupFilter, AccessGroupOrder,
+# Return:
+# AccessGroupConnection
+query accessGroups ($after: String, $filter: AccessGroupFilter, $first: Int, $notFilter: AccessGroupFilter, $order: AccessGroupOrder) {
+    accessGroups (after: $after, filter: $filter, first: $first, notFilter: $notFilter, order: $order) {
+        edges {
+            cursor
+            node {
+                createdAt
+                description
+                id
+                isDefault
+                name
+                ssoGroups
+                updatedAt
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# --- permissions
+# Query the available permissions
+# Return:
+# Permission
+query permissions {
+    permissions {
+        description
+        displayName
+        groups
+        name
+    }
+}
+
+# --- pod
+# Inputs:
+# ID,
+# Return:
+# Pod
+query pod ($after: String, $filter: AccessGroupFilter, $first: Int, $order: AccessGroupOrder, $after1: String, $filter1: CustomerFilter, $first1: Int, $notFilter: CustomerFilter, $order1: CustomerOrder, $after2: String, $filter2: UserFilter, $first2: Int, $order2: UserOrder, $id: ID!) {
+    pod (id: $id) {
+        accessGroups (after: $after, filter: $filter, first: $first, order: $order) {
+            edges {
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+        createdAt
+        customers (after: $after1, filter: $filter1, first: $first1, notFilter: $notFilter, order: $order1) {
+            edges {
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+        description
+        id
+        name
+        updatedAt
+        users (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+            edges {
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+    }
+}
+
+# --- pods
+# Query the pods
+# Inputs:
+# String, PodFilter, Int, PodFilter, PodOrder,
+# Return:
+# PodConnection
+query pods ($after: String, $filter: PodFilter, $first: Int, $notFilter: PodFilter, $order: PodOrder) {
+    pods (after: $after, filter: $filter, first: $first, notFilter: $notFilter, order: $order) {
+        edges {
+            cursor
+            node {
+                createdAt
+                description
+                id
+                name
+                updatedAt
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# --- role
+# Inputs:
+# ID,
+# Return:
+# Role
+query role ($after: String, $filter: AccessGroupFilter, $first: Int, $order: AccessGroupOrder, $after1: String, $filter1: UserFilter, $first1: Int, $order1: UserOrder, $id: ID!) {
+    role (id: $id) {
+        accessGroups (after: $after, filter: $filter, first: $first, order: $order) {
+            edges {
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+        createdAt
+        description
+        id
+        name
+        permissions
+        type
+        updatedAt
+        users (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+            edges {
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+    }
+}
+
+# --- roles
+# Query the roles
+# Inputs:
+# String, RoleFilter, Int, RoleFilter, RoleOrder,
+# Return:
+# RoleConnection
+query roles ($after: String, $filter: RoleFilter, $first: Int, $notFilter: RoleFilter, $order: RoleOrder) {
+    roles (after: $after, filter: $filter, first: $first, notFilter: $notFilter, order: $order) {
+        edges {
+            cursor
+            node {
+                createdAt
+                description
+                id
+                name
+                permissions
+                type
+                updatedAt
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# ===== API Keys (4 operations) =====
+# --- createApiKey
+# Create a new API Key.
+# Inputs:
+# CreateApiKeyInput,
+# Return:
+# CreateApiKeyResponse
+mutation createApiKey ($input: CreateApiKeyInput!) {
+    createApiKey (input: $input) {
+        apiKey {
+            createdAt
+            expiresAt
+            id
+            key
+            lastQuery
+            lastUsedAt
+            user {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+        success
+    }
+}
+
+# --- deleteApiKeyById
+# Delete a specific API Key by its ID.
+# If a user parameter is provided, it will delete the API Key associated with that user.
+# Inputs:
+# ID, ID,
+# Return:
+# DeleteApiKeyResponse
+mutation deleteApiKeyById ($id: ID!, $user: ID) {
+    deleteApiKeyById (id: $id, user: $user) {
+        success
+    }
+}
+
+# --- deleteApiKeys
+# Delete all API Keys for the current user.
+# If a specific user is provided as a parameter,
+# all API keys for that user will be deleted.
+# Inputs:
+# ID,
+# Return:
+# DeleteApiKeyResponse
+mutation deleteApiKeys ($user: ID) {
+    deleteApiKeys (user: $user) {
+        success
+    }
+}
+
+# --- apiKeys
+# Returns a list of API Keys.
+# When no user ID is provided, returns keys for the current user.
+# When a user ID is provided, returns keys for the specified user.
+# Inputs:
+# ID,
+# Return:
+# ApiKey
+query apiKeys ($after: String, $filter: AccessGroupFilter, $first: Int, $order: AccessGroupOrder, $after1: String, $filter1: PodFilter, $first1: Int, $order1: PodOrder, $after2: String, $filter2: RoleFilter, $first2: Int, $order2: RoleFilter, $user: ID) {
+    apiKeys (user: $user) {
+        createdAt
+        expiresAt
+        id
+        key
+        lastQuery
+        lastUsedAt
+        user {
+            accessGroups (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+                totalCount
+            }
+            roles (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+                totalCount
+            }
+            serviceNowId
+        }
+    }
+}
+
+# ===== Assets (2 operations) =====
+# --- deleteAsset
+# This API allows user to delete an asset.
+# Inputs:
+# DeleteAssetInput,
+# Return:
+# DeleteAssetResponse
+mutation deleteAsset ($input: DeleteAssetInput!) {
+    deleteAsset (input: $input) {
+        message
+        success
+    }
+}
+
+# --- assets
+# Fetch all assets which matches provided filter criteria. This API is paginated.
+# Pagination is handled by these arguments: first = Page count, before = Cursor offset position - This will be converted to Page number based on Page size provided.
+# Inputs:
+# String, AssetFilter, Int, AssetOrder,
+# Return:
+# AssetConnection
+query assets ($after: String, $filter: AssetFilter, $first: Int, $order: AssetOrder) {
+    assets (after: $after, filter: $filter, first: $first, order: $order) {
+        edges {
+            cursor
+            node {
+                externalScanDetailsAvailable
+                id
+                ipAddress
+                name
+                operatingSystem
+                publiclyAccessible
+                techAssetIds
+                technology
+                type
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# ===== Cases (11 operations) =====
+# --- addCaseComment
+# Add a comment to a case
+# Inputs:
+# CaseCommentInput,
+# Return:
+# CaseResponse
+mutation addCaseComment ($input: CaseCommentInput!) {
+    addCaseComment (input: $input) {
+        case {
+            id
+        }
+        success
+    }
+}
+
+# --- addChildrenToCase
+# Add a child to a case
+# Inputs:
+# AddChildrenToCaseInput,
+# Return:
+# CaseResponse
+mutation addChildrenToCase ($input: AddChildrenToCaseInput!) {
+    addChildrenToCase (input: $input) {
+        case {
+            id
+        }
+        success
+    }
+}
+
+# --- cancelCase
+# Cancel a case
+# Inputs:
+# CancelCaseInput,
+# Return:
+# CaseResponse
+mutation cancelCase ($input: CancelCaseInput!) {
+    cancelCase (input: $input) {
+        case {
+            id
+            state
+        }
+        success
+    }
+}
+
+# --- closeCase
+# Close a case
+# Inputs:
+# CloseCaseInput,
+# Return:
+# CaseResponse
+mutation closeCase ($input: CloseCaseInput!) {
+    closeCase (input: $input) {
+        case {
+            closeCode
+            id
+            state
+        }
+        success
+    }
+}
+
+# --- createCase
+# Create a new case.
+# Inputs:
+# CreateCaseInput,
+# Return:
+# CaseResponse
+mutation createCase ($input: CreateCaseInput!) {
+    createCase (input: $input) {
+        case {
+            id
+            severity
+            state
+            title
+            type
+        }
+        success
+    }
+}
+
+# --- removeChildFromCase
+# Remove a child from a case
+# Inputs:
+# RemoveChildFromCaseInput,
+# Return:
+# CaseResponse
+mutation removeChildFromCase ($input: RemoveChildFromCaseInput!) {
+    removeChildFromCase (input: $input) {
+        case {
+            id
+        }
+        success
+    }
+}
+
+# --- updateCase
+# Update a case
+# Inputs:
+# UpdateCaseInput,
+# Return:
+# CaseResponse
+mutation updateCase ($input: UpdateCaseInput!) {
+    updateCase (input: $input) {
+        case {
+            id
+            severity
+            state
+            title
+        }
+        success
+    }
+}
+
+# --- updateCaseDueDate
+# Update case due date
+# Inputs:
+# UpdateCaseDueDateInput,
+# Return:
+# CaseResponse
+mutation updateCaseDueDate ($input: UpdateCaseDueDateInput!) {
+    updateCaseDueDate (input: $input) {
+        case {
+            dueAt
+            id
+        }
+        success
+    }
+}
+
+# --- updateCaseOwner
+# Update case owner
+# Inputs:
+# UpdateCaseOwnerInput,
+# Return:
+# CaseResponse
+mutation updateCaseOwner ($input: UpdateCaseOwnerInput!) {
+    updateCaseOwner (input: $input) {
+        case {
+            id
+            owner {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+        success
+    }
+}
+
+# --- case
+# Fetch Case by id XOR slug
+# Inputs:
+# CaseBy,
+# Return:
+# Case
+query case ($after: String, $filter: CaseActivityLogFilter, $first: Int, $order: CaseActivityLogOrder, $after1: String, $filter1: CaseChildFilter, $first1: Int, $order1: CaseChildOrder, $after2: String, $filter2: CaseCommentFilter, $first2: Int, $order2: CaseCommentOrder, $after3: String, $filter3: AccessGroupFilter, $first3: Int, $order3: AccessGroupOrder, $after4: String, $filter4: PodFilter, $first4: Int, $order4: PodOrder, $after5: String, $filter5: RoleFilter, $first5: Int, $order5: RoleFilter, $after6: String, $first6: Int, $createdAfter: DateTime, $createdBefore: DateTime, $after7: String, $first7: Int, $after8: String, $first8: Int, $createdAfter1: DateTime, $createdBefore1: DateTime, $after9: String, $first9: Int, $after10: String, $filter6: AccessGroupFilter, $first10: Int, $order6: AccessGroupOrder, $after11: String, $filter7: PodFilter, $first11: Int, $order7: PodOrder, $after12: String, $filter8: RoleFilter, $first12: Int, $order8: RoleFilter, $after13: String, $filter9: AccessGroupFilter, $first13: Int, $order9: AccessGroupOrder, $after14: String, $filter10: PodFilter, $first14: Int, $order10: PodOrder, $after15: String, $filter11: RoleFilter, $first15: Int, $order11: RoleFilter, $by: CaseBy!) {
+    case (by: $by) {
+        activity (after: $after, filter: $filter, first: $first, order: $order) {
+            edges {
+                cursor
+                node {
+                    createdAt
+                    id
+                }
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+        aiSummary
+        children (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+            edges {
+                cursor
+                node {
+                    closeCode
+                    createdAt
+                    externalId
+                    id
+                    severity
+                    state
+                    summary
+                    title
+                    type
+                    updatedAt
+                }
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+        childrenOverview {
+            totalChildren
+            totalClosed
+            totalInProgress
+            totalNew
+            totalOpen
+            totalsByCloseCode {
+                closeCode
+                total
+            }
+        }
+        closeCode
+        closedAt
+        comments (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+            edges {
+                cursor
+                node {
+                    createdAt
+                    id
+                    text
+                    updatedAt
+                }
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+        createdAt
+        createdBy {
+            accessGroups (after: $after3, filter: $filter3, first: $first3, order: $order3) {
+                edges {
+                    cursor
+                }
+                pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                }
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after4, filter: $filter4, first: $first4, order: $order4) {
+                edges {
+                    cursor
+                }
+                pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                }
+                totalCount
+            }
+            roles (after: $after5, filter: $filter5, first: $first5, order: $order5) {
+                edges {
+                    cursor
+                }
+                pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                }
+                totalCount
+            }
+            serviceNowId
+        }
+        customer {
+            accessControlPolicies (after: $after6, first: $first6) {
+                edges {
+                    cursor
+                }
+                pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                }
+                totalCount
+            }
+            active
+            deployedRulesCount (createdAfter: $createdAfter, createdBefore: $createdBefore) {
+                count
+            }
+            headerSlug
+            id
+            name
+            residency
+            slug
+            users (after: $after7, first: $first7) {
+                edges {
+                    cursor
+                }
+                pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                }
+                totalCount
+            }
+        }
+        description
+        discoverExposure {
+            aiSummary
+            customer {
+                accessControlPolicies (after: $after8, first: $first8) {
+                    totalCount
+                }
+                active
+                deployedRulesCount (createdAfter: $createdAfter1, createdBefore: $createdBefore1) {
+                    count
+                }
+                headerSlug
+                id
+                name
+                residency
+                slug
+                users (after: $after9, first: $first9) {
+                    totalCount
+                }
+            }
+            description
+            exposure
+            id
+            mitigations
+            mitreTacticTechniques {
+                id
+                name
+                techniques {
+                    id
+                    name
+                }
+            }
+            type
+        }
+        dueAt
+        expirationDate
+        id
+        lastSummarizedAt
+        owner {
+            accessGroups (after: $after10, filter: $filter6, first: $first10, order: $order6) {
+                edges {
+                    cursor
+                }
+                pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                }
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after11, filter: $filter7, first: $first11, order: $order7) {
+                edges {
+                    cursor
+                }
+                pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                }
+                totalCount
+            }
+            roles (after: $after12, filter: $filter8, first: $first12, order: $order8) {
+                edges {
+                    cursor
+                }
+                pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                }
+                totalCount
+            }
+            serviceNowId
+        }
+        reasonForClosure
+        severity
+        slug
+        state
+        subType
+        title
+        type
+        updatedAt
+        updatedBy {
+            accessGroups (after: $after13, filter: $filter9, first: $first13, order: $order9) {
+                edges {
+                    cursor
+                }
+                pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                }
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after14, filter: $filter10, first: $first14, order: $order10) {
+                edges {
+                    cursor
+                }
+                pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                }
+                totalCount
+            }
+            roles (after: $after15, filter: $filter11, first: $first15, order: $order11) {
+                edges {
+                    cursor
+                }
+                pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                }
+                totalCount
+            }
+            serviceNowId
+        }
+    }
+}
+
+# --- cases
+# Fetch all Cases which matches provided filter criteria. This API is paginated.
+# Pagination is handled by these arguments: first = Page count, after = Cursor offset position - This will be converted to Page number based on Page size provided.
+# Inputs:
+# String, CaseFilter, Int, CaseOrder,
+# Return:
+# CaseConnection
+query cases ($after: String, $filter: CaseActivityLogFilter, $first: Int, $order: CaseActivityLogOrder, $after1: String, $filter1: CaseChildFilter, $first1: Int, $order1: CaseChildOrder, $after2: String, $filter2: CaseCommentFilter, $first2: Int, $order2: CaseCommentOrder, $after3: String, $filter3: CaseFilter, $first3: Int, $order3: CaseOrder) {
+    cases (after: $after3, filter: $filter3, first: $first3, order: $order3) {
+        edges {
+            cursor
+            node {
+                activity (after: $after, filter: $filter, first: $first, order: $order) {
+                    totalCount
+                }
+                aiSummary
+                children (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+                    totalCount
+                }
+                childrenOverview {
+                    totalChildren
+                    totalClosed
+                    totalInProgress
+                    totalNew
+                    totalOpen
+                }
+                closeCode
+                closedAt
+                comments (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+                    totalCount
+                }
+                createdAt
+                createdBy {
+                    email
+                    fullName
+                    id
+                    serviceNowId
+                }
+                customer {
+                    active
+                    headerSlug
+                    id
+                    name
+                    residency
+                    slug
+                }
+                description
+                discoverExposure {
+                    aiSummary
+                    description
+                    exposure
+                    id
+                    mitigations
+                    type
+                }
+                dueAt
+                expirationDate
+                id
+                lastSummarizedAt
+                owner {
+                    email
+                    fullName
+                    id
+                    serviceNowId
+                }
+                reasonForClosure
+                severity
+                slug
+                state
+                subType
+                title
+                type
+                updatedAt
+                updatedBy {
+                    email
+                    fullName
+                    id
+                    serviceNowId
+                }
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# ===== Change Control (3 operations) =====
+# --- approveDetectionChangeRequests
+# Approves one or more pending detection change requests.
+# Inputs:
+# ApproveDetectionChangeRequestsInput,
+# Return:
+# DetectionChangeRequestActionResponse
+mutation approveDetectionChangeRequests ($input: ApproveDetectionChangeRequestsInput!) {
+    approveDetectionChangeRequests (input: $input) {
+        failed {
+            changeRequest {
+                createdAt
+                id
+                requestType
+                sourceType
+                status
+            }
+            reason
+        }
+        succeeded {
+            createdAt
+            customerDetection {
+                createdAt
+                deployedLogic
+                detectionSource
+                displaySlug
+                enabled
+                id
+                sourceType
+                versionNumber
+            }
+            id
+            requestType
+            rule {
+                description
+                id
+                logSourceTypes
+                mitreTacticNames
+                name
+                severity
+                slug
+                state
+                updatedAt
+            }
+            sourceType
+            status
+        }
+        success
+    }
+}
+
+# --- rejectDetectionChangeRequests
+# Rejects one or more pending detection change requests, optionally recording the tuning classification for the change.
+# Inputs:
+# RejectDetectionChangeRequestsInput,
+# Return:
+# DetectionChangeRequestActionResponse
+mutation rejectDetectionChangeRequests ($input: RejectDetectionChangeRequestsInput!) {
+    rejectDetectionChangeRequests (input: $input) {
+        failed {
+            changeRequest {
+                createdAt
+                id
+                requestType
+                sourceType
+                status
+            }
+            reason
+        }
+        succeeded {
+            createdAt
+            customerDetection {
+                createdAt
+                deployedLogic
+                detectionSource
+                displaySlug
+                enabled
+                id
+                sourceType
+                versionNumber
+            }
+            id
+            requestType
+            rule {
+                description
+                id
+                logSourceTypes
+                mitreTacticNames
+                name
+                severity
+                slug
+                state
+                updatedAt
+            }
+            sourceType
+            status
+        }
+        success
+    }
+}
+
+# --- detectionChangeRequests
+# Retrieves a paginated list of detection change requests, with optional filtering and ordering.
+# Inputs:
+# String, DetectionChangeRequestFilter, Int, DetectionChangeRequestOrder,
+# Return:
+# DetectionChangeRequestConnection
+query detectionChangeRequests ($after: String, $filter: DetectionChangeRequestFilter, $first: Int, $order: DetectionChangeRequestOrder) {
+    detectionChangeRequests (after: $after, filter: $filter, first: $first, order: $order) {
+        edges {
+            cursor
+            node {
+                createdAt
+                id
+                requestType
+                sourceType
+                status
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# ===== Customer (2 operations) =====
+# --- customer
+# Fetch current customer details
+# Return:
+# Customer
+query customer ($after: String, $first: Int, $createdAfter: DateTime, $createdBefore: DateTime, $after1: String, $first1: Int) {
+    customer {
+        accessControlPolicies (after: $after, first: $first) {
+            edges {
+                cursor
+                node {
+                    description
+                    displayName
+                    id
+                    name
+                    resource
+                    resourceType
+                }
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+        active
+        deployedRulesCount (createdAfter: $createdAfter, createdBefore: $createdBefore) {
+            count
+        }
+        headerSlug
+        id
+        name
+        residency
+        slug
+        users (after: $after1, first: $first1) {
+            edges {
+                cursor
+                node {
+                    email
+                    fullName
+                    id
+                    serviceNowId
+                }
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+    }
+}
+
+# --- customers
+# Fetch All Customers.
+# Inputs:
+# String, CustomerFilter, Int, CustomerFilter, CustomerOrder,
+# Return:
+# CustomerConnection
+query customers ($after: String, $filter: CustomerFilter, $first: Int, $notFilter: CustomerFilter, $order: CustomerOrder) {
+    customers (after: $after, filter: $filter, first: $first, notFilter: $notFilter, order: $order) {
+        edges {
+            cursor
+            node {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# ===== Data (2 operations) =====
+# --- dataSourceSchema
+# Inputs:
+# DataBy,
+# Return:
+# DataSourceResponse
+query dataSourceSchema ($by: DataBy!) {
+    dataSourceSchema (by: $by) {
+        schema {
+            fields {
+                name
+                type
+            }
+        }
+    }
+}
+
+# --- timeBuckets
+# Inputs:
+# TimeBucketsFilter,
+# Return:
+# TimeBucketResponse
+query timeBuckets ($filter: TimeBucketsFilter!) {
+    timeBuckets (filter: $filter) {
+        buckets {
+            count
+            endTime
+            startTime
+        }
+        unit
+    }
+}
+
+# ===== Detections (7 operations) =====
+# --- createActivityLogEntryComment
+# Creates a comment under a given activity log entry.
+# Inputs:
+# CreateActivityLogEntryCommentInput,
+# Return:
+# CreateActivityLogEntryCommentResponse
+mutation createActivityLogEntryComment ($comment: CreateActivityLogEntryCommentInput!) {
+    createActivityLogEntryComment (comment: $comment) {
+        comment {
+            activityLogEntry {
+                activityLogType
+                createdAt
+                id
+                text
+            }
+            createdAt
+            createdBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            id
+            text
+            type
+        }
+        success
+    }
+}
+
+# --- customerDetection
+# Inputs:
+# ID,
+# Return:
+# CustomerDetection
+query customerDetection ($after: String, $filter: CustomerDetectionActivityLogFilter, $first: Int, $order: CustomerDetectionActivityLogOrder, $by: DetectionRuleLogicBy!, $id: ID!) {
+    customerDetection (id: $id) {
+        activityLogEntries (after: $after, filter: $filter, first: $first, order: $order) {
+            totalCount
+        }
+        customer {
+            id
+        }
+        displaySlug
+        draftVersion {
+            id
+        }
+        globalDetection {
+            connector {
+                documentationUrl
+                id
+                name
+                type
+            }
+            detectionRule {
+                description
+                id
+                logSourceTypes
+                logic (by: $by) {
+                    logic
+                    severity
+                    version
+                }
+                mitreTacticNames
+                mitreTacticTechniques {
+                    id
+                    name
+                }
+                name
+                severity
+                slug
+                state
+                updatedAt
+            }
+            detectionSource
+            displaySlug
+            id
+            logic
+            macros
+            sourceType
+            suppressionExpression
+            timeRange
+            versionNumber
+        }
+        id
+        versionNumber
+    }
+}
+
+# --- customerDetectionActivityLogEntries
+# Fetch all Activity log entries which match provided filter criteria. This API is paginated.
+# Pagination is handled by these arguments: first = page size, after = Cursor offset position - This will be converted to Page number based on Page size provided.
+# Inputs:
+# String, CustomerDetectionActivityLogFilter, Int, CustomerDetectionActivityLogOrder,
+# Return:
+# CustomerDetectionActivityLogEntryConnection
+query customerDetectionActivityLogEntries ($after: String, $filter: CustomerDetectionActivityLogFilter, $first: Int, $order: CustomerDetectionActivityLogOrder) {
+    customerDetectionActivityLogEntries (after: $after, filter: $filter, first: $first, order: $order) {
+        edges {
+            cursor
+            node {
+                activityLogType
+                createdAt
+                id
+                text
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# --- customerDetectionActivityLogEntry
+# Fetch activity log entry by its ID
+# Inputs:
+# ID,
+# Return:
+# CustomerDetectionActivityLogEntry
+query customerDetectionActivityLogEntry ($after: String, $filter: CustomerDetectionActivityLogEntryCommentFilter, $first: Int, $order: CustomerDetectionActivityLogEntryCommentOrder, $id: ID!) {
+    customerDetectionActivityLogEntry (id: $id) {
+        activityLogType
+        comments (after: $after, filter: $filter, first: $first, order: $order) {
+            totalCount
+        }
+        createdAt
+        createdBy {
+            id
+        }
+        customer {
+            id
+        }
+        customerDetection {
+            id
+        }
+        draftCustomerDetection {
+            id
+        }
+        id
+        text
+    }
+}
+
+# --- customerDetections
+# Fetch all customer detections which match provided filter criteria. This API is paginated.
+# Pagination is handled by these arguments: first = page size, after = Cursor offset position - This will be converted to Page number based on Page size provided.
+# Inputs:
+# String, CustomerDetectionFilter, Int, CustomerDetectionOrder,
+# Return:
+# CustomerDetectionConnection
+query customerDetections ($after: String, $filter: CustomerDetectionFilter, $first: Int, $order: CustomerDetectionOrder) {
+    customerDetections (after: $after, filter: $filter, first: $first, order: $order) {
+        edges {
+            cursor
+            node {
+                createdAt
+                deployedLogic
+                detectionSource
+                displaySlug
+                enabled
+                id
+                sourceType
+                versionNumber
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# --- detectionRules
+# Retrieves a list of detection rules, with options for filtering, ordering, and pagination.
+# Inputs:
+# String, DetectionRuleOrder, DetectionRuleFilter, Int,
+# Return:
+# DetectionRuleConnection
+query detectionRules ($after: String, $detectionRuleOrder: DetectionRuleOrder, $filter: DetectionRuleFilter, $first: Int) {
+    detectionRules (after: $after, detectionRuleOrder: $detectionRuleOrder, filter: $filter, first: $first) {
+        edges {
+            cursor
+            node {
+                description
+                id
+                logSourceTypes
+                mitreTacticNames
+                name
+                severity
+                slug
+                state
+                updatedAt
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# --- draftCustomerDetection
+# Inputs:
+# DraftCustomerDetectionBy,
+# Return:
+# DraftCustomerDetection
+query draftCustomerDetection ($after: String, $filter: CustomerDetectionActivityLogFilter, $first: Int, $order: CustomerDetectionActivityLogOrder, $by: DraftCustomerDetectionBy!) {
+    draftCustomerDetection (by: $by) {
+        activityLogEntries (after: $after, filter: $filter, first: $first, order: $order) {
+            totalCount
+        }
+        customer {
+            id
+        }
+        displaySlug
+        globalDetection {
+            connector {
+                documentationUrl
+                id
+                name
+                type
+            }
+            detectionRule {
+                description
+                id
+                logSourceTypes
+                mitreTacticNames
+                name
+                severity
+                slug
+                state
+                updatedAt
+            }
+            detectionSource
+            displaySlug
+            id
+            logic
+            macros
+            sourceType
+            suppressionExpression
+            timeRange
+            versionNumber
+        }
+        id
+        publishedVersion {
+            id
+        }
+    }
+}
+
+# ===== Discover Tasks (5 operations) =====
+# --- assignDiscoverTask
+# Assign a Discover Task
+# Inputs:
+# AssignDiscoverTaskInput,
+# Return:
+# DiscoverTaskResponse
+mutation assignDiscoverTask ($input: AssignDiscoverTaskInput!) {
+    assignDiscoverTask (input: $input) {
+        discoverTask {
+            assignee {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            id
+        }
+        success
+    }
+}
+
+# --- closeDiscoverTask
+# Close Discover Task
+# Inputs:
+# CloseDiscoverTaskInput,
+# Return:
+# DiscoverTaskResponse
+mutation closeDiscoverTask ($input: CloseDiscoverTaskInput!) {
+    closeDiscoverTask (input: $input) {
+        discoverTask {
+            closeCode
+            id
+            state
+        }
+        success
+    }
+}
+
+# --- updateDiscoverTaskState
+# Update Discover Task's state
+# Inputs:
+# UpdateDiscoverTaskStateInput,
+# Return:
+# DiscoverTaskResponse
+mutation updateDiscoverTaskState ($input: UpdateDiscoverTaskStateInput!) {
+    updateDiscoverTaskState (input: $input) {
+        discoverTask {
+            id
+            state
+        }
+        success
+    }
+}
+
+# --- discoverTask
+# Fetch Discover Case by id
+# Inputs:
+# DiscoverTaskBy,
+# Return:
+# DiscoverTask
+query discoverTask ($after: String, $filter: DiscoverTaskActivityFilter, $first: Int, $order: DiscoverTaskActivityOrder, $after1: String, $filter1: AccessGroupFilter, $first1: Int, $order1: AccessGroupOrder, $after2: String, $filter2: PodFilter, $first2: Int, $order2: PodOrder, $after3: String, $filter3: RoleFilter, $first3: Int, $order3: RoleFilter, $after4: String, $filter4: DiscoverTaskCommentFilter, $first4: Int, $order4: DiscoverTaskCommentOrder, $after5: String, $first5: Int, $createdAfter: DateTime, $createdBefore: DateTime, $after6: String, $first6: Int, $after7: String, $first7: Int, $createdAfter1: DateTime, $createdBefore1: DateTime, $after8: String, $first8: Int, $after9: String, $filter5: IntegrationActivityLogFilter, $first9: Int, $order5: IntegrationActivityLogOrder, $after10: String, $first10: Int, $createdAfter2: DateTime, $createdBefore2: DateTime, $after11: String, $first11: Int, $by: DiscoverTaskBy!) {
+    discoverTask (by: $by) {
+        activity (after: $after, filter: $filter, first: $first, order: $order) {
+            edges {
+                cursor
+                node {
+                    createdAt
+                    id
+                }
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+        assignee {
+            accessGroups (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+                edges {
+                    cursor
+                }
+                pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                }
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+                edges {
+                    cursor
+                }
+                pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                }
+                totalCount
+            }
+            roles (after: $after3, filter: $filter3, first: $first3, order: $order3) {
+                edges {
+                    cursor
+                }
+                pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                }
+                totalCount
+            }
+            serviceNowId
+        }
+        closeCode
+        comments (after: $after4, filter: $filter4, first: $first4, order: $order4) {
+            edges {
+                cursor
+                node {
+                    createdAt
+                    id
+                    text
+                    updatedAt
+                }
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+        createdAt
+        customer {
+            accessControlPolicies (after: $after5, first: $first5) {
+                edges {
+                    cursor
+                }
+                pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                }
+                totalCount
+            }
+            active
+            deployedRulesCount (createdAfter: $createdAfter, createdBefore: $createdBefore) {
+                count
+            }
+            headerSlug
+            id
+            name
+            residency
+            slug
+            users (after: $after6, first: $first6) {
+                edges {
+                    cursor
+                }
+                pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                }
+                totalCount
+            }
+        }
+        exposure {
+            aiSummary
+            customer {
+                accessControlPolicies (after: $after7, first: $first7) {
+                    totalCount
+                }
+                active
+                deployedRulesCount (createdAfter: $createdAfter1, createdBefore: $createdBefore1) {
+                    count
+                }
+                headerSlug
+                id
+                name
+                residency
+                slug
+                users (after: $after8, first: $first8) {
+                    totalCount
+                }
+            }
+            description
+            exposure
+            id
+            mitigations
+            mitreTacticTechniques {
+                id
+                name
+                techniques {
+                    id
+                    name
+                }
+            }
+            type
+        }
+        id
+        integrations {
+            activity (after: $after9, filter: $filter5, first: $first9, order: $order5) {
+                edges {
+                    cursor
+                }
+                pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                }
+                totalCount
+            }
+            connectionStatus
+            connector {
+                documentationUrl
+                id
+                name
+                type
+            }
+            enabled
+            id
+            lastConnectionTest
+            lastUsed
+            name
+            sharedBy {
+                accessControlPolicies (after: $after10, first: $first10) {
+                    totalCount
+                }
+                active
+                deployedRulesCount (createdAfter: $createdAfter2, createdBefore: $createdBefore2) {
+                    count
+                }
+                headerSlug
+                id
+                name
+                residency
+                slug
+                users (after: $after11, first: $first11) {
+                    totalCount
+                }
+            }
+        }
+        severity
+        state
+        title
+        updatedAt
+    }
+}
+
+# --- discoverTasks
+# Fetch all Discover Tasks which match provided filter criteria. This API is paginated.
+# Pagination is handled by these arguments:
+# first = Page count
+# after = Cursor offset position - This will be converted to Page number based on Page size provided.
+# Inputs:
+# String, DiscoverTaskFilter, Int, DiscoverTaskOrder,
+# Return:
+# DiscoverTaskConnection
+query discoverTasks ($after: String, $filter: DiscoverTaskActivityFilter, $first: Int, $order: DiscoverTaskActivityOrder, $after1: String, $filter1: DiscoverTaskCommentFilter, $first1: Int, $order1: DiscoverTaskCommentOrder, $after2: String, $filter2: DiscoverTaskFilter, $first2: Int, $order2: DiscoverTaskOrder) {
+    discoverTasks (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+        edges {
+            cursor
+            node {
+                activity (after: $after, filter: $filter, first: $first, order: $order) {
+                    totalCount
+                }
+                assignee {
+                    email
+                    fullName
+                    id
+                    serviceNowId
+                }
+                closeCode
+                comments (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+                    totalCount
+                }
+                createdAt
+                customer {
+                    active
+                    headerSlug
+                    id
+                    name
+                    residency
+                    slug
+                }
+                exposure {
+                    aiSummary
+                    description
+                    exposure
+                    id
+                    mitigations
+                    type
+                }
+                id
+                integrations {
+                    connectionStatus
+                    enabled
+                    id
+                    lastConnectionTest
+                    lastUsed
+                    name
+                }
+                severity
+                state
+                title
+                updatedAt
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# ===== DRP Access Control (7 operations) =====
+# --- createAccessControlPolicy
+# Create an Access Control Policy.
+# Inputs:
+# CreateAccessControlPolicyInput,
+# Return:
+# AccessControlPolicyResponse
+mutation createAccessControlPolicy ($after: String, $first: Int, $notFilter: AccessControlPolicyFieldFilter, $order: AccessGroupOrder, $after1: String, $first1: Int, $notFilter1: AccessControlPolicyFieldFilter, $input: CreateAccessControlPolicyInput!) {
+    createAccessControlPolicy (input: $input) {
+        policy {
+            accessGroups (after: $after, first: $first, notFilter: $notFilter, order: $order) {
+                totalCount
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            description
+            displayName
+            id
+            name
+            resource
+            resourceType
+            users (after: $after1, first: $first1, notFilter: $notFilter1) {
+                totalCount
+            }
+        }
+        success
+    }
+}
+
+# --- deleteAccessControlPolicy
+# Delete an Access Control Policy.
+# Inputs:
+# ID,
+# Return:
+# AccessControlPolicyResponse
+mutation deleteAccessControlPolicy ($after: String, $first: Int, $notFilter: AccessControlPolicyFieldFilter, $order: AccessGroupOrder, $after1: String, $first1: Int, $notFilter1: AccessControlPolicyFieldFilter, $id: ID!) {
+    deleteAccessControlPolicy (id: $id) {
+        policy {
+            accessGroups (after: $after, first: $first, notFilter: $notFilter, order: $order) {
+                totalCount
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            description
+            displayName
+            id
+            name
+            resource
+            resourceType
+            users (after: $after1, first: $first1, notFilter: $notFilter1) {
+                totalCount
+            }
+        }
+        success
+    }
+}
+
+# --- updateAccessControlPolicies
+# Update multiple Access Control Policies.
+# Inputs:
+# UpdateAccessControlPoliciesInput,
+# Return:
+# AccessControlPoliciesResponse
+mutation updateAccessControlPolicies ($after: String, $first: Int, $notFilter: AccessControlPolicyFieldFilter, $order: AccessGroupOrder, $after1: String, $first1: Int, $notFilter1: AccessControlPolicyFieldFilter, $input: UpdateAccessControlPoliciesInput!) {
+    updateAccessControlPolicies (input: $input) {
+        policies {
+            accessGroups (after: $after, first: $first, notFilter: $notFilter, order: $order) {
+                totalCount
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            description
+            displayName
+            id
+            name
+            resource
+            resourceType
+            users (after: $after1, first: $first1, notFilter: $notFilter1) {
+                totalCount
+            }
+        }
+        success
+    }
+}
+
+# --- updateAccessControlPolicy
+# Update an Access Control Policy from provided input parameters.
+# Inputs:
+# UpdateAccessControlPolicyInput,
+# Return:
+# AccessControlPolicyResponse
+mutation updateAccessControlPolicy ($after: String, $first: Int, $notFilter: AccessControlPolicyFieldFilter, $order: AccessGroupOrder, $after1: String, $first1: Int, $notFilter1: AccessControlPolicyFieldFilter, $input: UpdateAccessControlPolicyInput!) {
+    updateAccessControlPolicy (input: $input) {
+        policy {
+            accessGroups (after: $after, first: $first, notFilter: $notFilter, order: $order) {
+                totalCount
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            description
+            displayName
+            id
+            name
+            resource
+            resourceType
+            users (after: $after1, first: $first1, notFilter: $notFilter1) {
+                totalCount
+            }
+        }
+        success
+    }
+}
+
+# --- accessControlPolicies
+# Fetch a customer's Access Control Policies with optional filtering and order applied.
+# Inputs:
+# String, ID, Int, AccessControlPolicyFilter, AccessControlPolicyOrder,
+# Return:
+# AccessControlPolicyConnection
+query accessControlPolicies ($after: String, $customerId: ID, $first: Int, $policyFilter: AccessControlPolicyFilter, $policyOrder: AccessControlPolicyOrder) {
+    accessControlPolicies (after: $after, customerId: $customerId, first: $first, policyFilter: $policyFilter, policyOrder: $policyOrder) {
+        edges {
+            cursor
+            node {
+                description
+                displayName
+                id
+                name
+                resource
+                resourceType
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# --- accessControlPolicy
+# Retrieve an Access Control Policy.
+# Inputs:
+# ID,
+# Return:
+# AccessControlPolicy
+query accessControlPolicy ($after: String, $first: Int, $notFilter: AccessControlPolicyFieldFilter, $order: AccessGroupOrder, $after1: String, $first1: Int, $createdAfter: DateTime, $createdBefore: DateTime, $after2: String, $first2: Int, $after3: String, $first3: Int, $notFilter1: AccessControlPolicyFieldFilter, $id: ID!) {
+    accessControlPolicy (id: $id) {
+        accessGroups (after: $after, first: $first, notFilter: $notFilter, order: $order) {
+            edges {
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+        customer {
+            accessControlPolicies (after: $after1, first: $first1) {
+                totalCount
+            }
+            active
+            deployedRulesCount (createdAfter: $createdAfter, createdBefore: $createdBefore) {
+                count
+            }
+            headerSlug
+            id
+            name
+            residency
+            slug
+            users (after: $after2, first: $first2) {
+                totalCount
+            }
+        }
+        description
+        displayName
+        id
+        name
+        resource
+        resourceType
+        users (after: $after3, first: $first3, notFilter: $notFilter1) {
+            edges {
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+    }
+}
+
+# --- accessControlResources
+# List of Access Control Resources that can bind to an Access Control Policy.
+# Return:
+# String
+query accessControlResources {
+    accessControlResources
+}
+
+# ===== DRP Alerts (17 operations) =====
+# --- addDrpAlertComment
+# Add a comment to a DRP Alert.
+# Inputs:
+# DrpAlertCommentInput,
+# Return:
+# AddDrpAlertCommentResponse
+mutation addDrpAlertComment ($input: DrpAlertCommentInput!) {
+    addDrpAlertComment (input: $input) {
+        comment {
+            alert {
+                active
+                alertFingerprint
+                classification
+                closedSource
+                createdAt
+                domain
+                hosts
+                id
+                migrated
+                rejectedByRuleIds
+                removedAt
+                riskFactorKeys
+                riskType
+                severity
+                shortCode
+                sourceGroup
+                sourceRef
+                sourceUpdated
+                sourceUris
+                subTitle
+                thumbnailUri
+                title
+                updatedAt
+                uri
+            }
+            comment
+            createdAt
+            id
+            removedAt
+            updatedAt
+            user {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+        success
+    }
+}
+
+# --- assignDRPAlert
+# Assign the specified DRP Alert to the provided assignee.
+# Inputs:
+# DRPAlertAssignmentInput,
+# Return:
+# DRPAlertAssignmentResponse
+mutation assignDRPAlert ($input: DRPAlertAssignmentInput!) {
+    assignDRPAlert (input: $input) {
+        success
+        unsuccessfulDrpAlerts {
+            active
+            activityLogItems {
+                actionKey
+                clientId
+                created
+                payload
+                permissions
+                scope
+            }
+            alertFingerprint
+            assetMatches {
+                approvalState
+                archivedState
+                clientId
+                created
+                deleted
+                id
+                modified
+                pending
+                serialId
+                status
+                type
+            }
+            classification
+            closedSource
+            createdAt
+            currentAssignment {
+                timestamp
+                version
+            }
+            currentFlag {
+                timestamp
+            }
+            currentState {
+                state
+                timestamp
+                version
+            }
+            currentWatcher {
+                timestamp
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            domain
+            hosts
+            id
+            migrated
+            originator {
+                originatorType
+            }
+            rejectedByRuleIds
+            removedAt
+            riskFactorKeys
+            riskType
+            severity
+            shortCode
+            sourceGroup
+            sourceRef
+            sourceUpdated
+            sourceUris
+            subTitle
+            takedown {
+                id
+                state
+            }
+            thumbnailUri
+            title
+            updatedAt
+            uri
+        }
+    }
+}
+
+# --- assignDRPAlerts
+# Assign all DRP Alerts for the provided filter to the provided assignee.
+# Inputs:
+# DRPAlertBulkAssignmentInput,
+# Return:
+# DRPAlertAssignmentResponse
+mutation assignDRPAlerts ($input: DRPAlertBulkAssignmentInput!) {
+    assignDRPAlerts (input: $input) {
+        success
+        unsuccessfulDrpAlerts {
+            active
+            activityLogItems {
+                actionKey
+                clientId
+                created
+                payload
+                permissions
+                scope
+            }
+            alertFingerprint
+            assetMatches {
+                approvalState
+                archivedState
+                clientId
+                created
+                deleted
+                id
+                modified
+                pending
+                serialId
+                status
+                type
+            }
+            classification
+            closedSource
+            createdAt
+            currentAssignment {
+                timestamp
+                version
+            }
+            currentFlag {
+                timestamp
+            }
+            currentState {
+                state
+                timestamp
+                version
+            }
+            currentWatcher {
+                timestamp
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            domain
+            hosts
+            id
+            migrated
+            originator {
+                originatorType
+            }
+            rejectedByRuleIds
+            removedAt
+            riskFactorKeys
+            riskType
+            severity
+            shortCode
+            sourceGroup
+            sourceRef
+            sourceUpdated
+            sourceUris
+            subTitle
+            takedown {
+                id
+                state
+            }
+            thumbnailUri
+            title
+            updatedAt
+            uri
+        }
+    }
+}
+
+# --- bulkAddDrpAlertComment
+# Add a comment to DRP Alerts.
+# Inputs:
+# DrpAlertBulkCommentInput,
+# Return:
+# DrpAlertBulkResponse
+mutation bulkAddDrpAlertComment ($input: DrpAlertBulkCommentInput!) {
+    bulkAddDrpAlertComment (input: $input) {
+        actioned
+        ignored {
+            active
+            activityLogItems {
+                actionKey
+                clientId
+                created
+                payload
+                permissions
+                scope
+            }
+            alertFingerprint
+            assetMatches {
+                approvalState
+                archivedState
+                clientId
+                created
+                deleted
+                id
+                modified
+                pending
+                serialId
+                status
+                type
+            }
+            classification
+            closedSource
+            createdAt
+            currentAssignment {
+                timestamp
+                version
+            }
+            currentFlag {
+                timestamp
+            }
+            currentState {
+                state
+                timestamp
+                version
+            }
+            currentWatcher {
+                timestamp
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            domain
+            hosts
+            id
+            migrated
+            originator {
+                originatorType
+            }
+            rejectedByRuleIds
+            removedAt
+            riskFactorKeys
+            riskType
+            severity
+            shortCode
+            sourceGroup
+            sourceRef
+            sourceUpdated
+            sourceUris
+            subTitle
+            takedown {
+                id
+                state
+            }
+            thumbnailUri
+            title
+            updatedAt
+            uri
+        }
+        success
+    }
+}
+
+# --- bulkCloseDrpAlerts
+# Bulk close (set to RESOLVED state) multiple DRP alerts. Wraps the bulk-state endpoint with the resolved state baked in.
+# Inputs:
+# BulkCloseDrpAlertsInput,
+# Return:
+# DrpAlertBulkUpdateStateResponse
+mutation bulkCloseDrpAlerts ($input: BulkCloseDrpAlertsInput!) {
+    bulkCloseDrpAlerts (input: $input) {
+        failed {
+            id
+            shortCode
+        }
+        success
+        updated {
+            currentState {
+                state
+            }
+            id
+            shortCode
+        }
+    }
+}
+
+# --- bulkUpdateDrpAlertState
+# Update the state of the several DRP alerts corresponding to the given external IDs
+# Inputs:
+# BulkUpdateDrpAlertStateInput,
+# Return:
+# DrpAlertBulkUpdateStateResponse
+mutation bulkUpdateDrpAlertState ($input: BulkUpdateDrpAlertStateInput!) {
+    bulkUpdateDrpAlertState (input: $input) {
+        failed {
+            active
+            activityLogItems {
+                actionKey
+                clientId
+                created
+                payload
+                permissions
+                scope
+            }
+            alertFingerprint
+            assetMatches {
+                approvalState
+                archivedState
+                clientId
+                created
+                deleted
+                id
+                modified
+                pending
+                serialId
+                status
+                type
+            }
+            classification
+            closedSource
+            createdAt
+            currentAssignment {
+                timestamp
+                version
+            }
+            currentFlag {
+                timestamp
+            }
+            currentState {
+                state
+                timestamp
+                version
+            }
+            currentWatcher {
+                timestamp
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            domain
+            hosts
+            id
+            migrated
+            originator {
+                originatorType
+            }
+            rejectedByRuleIds
+            removedAt
+            riskFactorKeys
+            riskType
+            severity
+            shortCode
+            sourceGroup
+            sourceRef
+            sourceUpdated
+            sourceUris
+            subTitle
+            takedown {
+                id
+                state
+            }
+            thumbnailUri
+            title
+            updatedAt
+            uri
+        }
+        success
+        updated {
+            active
+            activityLogItems {
+                actionKey
+                clientId
+                created
+                payload
+                permissions
+                scope
+            }
+            alertFingerprint
+            assetMatches {
+                approvalState
+                archivedState
+                clientId
+                created
+                deleted
+                id
+                modified
+                pending
+                serialId
+                status
+                type
+            }
+            classification
+            closedSource
+            createdAt
+            currentAssignment {
+                timestamp
+                version
+            }
+            currentFlag {
+                timestamp
+            }
+            currentState {
+                state
+                timestamp
+                version
+            }
+            currentWatcher {
+                timestamp
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            domain
+            hosts
+            id
+            migrated
+            originator {
+                originatorType
+            }
+            rejectedByRuleIds
+            removedAt
+            riskFactorKeys
+            riskType
+            severity
+            shortCode
+            sourceGroup
+            sourceRef
+            sourceUpdated
+            sourceUris
+            subTitle
+            takedown {
+                id
+                state
+            }
+            thumbnailUri
+            title
+            updatedAt
+            uri
+        }
+    }
+}
+
+# --- deleteDrpAlertComment
+# Delete a comment from a DRP Alert.
+# Inputs:
+# DrpAlertDeleteCommentInput,
+# Return:
+# DrpAlertCommentResponse
+mutation deleteDrpAlertComment ($input: DrpAlertDeleteCommentInput!) {
+    deleteDrpAlertComment (input: $input) {
+        success
+    }
+}
+
+# --- unWatchDRPAlert
+# Unwatch DRP Alert for the provided short code.
+# Inputs:
+# String,
+# Return:
+# DRPAlertWatchResponse
+mutation unWatchDRPAlert ($shortCode: String!) {
+    unWatchDRPAlert (shortCode: $shortCode) {
+        success
+        unsuccessfulDrpAlerts {
+            active
+            activityLogItems {
+                actionKey
+                clientId
+                created
+                payload
+                permissions
+                scope
+            }
+            alertFingerprint
+            assetMatches {
+                approvalState
+                archivedState
+                clientId
+                created
+                deleted
+                id
+                modified
+                pending
+                serialId
+                status
+                type
+            }
+            classification
+            closedSource
+            createdAt
+            currentAssignment {
+                timestamp
+                version
+            }
+            currentFlag {
+                timestamp
+            }
+            currentState {
+                state
+                timestamp
+                version
+            }
+            currentWatcher {
+                timestamp
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            domain
+            hosts
+            id
+            migrated
+            originator {
+                originatorType
+            }
+            rejectedByRuleIds
+            removedAt
+            riskFactorKeys
+            riskType
+            severity
+            shortCode
+            sourceGroup
+            sourceRef
+            sourceUpdated
+            sourceUris
+            subTitle
+            takedown {
+                id
+                state
+            }
+            thumbnailUri
+            title
+            updatedAt
+            uri
+        }
+    }
+}
+
+# --- unWatchDRPAlerts
+# Unwatch all DRP Alerts with the provided filter.
+# Inputs:
+# DRPAlertBulkUnwatchInput,
+# Return:
+# DRPAlertWatchResponse
+mutation unWatchDRPAlerts ($input: DRPAlertBulkUnwatchInput!) {
+    unWatchDRPAlerts (input: $input) {
+        success
+        unsuccessfulDrpAlerts {
+            active
+            activityLogItems {
+                actionKey
+                clientId
+                created
+                payload
+                permissions
+                scope
+            }
+            alertFingerprint
+            assetMatches {
+                approvalState
+                archivedState
+                clientId
+                created
+                deleted
+                id
+                modified
+                pending
+                serialId
+                status
+                type
+            }
+            classification
+            closedSource
+            createdAt
+            currentAssignment {
+                timestamp
+                version
+            }
+            currentFlag {
+                timestamp
+            }
+            currentState {
+                state
+                timestamp
+                version
+            }
+            currentWatcher {
+                timestamp
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            domain
+            hosts
+            id
+            migrated
+            originator {
+                originatorType
+            }
+            rejectedByRuleIds
+            removedAt
+            riskFactorKeys
+            riskType
+            severity
+            shortCode
+            sourceGroup
+            sourceRef
+            sourceUpdated
+            sourceUris
+            subTitle
+            takedown {
+                id
+                state
+            }
+            thumbnailUri
+            title
+            updatedAt
+            uri
+        }
+    }
+}
+
+# --- unassignDRPAlert
+# Unassign the specified DRP Alert.
+# Inputs:
+# DRPAlertUnassignmentInput,
+# Return:
+# DRPAlertAssignmentResponse
+mutation unassignDRPAlert ($input: DRPAlertUnassignmentInput!) {
+    unassignDRPAlert (input: $input) {
+        success
+        unsuccessfulDrpAlerts {
+            active
+            activityLogItems {
+                actionKey
+                clientId
+                created
+                payload
+                permissions
+                scope
+            }
+            alertFingerprint
+            assetMatches {
+                approvalState
+                archivedState
+                clientId
+                created
+                deleted
+                id
+                modified
+                pending
+                serialId
+                status
+                type
+            }
+            classification
+            closedSource
+            createdAt
+            currentAssignment {
+                timestamp
+                version
+            }
+            currentFlag {
+                timestamp
+            }
+            currentState {
+                state
+                timestamp
+                version
+            }
+            currentWatcher {
+                timestamp
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            domain
+            hosts
+            id
+            migrated
+            originator {
+                originatorType
+            }
+            rejectedByRuleIds
+            removedAt
+            riskFactorKeys
+            riskType
+            severity
+            shortCode
+            sourceGroup
+            sourceRef
+            sourceUpdated
+            sourceUris
+            subTitle
+            takedown {
+                id
+                state
+            }
+            thumbnailUri
+            title
+            updatedAt
+            uri
+        }
+    }
+}
+
+# --- unassignDRPAlerts
+# Unassign all DRP Alerts for the provided filter.
+# Inputs:
+# DRPAlertBulkUnassignmentInput,
+# Return:
+# DRPAlertAssignmentResponse
+mutation unassignDRPAlerts ($input: DRPAlertBulkUnassignmentInput!) {
+    unassignDRPAlerts (input: $input) {
+        success
+        unsuccessfulDrpAlerts {
+            active
+            activityLogItems {
+                actionKey
+                clientId
+                created
+                payload
+                permissions
+                scope
+            }
+            alertFingerprint
+            assetMatches {
+                approvalState
+                archivedState
+                clientId
+                created
+                deleted
+                id
+                modified
+                pending
+                serialId
+                status
+                type
+            }
+            classification
+            closedSource
+            createdAt
+            currentAssignment {
+                timestamp
+                version
+            }
+            currentFlag {
+                timestamp
+            }
+            currentState {
+                state
+                timestamp
+                version
+            }
+            currentWatcher {
+                timestamp
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            domain
+            hosts
+            id
+            migrated
+            originator {
+                originatorType
+            }
+            rejectedByRuleIds
+            removedAt
+            riskFactorKeys
+            riskType
+            severity
+            shortCode
+            sourceGroup
+            sourceRef
+            sourceUpdated
+            sourceUris
+            subTitle
+            takedown {
+                id
+                state
+            }
+            thumbnailUri
+            title
+            updatedAt
+            uri
+        }
+    }
+}
+
+# --- updateDrpAlertComment
+# Edit a comment on a DRP Alert.
+# Inputs:
+# DrpAlertUpdateCommentInput,
+# Return:
+# DrpAlertCommentResponse
+mutation updateDrpAlertComment ($input: DrpAlertUpdateCommentInput!) {
+    updateDrpAlertComment (input: $input) {
+        success
+    }
+}
+
+# --- updateDrpAlertState
+# Update the state of the corresponding DRP Alert of given external ID
+# Inputs:
+# UpdateDrpAlertStateInput,
+# Return:
+# DRPAlertResponse
+mutation updateDrpAlertState ($input: UpdateDrpAlertStateInput!) {
+    updateDrpAlertState (input: $input) {
+        drpAlert {
+            active
+            activityLogItems {
+                actionKey
+                clientId
+                created
+                payload
+                permissions
+                scope
+            }
+            alertFingerprint
+            assetMatches {
+                approvalState
+                archivedState
+                clientId
+                created
+                deleted
+                id
+                modified
+                pending
+                serialId
+                status
+                type
+            }
+            classification
+            closedSource
+            createdAt
+            currentAssignment {
+                timestamp
+                version
+            }
+            currentFlag {
+                timestamp
+            }
+            currentState {
+                state
+                timestamp
+                version
+            }
+            currentWatcher {
+                timestamp
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            domain
+            hosts
+            id
+            migrated
+            originator {
+                originatorType
+            }
+            rejectedByRuleIds
+            removedAt
+            riskFactorKeys
+            riskType
+            severity
+            shortCode
+            sourceGroup
+            sourceRef
+            sourceUpdated
+            sourceUris
+            subTitle
+            takedown {
+                id
+                state
+            }
+            thumbnailUri
+            title
+            updatedAt
+            uri
+        }
+        success
+    }
+}
+
+# --- watchDRPAlert
+# Watch DRP Alert for the provided short code with the provided watcher.
+# Inputs:
+# String,
+# Return:
+# DRPAlertWatchDetailResponse
+mutation watchDRPAlert ($after: String, $filter: AccessGroupFilter, $first: Int, $order: AccessGroupOrder, $after1: String, $filter1: PodFilter, $first1: Int, $order1: PodOrder, $after2: String, $filter2: RoleFilter, $first2: Int, $order2: RoleFilter, $shortCode: String!) {
+    watchDRPAlert (shortCode: $shortCode) {
+        alert {
+            active
+            activityLogItems {
+                actionKey
+                clientId
+                created
+                payload
+                permissions
+                scope
+            }
+            alertFingerprint
+            assetMatches {
+                approvalState
+                archivedState
+                clientId
+                created
+                deleted
+                id
+                modified
+                pending
+                serialId
+                status
+                type
+            }
+            classification
+            closedSource
+            createdAt
+            currentAssignment {
+                timestamp
+                version
+            }
+            currentFlag {
+                timestamp
+            }
+            currentState {
+                state
+                timestamp
+                version
+            }
+            currentWatcher {
+                timestamp
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            domain
+            hosts
+            id
+            migrated
+            originator {
+                originatorType
+            }
+            rejectedByRuleIds
+            removedAt
+            riskFactorKeys
+            riskType
+            severity
+            shortCode
+            sourceGroup
+            sourceRef
+            sourceUpdated
+            sourceUris
+            subTitle
+            takedown {
+                id
+                state
+            }
+            thumbnailUri
+            title
+            updatedAt
+            uri
+        }
+        id
+        success
+        timestamp
+        user {
+            accessGroups (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+                totalCount
+            }
+            roles (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+                totalCount
+            }
+            serviceNowId
+        }
+    }
+}
+
+# --- watchDRPAlerts
+# Watch all DRP Alerts for the provided filter with the provided watcher.
+# Inputs:
+# DRPAlertBulkWatchInput,
+# Return:
+# DRPAlertWatchResponse
+mutation watchDRPAlerts ($input: DRPAlertBulkWatchInput!) {
+    watchDRPAlerts (input: $input) {
+        success
+        unsuccessfulDrpAlerts {
+            active
+            activityLogItems {
+                actionKey
+                clientId
+                created
+                payload
+                permissions
+                scope
+            }
+            alertFingerprint
+            assetMatches {
+                approvalState
+                archivedState
+                clientId
+                created
+                deleted
+                id
+                modified
+                pending
+                serialId
+                status
+                type
+            }
+            classification
+            closedSource
+            createdAt
+            currentAssignment {
+                timestamp
+                version
+            }
+            currentFlag {
+                timestamp
+            }
+            currentState {
+                state
+                timestamp
+                version
+            }
+            currentWatcher {
+                timestamp
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            domain
+            hosts
+            id
+            migrated
+            originator {
+                originatorType
+            }
+            rejectedByRuleIds
+            removedAt
+            riskFactorKeys
+            riskType
+            severity
+            shortCode
+            sourceGroup
+            sourceRef
+            sourceUpdated
+            sourceUris
+            subTitle
+            takedown {
+                id
+                state
+            }
+            thumbnailUri
+            title
+            updatedAt
+            uri
+        }
+    }
+}
+
+# --- drpAlert
+# Fetch DRP Alert by id or short code.
+# Inputs:
+# DRPAlertBy,
+# Return:
+# DRPAlert
+query drpAlert ($after: String, $first: Int, $createdAfter: DateTime, $createdBefore: DateTime, $after1: String, $first1: Int, $by: DRPAlertBy) {
+    drpAlert (by: $by) {
+        active
+        activityLogItems {
+            actionKey
+            actor {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            clientId
+            created
+            payload
+            permissions
+            scope
+        }
+        alertFingerprint
+        assetMatches {
+            approvalState
+            archivedState
+            clientId
+            cost {
+                current
+                maximum
+            }
+            created
+            createdBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            criticality {
+                current
+                maximum
+            }
+            deleted
+            id
+            labels {
+                value
+            }
+            modified
+            modifiedBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            pending
+            sensitivity {
+                current
+                maximum
+            }
+            serialId
+            status
+            type
+            value {
+                appName
+                appUrl
+                associatedPii
+                b2bServices
+                b2cServices
+                clientServices
+                codeIdentifier
+                criticalAsset
+                developerName
+                displayValue
+                domain
+                employeeServices
+                format
+                hashAlgorithm
+                hashtag
+                hostingPii
+                identifier
+                internalOnly
+                key
+                keyword
+                logoUrl
+                marking
+                name
+                number
+                packageName
+                platform
+                primaryTrading
+                profile
+                recruitmentUse
+                revenueGeneration
+                sector
+                sensitiveInformationAccess
+                sensitiveInternal
+                sharedPublic
+                sharedTrusted
+                testEnvironmentAccess
+                testingEnvironment
+                thirdPartyAccess
+                thirdPartyInfrastructure
+                type
+                uri
+            }
+        }
+        classification
+        closedSource
+        createdAt
+        currentAssignment {
+            comment {
+                comment
+                createdAt
+                id
+                removedAt
+                updatedAt
+            }
+            timestamp
+            user {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            version
+        }
+        currentFlag {
+            timestamp
+            user {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+        currentState {
+            comment {
+                comment
+                createdAt
+                id
+                removedAt
+                updatedAt
+            }
+            state
+            timestamp
+            user {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            version
+        }
+        currentWatcher {
+            timestamp
+            user {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+        customer {
+            accessControlPolicies (after: $after, first: $first) {
+                totalCount
+            }
+            active
+            deployedRulesCount (createdAfter: $createdAfter, createdBefore: $createdBefore) {
+                count
+            }
+            headerSlug
+            id
+            name
+            residency
+            slug
+            users (after: $after1, first: $first1) {
+                totalCount
+            }
+        }
+        domain
+        hosts
+        id
+        migrated
+        originator {
+            alert {
+                alertType
+                createdAt
+                deletedAssets
+                raisedAt
+                riskFunctionId
+                shortCode
+                supersededBy
+            }
+            incident {
+                alerted
+                closedSource
+                description
+                id
+                impactDescription
+                internal
+                modified
+                occurred
+                published
+                restrictedContent
+                riskType
+                scope
+                score
+                severity
+                takedownRequestCount
+                title
+                type
+                verified
+                version
+            }
+            originatorType
+        }
+        rejectedByRuleIds
+        removedAt
+        riskFactorKeys
+        riskType
+        severity
+        shortCode
+        sourceGroup
+        sourceRef
+        sourceUpdated
+        sourceUris
+        subTitle
+        takedown {
+            id
+            state
+        }
+        thumbnailUri
+        title
+        updatedAt
+        uri
+    }
+}
+
+# --- drpAlerts
+# Fetch all DRP Alerts which match the filter criteria. This API is paginated.
+# Pagination is handled by these arguments: first = Page count, after = Cursor offset position - This will be converted to Page number based on Page size provided.
+# Inputs:
+# String, DrpReportTriageItemViewFilterInput, Int, DRPAlertOrder,
+# Return:
+# DRPAlertConnection
+query drpAlerts ($after: String, $filter: DrpReportTriageItemViewFilterInput, $first: Int, $orderBy: DRPAlertOrder) {
+    drpAlerts (after: $after, filter: $filter, first: $first, orderBy: $orderBy) {
+        edges {
+            cursor
+            node {
+                active
+                alertFingerprint
+                classification
+                closedSource
+                createdAt
+                domain
+                hosts
+                id
+                migrated
+                rejectedByRuleIds
+                removedAt
+                riskFactorKeys
+                riskType
+                severity
+                shortCode
+                sourceGroup
+                sourceRef
+                sourceUpdated
+                sourceUris
+                subTitle
+                thumbnailUri
+                title
+                updatedAt
+                uri
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# ===== Emergency Contacts (6 operations) =====
+# --- createEmergencyContact
+# Create an emergency contact
+# Inputs:
+# CreateEmergencyContactInput,
+# Return:
+# CreateEmergencyContactResponse
+mutation createEmergencyContact ($input: CreateEmergencyContactInput!) {
+    createEmergencyContact (input: $input) {
+        emergencyContact {
+            callAttempts
+            callCategories
+            callOrder
+            callWindows {
+                daysOfWeek
+                endTime
+                startTime
+                timeZone
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            fullName
+            id
+            onCall
+            phoneNumber
+            user {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+        success
+    }
+}
+
+# --- deleteEmergencyContact
+# Delete an emergency contact
+# Inputs:
+# ID,
+# Return:
+# DeleteEmergencyContactResponse
+mutation deleteEmergencyContact ($id: ID!) {
+    deleteEmergencyContact (id: $id) {
+        success
+    }
+}
+
+# --- updateCallOrder
+# Update an emergency contact's call order within the call tree
+# Inputs:
+# Int, ID,
+# Return:
+# UpdateCallOrderResponse
+mutation updateCallOrder ($callOrder: Int!, $id: ID!) {
+    updateCallOrder (callOrder: $callOrder, id: $id) {
+        emergencyContacts {
+            callAttempts
+            callCategories
+            callOrder
+            callWindows {
+                daysOfWeek
+                endTime
+                startTime
+                timeZone
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            fullName
+            id
+            onCall
+            phoneNumber
+            user {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+        success
+    }
+}
+
+# --- updateEmergencyContact
+# Update an emergency contact
+# Inputs:
+# UpdateEmergencyContactInput,
+# Return:
+# UpdateEmergencyContactResponse
+mutation updateEmergencyContact ($input: UpdateEmergencyContactInput!) {
+    updateEmergencyContact (input: $input) {
+        emergencyContact {
+            callAttempts
+            callCategories
+            callOrder
+            callWindows {
+                daysOfWeek
+                endTime
+                startTime
+                timeZone
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            fullName
+            id
+            onCall
+            phoneNumber
+            user {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+        success
+    }
+}
+
+# --- emergencyContact
+# Fetch an emergency contact by its ID
+# Inputs:
+# ID,
+# Return:
+# EmergencyContact
+query emergencyContact ($after: String, $first: Int, $createdAfter: DateTime, $createdBefore: DateTime, $after1: String, $first1: Int, $after2: String, $filter: AccessGroupFilter, $first2: Int, $order: AccessGroupOrder, $after3: String, $filter1: PodFilter, $first3: Int, $order1: PodOrder, $after4: String, $filter2: RoleFilter, $first4: Int, $order2: RoleFilter, $id: ID!) {
+    emergencyContact (id: $id) {
+        callAttempts
+        callCategories
+        callOrder
+        callWindows {
+            daysOfWeek
+            endTime
+            startTime
+            timeZone
+        }
+        customer {
+            accessControlPolicies (after: $after, first: $first) {
+                totalCount
+            }
+            active
+            deployedRulesCount (createdAfter: $createdAfter, createdBefore: $createdBefore) {
+                count
+            }
+            headerSlug
+            id
+            name
+            residency
+            slug
+            users (after: $after1, first: $first1) {
+                totalCount
+            }
+        }
+        fullName
+        id
+        onCall
+        phoneNumber
+        user {
+            accessGroups (after: $after2, filter: $filter, first: $first2, order: $order) {
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after3, filter: $filter1, first: $first3, order: $order1) {
+                totalCount
+            }
+            roles (after: $after4, filter: $filter2, first: $first4, order: $order2) {
+                totalCount
+            }
+            serviceNowId
+        }
+    }
+}
+
+# --- emergencyContacts
+# Query the Emergency contact Call Tree
+# Inputs:
+# String, EmergencyContactFilter, Int, EmergencyContactOrder,
+# Return:
+# EmergencyContactConnection
+query emergencyContacts ($after: String, $filter: EmergencyContactFilter, $first: Int, $order: EmergencyContactOrder) {
+    emergencyContacts (after: $after, filter: $filter, first: $first, order: $order) {
+        edges {
+            cursor
+            node {
+                callAttempts
+                callCategories
+                callOrder
+                fullName
+                id
+                onCall
+                phoneNumber
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# ===== Fields (2 operations) =====
+# --- greymatterField
+# Fetch a field.
+# Inputs:
+# GreyMatterFieldBy,
+# Return:
+# GreyMatterField
+query greymatterField ($by: GreyMatterFieldBy!) {
+    greymatterField (by: $by) {
+        description
+        displayName
+        id
+        name
+        serviceNowName
+        type
+    }
+}
+
+# --- greymatterFields
+# Fetch fields through pageable connection with filter and order capabilities.
+# Inputs:
+# String, GreyMatterFieldFilter, Int, GreyMatterFieldOrder,
+# Return:
+# GreyMatterFieldConnection
+query greymatterFields ($after: String, $filter: GreyMatterFieldFilter, $first: Int, $order: GreyMatterFieldOrder) {
+    greymatterFields (after: $after, filter: $filter, first: $first, order: $order) {
+        edges {
+            cursor
+            node {
+                description
+                displayName
+                id
+                name
+                serviceNowName
+                type
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# ===== Identities (1 operations) =====
+# --- identities
+# Fetch all identities which match provided filter criteria. This API is paginated.
+# Pagination is handled by these arguments: first = Page count, after = Cursor offset position - This will be converted to Page number based on Page size provided.
+# Inputs:
+# String, IdentityFilter, Int, IdentityOrder,
+# Return:
+# IdentityConnection
+query identities ($after: String, $filter: IdentityFilter, $first: Int, $order: IdentityOrder) {
+    identities (after: $after, filter: $filter, first: $first, order: $order) {
+        edges {
+            cursor
+            node {
+                createdAt
+                group
+                id
+                name
+                role
+                workLocation
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# ===== Incidents (13 operations) =====
+# --- acknowledgeAssignAndCloseIncident
+# Acknowledge, assign, and close an incident in a single atomic operation.
+# Intended for the mobile close flow to avoid races between separate
+# acknowledge, assign, and close calls.
+# Inputs:
+# AcknowledgeAssignAndCloseIncidentInput,
+# Return:
+# IncidentResponse
+mutation acknowledgeAssignAndCloseIncident ($input: AcknowledgeAssignAndCloseIncidentInput!) {
+    acknowledgeAssignAndCloseIncident (input: $input) {
+        incident {
+            acknowledgement {
+                acknowledgementMethod
+                createdAt
+            }
+            assignee {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            closeCode
+            closeNote
+            closedAt
+            id
+        }
+        success
+    }
+}
+
+# --- acknowledgeIncident
+# Acknowledge an incident based on the provided input.
+# Inputs:
+# IncidentAcknowledgementInput,
+# Return:
+# IncidentResponse
+mutation acknowledgeIncident ($input: IncidentAcknowledgementInput!) {
+    acknowledgeIncident (input: $input) {
+        incident {
+            acknowledgement {
+                acknowledgementMethod
+                createdAt
+            }
+            id
+        }
+        success
+    }
+}
+
+# --- addIncidentComment
+# Add comment to incident
+# Inputs:
+# IncidentCommentInput,
+# Return:
+# IncidentResponse
+mutation addIncidentComment ($after: String, $filter: IncidentCommentFilter, $first: Int, $order: IncidentCommentOrder, $input: IncidentCommentInput!) {
+    addIncidentComment (input: $input) {
+        incident {
+            comments (after: $after, filter: $filter, first: $first, order: $order) {
+                edges {
+                    node {
+                        createdAt
+                        text
+                        type
+                    }
+                }
+            }
+            id
+        }
+        success
+    }
+}
+
+# --- assignIncident
+# Assign a user to the incident.
+# Inputs:
+# AssignIncidentInput,
+# Return:
+# IncidentResponse
+mutation assignIncident ($input: AssignIncidentInput!) {
+    assignIncident (input: $input) {
+        incident {
+            assignee {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            id
+        }
+        success
+    }
+}
+
+# --- bulkCloseIncidents
+# Bulk close multiple incidents with the same close code and notes
+# Inputs:
+# BulkCloseIncidentsInput,
+# Return:
+# BulkIncidentResponse
+mutation bulkCloseIncidents ($input: BulkCloseIncidentsInput!) {
+    bulkCloseIncidents (input: $input) {
+        incidents {
+            closeCode
+            closeNote
+            closedAt
+            id
+        }
+        success
+    }
+}
+
+# --- closeIncident
+# Close Incident with close code.
+# Set createExclusion: true on the request to also register a detection-engine exclusion
+# rule for the artifacts in excludeArtifacts. That requires closeCode to be
+# CUSTOMER_FALSE_POSITIVE; any other close code is rejected as a validation error. The rest
+# of the exclusion rule is derived from the incident itself (its detection rule id and source
+# technology), so only the artifacts to exclude need to be supplied.
+# When an exclusion is requested the incident is closed first, then the exclusion rule is
+# created. If the exclusion rule cannot be created the mutation still returns the closed
+# incident with success: false and exclusionFailureReason set, rather than failing
+# outright. Re-issuing the mutation with the same request is safe: re-closing an
+# already-closed incident is a no-op.
+# Inputs:
+# CloseIncidentRequest,
+# Return:
+# IncidentResponse
+mutation closeIncident ($request: CloseIncidentRequest) {
+    closeIncident (request: $request) {
+        exclusionFailureReason
+        exclusionRule {
+            enabled
+            expiresAt
+            id
+            name
+        }
+        incident {
+            closeCode
+            closeNote
+            closedAt
+            id
+        }
+        success
+    }
+}
+
+# --- releaseIncident
+# Release a retained incident
+# Inputs:
+# ID,
+# Return:
+# IncidentResponse
+mutation releaseIncident ($filter: ArtifactFilter, $after: String, $filter1: QueryBatchFilter, $first: Int, $order: QueryBatchOrder, $after1: String, $filter2: QueryBatchFilter, $first1: Int, $order1: QueryBatchOrder, $id: ID!) {
+    releaseIncident (id: $id) {
+        exclusionFailureReason
+        exclusionRule {
+            enabled
+            expiresAt
+            id
+            name
+        }
+        incident {
+            acknowledgedAt
+            acknowledgement {
+                acknowledgementMethod
+                createdAt
+            }
+            allArtifacts (filter: $filter) {
+                field
+                values
+            }
+            assignee {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            category
+            closeCode
+            closeNote
+            closedAt
+            containedAt
+            createdAt
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            description
+            detectedAt
+            escalatedAt
+            firstEscalatedAt
+            id
+            internalOnly
+            investigationCompletedAt
+            lastEscalatedAt
+            logSourceType
+            metadata {
+                type
+            }
+            originator
+            originatorCreatedAt
+            originatorUpdatedAt
+            queryBatches (after: $after, filter: $filter1, first: $first, order: $order) {
+                totalCount
+            }
+            remediatedAt
+            removedAt
+            resolvedAt
+            retained
+            rule {
+                id
+                name
+                version
+            }
+            searchHistory (after: $after1, filter: $filter2, first: $first1, order: $order1) {
+                totalCount
+            }
+            severity
+            state
+            subCategory
+            summary
+            ticketNumber
+            timeToAcknowledge
+            timeToContain
+            timeToDetect
+            timeToFirstEscalation
+            timeToInvestigate
+            timeToRemediate
+            timeToResolve
+            title
+            type
+            unresolveReason
+            updatedAt
+        }
+        success
+    }
+}
+
+# --- retainIncident
+# Retain an incident
+# Inputs:
+# ID,
+# Return:
+# IncidentResponse
+mutation retainIncident ($filter: ArtifactFilter, $after: String, $filter1: QueryBatchFilter, $first: Int, $order: QueryBatchOrder, $after1: String, $filter2: QueryBatchFilter, $first1: Int, $order1: QueryBatchOrder, $id: ID!) {
+    retainIncident (id: $id) {
+        exclusionFailureReason
+        exclusionRule {
+            enabled
+            expiresAt
+            id
+            name
+        }
+        incident {
+            acknowledgedAt
+            acknowledgement {
+                acknowledgementMethod
+                createdAt
+            }
+            allArtifacts (filter: $filter) {
+                field
+                values
+            }
+            assignee {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            category
+            closeCode
+            closeNote
+            closedAt
+            containedAt
+            createdAt
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            description
+            detectedAt
+            escalatedAt
+            firstEscalatedAt
+            id
+            internalOnly
+            investigationCompletedAt
+            lastEscalatedAt
+            logSourceType
+            metadata {
+                type
+            }
+            originator
+            originatorCreatedAt
+            originatorUpdatedAt
+            queryBatches (after: $after, filter: $filter1, first: $first, order: $order) {
+                totalCount
+            }
+            remediatedAt
+            removedAt
+            resolvedAt
+            retained
+            rule {
+                id
+                name
+                version
+            }
+            searchHistory (after: $after1, filter: $filter2, first: $first1, order: $order1) {
+                totalCount
+            }
+            severity
+            state
+            subCategory
+            summary
+            ticketNumber
+            timeToAcknowledge
+            timeToContain
+            timeToDetect
+            timeToFirstEscalation
+            timeToInvestigate
+            timeToRemediate
+            timeToResolve
+            title
+            type
+            unresolveReason
+            updatedAt
+        }
+        success
+    }
+}
+
+# --- unresolveIncident
+# Unresolve a resolved incident
+# Inputs:
+# UnresolveIncidentInput,
+# Return:
+# IncidentResponse
+mutation unresolveIncident ($filter: ArtifactFilter, $after: String, $filter1: QueryBatchFilter, $first: Int, $order: QueryBatchOrder, $after1: String, $filter2: QueryBatchFilter, $first1: Int, $order1: QueryBatchOrder, $input: UnresolveIncidentInput!) {
+    unresolveIncident (input: $input) {
+        exclusionFailureReason
+        exclusionRule {
+            enabled
+            expiresAt
+            id
+            name
+        }
+        incident {
+            acknowledgedAt
+            acknowledgement {
+                acknowledgementMethod
+                createdAt
+            }
+            allArtifacts (filter: $filter) {
+                field
+                values
+            }
+            assignee {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            category
+            closeCode
+            closeNote
+            closedAt
+            containedAt
+            createdAt
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            description
+            detectedAt
+            escalatedAt
+            firstEscalatedAt
+            id
+            internalOnly
+            investigationCompletedAt
+            lastEscalatedAt
+            logSourceType
+            metadata {
+                type
+            }
+            originator
+            originatorCreatedAt
+            originatorUpdatedAt
+            queryBatches (after: $after, filter: $filter1, first: $first, order: $order) {
+                totalCount
+            }
+            remediatedAt
+            removedAt
+            resolvedAt
+            retained
+            rule {
+                id
+                name
+                version
+            }
+            searchHistory (after: $after1, filter: $filter2, first: $first1, order: $order1) {
+                totalCount
+            }
+            severity
+            state
+            subCategory
+            summary
+            ticketNumber
+            timeToAcknowledge
+            timeToContain
+            timeToDetect
+            timeToFirstEscalation
+            timeToInvestigate
+            timeToRemediate
+            timeToResolve
+            title
+            type
+            unresolveReason
+            updatedAt
+        }
+        success
+    }
+}
+
+# --- updateIncidentState
+# Updates incident state and add comment
+# Inputs:
+# UpdateIncidentStateInput,
+# Return:
+# IncidentResponse
+mutation updateIncidentState ($input: UpdateIncidentStateInput!) {
+    updateIncidentState (input: $input) {
+        incident {
+            id
+            state
+        }
+        success
+    }
+}
+
+# --- healthIncidents
+# Fetch all Incidents of the HEALTH type which matches provided filter criteria. This API is paginated.
+# Pagination is handled by these arguments: first = Page count, before = Cursor offset position - This will be converted to Page number based on Page size provided.
+# Inputs:
+# String, Int, HealthIncidentFilter, IncidentOrder,
+# Return:
+# IncidentConnection
+query healthIncidents ($after: String, $first: Int, $incidentFilter: HealthIncidentFilter, $incidentOrder: IncidentOrder) {
+    healthIncidents (after: $after, first: $first, incidentFilter: $incidentFilter, incidentOrder: $incidentOrder) {
+        edges {
+            cursor
+            node {
+                acknowledgedAt
+                category
+                closeCode
+                closeNote
+                closedAt
+                containedAt
+                createdAt
+                description
+                detectedAt
+                escalatedAt
+                firstEscalatedAt
+                id
+                internalOnly
+                investigationCompletedAt
+                lastEscalatedAt
+                logSourceType
+                originator
+                originatorCreatedAt
+                originatorUpdatedAt
+                remediatedAt
+                removedAt
+                resolvedAt
+                retained
+                severity
+                state
+                subCategory
+                summary
+                ticketNumber
+                timeToAcknowledge
+                timeToContain
+                timeToDetect
+                timeToFirstEscalation
+                timeToInvestigate
+                timeToRemediate
+                timeToResolve
+                title
+                type
+                unresolveReason
+                updatedAt
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# --- incident
+# Fetch Incident by either incidentId OR ticketNumber.
+# Inputs:
+# IncidentBy,
+# Return:
+# Incident
+query incident ($after: String, $filter: IncidentActivityLogFilter, $first: Int, $order: IncidentActivityLogOrder, $filter1: ArtifactFilter, $after1: String, $filter2: AccessGroupFilter, $first1: Int, $order1: AccessGroupOrder, $after2: String, $filter3: PodFilter, $first2: Int, $order2: PodOrder, $after3: String, $filter4: RoleFilter, $first3: Int, $order3: RoleFilter, $after4: String, $filter5: IncidentCommentFilter, $first4: Int, $order4: IncidentCommentOrder, $after5: String, $first5: Int, $createdAfter: DateTime, $createdBefore: DateTime, $after6: String, $first6: Int, $after7: String, $filter6: QueryBatchFilter, $first7: Int, $order5: QueryBatchOrder, $after8: String, $filter7: QueryBatchFilter, $first8: Int, $order6: QueryBatchOrder, $by: IncidentBy) {
+    incident (by: $by) {
+        acknowledgedAt
+        acknowledgement {
+            acknowledgementMethod
+            createdAt
+            user {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+        activity (after: $after, filter: $filter, first: $first, order: $order) {
+            edges {
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+        }
+        allArtifacts (filter: $filter1) {
+            field
+            values
+        }
+        assignee {
+            accessGroups (after: $after1, filter: $filter2, first: $first1, order: $order1) {
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after2, filter: $filter3, first: $first2, order: $order2) {
+                totalCount
+            }
+            roles (after: $after3, filter: $filter4, first: $first3, order: $order3) {
+                totalCount
+            }
+            serviceNowId
+        }
+        category
+        closeCode
+        closeNote
+        closedAt
+        comments (after: $after4, filter: $filter5, first: $first4, order: $order4) {
+            edges {
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+        }
+        containedAt
+        createdAt
+        customer {
+            accessControlPolicies (after: $after5, first: $first5) {
+                totalCount
+            }
+            active
+            deployedRulesCount (createdAfter: $createdAfter, createdBefore: $createdBefore) {
+                count
+            }
+            headerSlug
+            id
+            name
+            residency
+            slug
+            users (after: $after6, first: $first6) {
+                totalCount
+            }
+        }
+        description
+        detectedAt
+        escalatedAt
+        firstEscalatedAt
+        id
+        internalOnly
+        investigationCompletedAt
+        lastEscalatedAt
+        logSourceType
+        metadata {
+            type
+        }
+        originator
+        originatorCreatedAt
+        originatorUpdatedAt
+        queryBatches (after: $after7, filter: $filter6, first: $first7, order: $order5) {
+            edges {
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+        remediatedAt
+        removedAt
+        resolvedAt
+        retained
+        rule {
+            id
+            name
+            version
+        }
+        searchHistory (after: $after8, filter: $filter7, first: $first8, order: $order6) {
+            edges {
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+        severity
+        state
+        subCategory
+        summary
+        ticketNumber
+        timeToAcknowledge
+        timeToContain
+        timeToDetect
+        timeToFirstEscalation
+        timeToInvestigate
+        timeToRemediate
+        timeToResolve
+        title
+        type
+        unresolveReason
+        updatedAt
+    }
+}
+
+# --- incidents
+# Fetch all Incidents which matches provided filter criteria. This API is paginated.
+# Pagination is handled by these arguments: first = Page count, before = Cursor offset position - This will be converted to Page number based on Page size provided.
+# Inputs:
+# String, Int, IncidentFilter, IncidentOrder,
+# Return:
+# IncidentConnection
+query incidents ($after: String, $first: Int, $incidentFilter: IncidentFilter, $incidentOrder: IncidentOrder) {
+    incidents (after: $after, first: $first, incidentFilter: $incidentFilter, incidentOrder: $incidentOrder) {
+        edges {
+            cursor
+            node {
+                acknowledgedAt
+                category
+                closeCode
+                closeNote
+                closedAt
+                containedAt
+                createdAt
+                description
+                detectedAt
+                escalatedAt
+                firstEscalatedAt
+                id
+                internalOnly
+                investigationCompletedAt
+                lastEscalatedAt
+                logSourceType
+                originator
+                originatorCreatedAt
+                originatorUpdatedAt
+                remediatedAt
+                removedAt
+                resolvedAt
+                retained
+                severity
+                state
+                subCategory
+                summary
+                ticketNumber
+                timeToAcknowledge
+                timeToContain
+                timeToDetect
+                timeToFirstEscalation
+                timeToInvestigate
+                timeToRemediate
+                timeToResolve
+                title
+                type
+                unresolveReason
+                updatedAt
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# ===== Indicators (2 operations) =====
+# --- indicator
+# Fetch a Indicator by IOCBy search filter.
+# When includeDynamicAggregates is true (default), dynamically creates aggregates from associated IOCs (DOMAIN↔URL, CIDR↔IP).
+# When false, returns only pre-computed aggregates from the database.
+# Inputs:
+# IOCBy,
+# Return:
+# Indicator
+query indicator ($by: IOCBy!) {
+    indicator (by: $by) {
+        city
+        countScore
+        country
+        description
+        feedNames
+        firstSeenAt
+        id
+        lastSeenAt
+        name
+        region
+        reliabilityScore
+        severity
+        threatScore
+        type
+    }
+}
+
+# --- indicators
+# Fetch all Indicators that match the provided filter criteria. This API is paginated.
+# Pagination is handled by these arguments: first = page size, after = Cursor offset position (This will be
+# converted to Page number based on the Page size provided).
+# Inputs:
+# String, IndicatorFilter, Int, IndicatorOrder,
+# Return:
+# IndicatorConnection
+query indicators ($after: String, $filter: IndicatorFilter, $first: Int, $order: IndicatorOrder) {
+    indicators (after: $after, filter: $filter, first: $first, order: $order) {
+        edges {
+            cursor
+            node {
+                city
+                countScore
+                country
+                description
+                feedNames
+                firstSeenAt
+                id
+                lastSeenAt
+                name
+                region
+                reliabilityScore
+                severity
+                threatScore
+                type
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# ===== Memory (5 operations) =====
+# --- createAiContext
+# Create an AI context.
+# The context is created for the customer set in the x-reliaquest-customerId header.
+# Inputs:
+# CreateAiContextInput,
+# Return:
+# AiContextResponse
+mutation createAiContext ($input: CreateAiContextInput!) {
+    createAiContext (input: $input) {
+        aiContext {
+            approvedAt
+            context
+            contextType
+            createdAt
+            createdBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            description
+            expiresAt
+            id
+            mode {
+                criteria
+                mode
+            }
+            name
+            source
+            status
+            tags {
+                agent
+                step
+            }
+            updatedAt
+            updatedBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+        success
+    }
+}
+
+# --- deleteAiContext
+# Delete an AI context.
+# Inputs:
+# ID,
+# Return:
+# AiContextResponse
+mutation deleteAiContext ($id: ID!) {
+    deleteAiContext (id: $id) {
+        aiContext {
+            approvedAt
+            context
+            contextType
+            createdAt
+            createdBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            description
+            expiresAt
+            id
+            mode {
+                criteria
+                mode
+            }
+            name
+            source
+            status
+            tags {
+                agent
+                step
+            }
+            updatedAt
+            updatedBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+        success
+    }
+}
+
+# --- updateAiContext
+# Update an AI context.
+# Inputs:
+# UpdateAiContextInput,
+# Return:
+# AiContextResponse
+mutation updateAiContext ($input: UpdateAiContextInput!) {
+    updateAiContext (input: $input) {
+        aiContext {
+            approvedAt
+            context
+            contextType
+            createdAt
+            createdBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            description
+            expiresAt
+            id
+            mode {
+                criteria
+                mode
+            }
+            name
+            source
+            status
+            tags {
+                agent
+                step
+            }
+            updatedAt
+            updatedBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+        success
+    }
+}
+
+# --- aiContext
+# Fetch an AI context by its ID.
+# Inputs:
+# ID,
+# Return:
+# AiContext
+query aiContext ($after: String, $filter: AccessGroupFilter, $first: Int, $order: AccessGroupOrder, $after1: String, $filter1: PodFilter, $first1: Int, $order1: PodOrder, $after2: String, $filter2: RoleFilter, $first2: Int, $order2: RoleFilter, $after3: String, $first3: Int, $createdAfter: DateTime, $createdBefore: DateTime, $after4: String, $first4: Int, $after5: String, $filter3: AccessGroupFilter, $first5: Int, $order3: AccessGroupOrder, $after6: String, $filter4: PodFilter, $first6: Int, $order4: PodOrder, $after7: String, $filter5: RoleFilter, $first7: Int, $order5: RoleFilter, $id: ID!) {
+    aiContext (id: $id) {
+        approvedAt
+        context
+        contextType
+        createdAt
+        createdBy {
+            accessGroups (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+                totalCount
+            }
+            roles (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+                totalCount
+            }
+            serviceNowId
+        }
+        customer {
+            accessControlPolicies (after: $after3, first: $first3) {
+                totalCount
+            }
+            active
+            deployedRulesCount (createdAfter: $createdAfter, createdBefore: $createdBefore) {
+                count
+            }
+            headerSlug
+            id
+            name
+            residency
+            slug
+            users (after: $after4, first: $first4) {
+                totalCount
+            }
+        }
+        description
+        expiresAt
+        id
+        mode {
+            criteria
+            mode
+            rag {
+                customScore
+                score
+            }
+        }
+        name
+        source
+        status
+        tags {
+            agent
+            step
+        }
+        updatedAt
+        updatedBy {
+            accessGroups (after: $after5, filter: $filter3, first: $first5, order: $order3) {
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after6, filter: $filter4, first: $first6, order: $order4) {
+                totalCount
+            }
+            roles (after: $after7, filter: $filter5, first: $first7, order: $order5) {
+                totalCount
+            }
+            serviceNowId
+        }
+    }
+}
+
+# --- aiContexts
+# Fetch all AI context. This API is paginated.
+# Pagination is handled by these arguments: first = page size, after = Cursor offset position - This will be converted to Page number based on Page size provided.
+# Results are scoped to the customer set in the x-reliaquest-customerId header.
+# Inputs:
+# String, AiContextFilter, Int, AiContextOrder,
+# Return:
+# AiContextConnection
+query aiContexts ($after: String, $filter: AiContextFilter, $first: Int, $order: AiContextOrder) {
+    aiContexts (after: $after, filter: $filter, first: $first, order: $order) {
+        edges {
+            cursor
+            node {
+                approvedAt
+                context
+                contextType
+                createdAt
+                description
+                expiresAt
+                id
+                name
+                source
+                status
+                updatedAt
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# ===== Playbooks (9 operations) =====
+# --- rerunAllFailedTasksForPlaybookRun
+# Rerun all failed tasks for a playbook run
+# Inputs:
+# ID,
+# Return:
+# PlaybookRunResponse
+mutation rerunAllFailedTasksForPlaybookRun ($playbookRunId: ID!) {
+    rerunAllFailedTasksForPlaybookRun (playbookRunId: $playbookRunId) {
+        playbookRun {
+            id
+        }
+        success
+    }
+}
+
+# --- runPlaybook
+# Run a playbook with the given input
+# Inputs:
+# RunPlaybookInput,
+# Return:
+# PlaybookRunResponse
+mutation runPlaybook ($input: RunPlaybookInput!) {
+    runPlaybook (input: $input) {
+        playbookRun {
+            id
+        }
+        success
+    }
+}
+
+# --- upsertCustomerPlaybook
+# Upsert customer metadata settings for a playbook
+# Inputs:
+# UpsertCustomerPlaybookInput,
+# Return:
+# CustomerPlaybookResponse
+mutation upsertCustomerPlaybook ($input: UpsertCustomerPlaybookInput!) {
+    upsertCustomerPlaybook (input: $input) {
+        customerPlaybook {
+            id
+            note
+            rqAllowedToRun
+        }
+        success
+    }
+}
+
+# --- upsertPlaybookMetadata
+# Upsert metadata settings for a playbook
+# Inputs:
+# UpsertPlaybookMetadataInput,
+# Return:
+# PlaybookResponse
+mutation upsertPlaybookMetadata ($input: UpsertPlaybookMetadataInput!) {
+    upsertPlaybookMetadata (input: $input) {
+        playbook {
+            id
+            metadata {
+                description
+                enabled
+                name
+                type
+            }
+        }
+        success
+    }
+}
+
+# --- customerPlaybooks
+# Get the playbooks that are available with the associated custom customer settings
+# Return:
+# CustomerPlaybook
+query customerPlaybooks ($after: String, $filter: IntegrationActivityLogFilter, $first: Int, $order: IntegrationActivityLogOrder) {
+    customerPlaybooks {
+        action
+        fieldDefinitions {
+            deprecated
+            field
+            required
+        }
+        id
+        metadata {
+            description
+            enabled
+            name
+            type
+        }
+        note
+        rqAllowedToRun
+        supportedIntegrations {
+            activity (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            connectionStatus
+            connector {
+                documentationUrl
+                id
+                name
+                type
+            }
+            enabled
+            id
+            lastConnectionTest
+            lastUsed
+            name
+            sharedBy {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+        }
+    }
+}
+
+# --- playbookRun
+# Get a PlaybookRun.
+# Set includeReversal to also resolve the run's configured reversal playbook. It costs an
+# extra upstream call, so leave it off unless reversalPlaybook is selected.
+# Inputs:
+# ID,
+# Return:
+# PlaybookRun
+query playbookRun ($after: String, $filter: AccessGroupFilter, $first: Int, $order: AccessGroupOrder, $after1: String, $filter1: PodFilter, $first1: Int, $order1: PodOrder, $after2: String, $filter2: RoleFilter, $first2: Int, $order2: RoleFilter, $after3: String, $first3: Int, $createdAfter: DateTime, $createdBefore: DateTime, $after4: String, $first4: Int, $after5: String, $filter3: AccessGroupFilter, $first5: Int, $order3: AccessGroupOrder, $after6: String, $filter4: PodFilter, $first6: Int, $order4: PodOrder, $after7: String, $filter5: RoleFilter, $first7: Int, $order5: RoleFilter, $id: ID!) {
+    playbookRun (id: $id) {
+        createdAt
+        createdBy {
+            accessGroups (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+                totalCount
+            }
+            roles (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+                totalCount
+            }
+            serviceNowId
+        }
+        customer {
+            accessControlPolicies (after: $after3, first: $first3) {
+                totalCount
+            }
+            active
+            deployedRulesCount (createdAfter: $createdAfter, createdBefore: $createdBefore) {
+                count
+            }
+            headerSlug
+            id
+            name
+            residency
+            slug
+            users (after: $after4, first: $first4) {
+                totalCount
+            }
+        }
+        drpAlertShortCode
+        executionResult {
+            actionExecutions {
+                actionExecutionStatus
+                field
+                id
+                outputErrorMessage
+                outputMessage
+                value
+            }
+            endTime
+            lastRetriedTime
+            startTime
+        }
+        id
+        platform
+        playbookAction
+        playbookName
+        playbookType
+        reason
+        rqAllowedToRun
+        status
+        tempRuleId
+        ticketNumber
+        trigger
+        type
+        updatedAt
+        updatedBy {
+            accessGroups (after: $after5, filter: $filter3, first: $first5, order: $order3) {
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after6, filter: $filter4, first: $first6, order: $order4) {
+                totalCount
+            }
+            roles (after: $after7, filter: $filter5, first: $first7, order: $order5) {
+                totalCount
+            }
+            serviceNowId
+        }
+    }
+}
+
+# --- playbookRuns
+# Get PlaybookRuns.
+# Inputs:
+# String, PlaybookRunFilter, Int, PlaybookRunOrder,
+# Return:
+# PlaybookRunConnection
+query playbookRuns ($after: String, $filter: PlaybookRunFilter, $first: Int, $orderBy: PlaybookRunOrder) {
+    playbookRuns (after: $after, filter: $filter, first: $first, orderBy: $orderBy) {
+        edges {
+            cursor
+            node {
+                createdAt
+                drpAlertShortCode
+                id
+                platform
+                playbookAction
+                playbookName
+                playbookType
+                reason
+                rqAllowedToRun
+                status
+                tempRuleId
+                ticketNumber
+                trigger
+                type
+                updatedAt
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# --- playbooks
+# Get playbooks that are available.
+# Return:
+# Playbook
+query playbooks {
+    playbooks {
+        action
+        fieldDefinitions {
+            deprecated
+            field
+            required
+        }
+        id
+        metadata {
+            description
+            enabled
+            name
+            type
+        }
+        supportedTechnologies {
+            documentationUrl
+            id
+            name
+            type
+        }
+    }
+}
+
+# --- recommendedPlaybooks
+# Get the recommended playbooks based on the filter parameters.
+# Inputs:
+# RecommendedPlaybookFilter,
+# Return:
+# RecommendedPlaybooks
+query recommendedPlaybooks ($filter: RecommendedPlaybookFilter!) {
+    recommendedPlaybooks (filter: $filter) {
+        playbooks {
+            fields {
+                field
+                required
+                values
+            }
+            playbook {
+                action
+                id
+                note
+                rqAllowedToRun
+            }
+        }
+    }
+}
+
+# ===== Query Management (3 operations) =====
+# --- integration
+# Retrieves one integration by ID
+# Inputs:
+# ID,
+# Return:
+# Integration
+query integration ($after: String, $filter: IntegrationActivityLogFilter, $first: Int, $order: IntegrationActivityLogOrder, $after1: String, $first1: Int, $createdAfter: DateTime, $createdBefore: DateTime, $after2: String, $first2: Int, $id: ID!) {
+    integration (id: $id) {
+        activity (after: $after, filter: $filter, first: $first, order: $order) {
+            edges {
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+        connectionStatus
+        connector {
+            documentationUrl
+            id
+            name
+            type
+        }
+        enabled
+        id
+        lastConnectionTest
+        lastUsed
+        name
+        sharedBy {
+            accessControlPolicies (after: $after1, first: $first1) {
+                totalCount
+            }
+            active
+            deployedRulesCount (createdAfter: $createdAfter, createdBefore: $createdBefore) {
+                count
+            }
+            headerSlug
+            id
+            name
+            residency
+            slug
+            users (after: $after2, first: $first2) {
+                totalCount
+            }
+        }
+    }
+}
+
+# --- integrations
+# Retrieves a list of integrations, optionally filtered by various criteria.
+# Inputs:
+# String, Int, IntegrationFilter, IntegrationOrder,
+# Return:
+# IntegrationConnection
+query integrations ($after: String, $first: Int, $integrationFilter: IntegrationFilter, $integrationOrder: IntegrationOrder) {
+    integrations (after: $after, first: $first, integrationFilter: $integrationFilter, integrationOrder: $integrationOrder) {
+        edges {
+            cursor
+            node {
+                connectionStatus
+                enabled
+                id
+                lastConnectionTest
+                lastUsed
+                name
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# --- searchHistory
+# Retrieve a list of query batches.
+# Inputs:
+# String, QueryBatchSearchBy, QueryBatchFilter, Int, QueryBatchOrder,
+# Return:
+# QueryBatchConnection
+query searchHistory ($after: String, $by: QueryBatchSearchBy!, $filter: QueryBatchFilter, $first: Int, $order: QueryBatchOrder) {
+    searchHistory (after: $after, by: $by, filter: $filter, first: $first, order: $order) {
+        edges {
+            cursor
+            node {
+                id
+                name
+                state
+                type
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# ===== Reference Lists (11 operations) =====
+# --- createReferenceList
+# Create a reference list.
+# Inputs:
+# CreateReferenceListInput,
+# Return:
+# ReferenceListResponse
+mutation createReferenceList ($after: String, $columnSelector: ReferenceListColumnSelector, $filter: ReferenceListRowFilter, $first: Int, $order: ReferenceListRowOrder, $input: CreateReferenceListInput!) {
+    createReferenceList (input: $input) {
+        referenceList {
+            columns {
+                createdAt
+                description
+                id
+                name
+                type
+                updatedAt
+            }
+            createdAt
+            createdBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            dataTagging
+            description
+            id
+            isBuiltIn
+            name
+            queryReference
+            rows (after: $after, columnSelector: $columnSelector, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            updatedAt
+            updatedBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+        success
+    }
+}
+
+# --- createReferenceListColumn
+# Create a column and any associated linked GreyMatter fields within a reference list.
+# Inputs:
+# CreateReferenceListColumnInput,
+# Return:
+# ReferenceListColumnResponse
+mutation createReferenceListColumn ($input: CreateReferenceListColumnInput!) {
+    createReferenceListColumn (input: $input) {
+        column {
+            createdAt
+            createdBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            description
+            id
+            linkedFields {
+                createdAt
+                id
+                updatedAt
+            }
+            name
+            type
+            updatedAt
+            updatedBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+        success
+    }
+}
+
+# --- createReferenceListRow
+# Create a row within a reference list.
+# Inputs:
+# CreateReferenceListRowInput,
+# Return:
+# ReferenceListRowResponse
+mutation createReferenceListRow ($input: CreateReferenceListRowInput!) {
+    createReferenceListRow (input: $input) {
+        row {
+            id
+            updatedAt
+            values {
+                id
+                updatedAt
+                value
+            }
+        }
+        success
+    }
+}
+
+# --- deleteReferenceList
+# Delete a reference list.
+# Inputs:
+# ID,
+# Return:
+# ReferenceListResponse
+mutation deleteReferenceList ($after: String, $columnSelector: ReferenceListColumnSelector, $filter: ReferenceListRowFilter, $first: Int, $order: ReferenceListRowOrder, $id: ID!) {
+    deleteReferenceList (id: $id) {
+        referenceList {
+            columns {
+                createdAt
+                description
+                id
+                name
+                type
+                updatedAt
+            }
+            createdAt
+            createdBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            dataTagging
+            description
+            id
+            isBuiltIn
+            name
+            queryReference
+            rows (after: $after, columnSelector: $columnSelector, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            updatedAt
+            updatedBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+        success
+    }
+}
+
+# --- deleteReferenceListColumn
+# Delete a column within a reference list.
+# Inputs:
+# ID,
+# Return:
+# ReferenceListColumnResponse
+mutation deleteReferenceListColumn ($id: ID!) {
+    deleteReferenceListColumn (id: $id) {
+        column {
+            createdAt
+            createdBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            description
+            id
+            linkedFields {
+                createdAt
+                id
+                updatedAt
+            }
+            name
+            type
+            updatedAt
+            updatedBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+        success
+    }
+}
+
+# --- deleteReferenceListRow
+# Delete a row within a reference list.
+# Inputs:
+# ID,
+# Return:
+# ReferenceListRowResponse
+mutation deleteReferenceListRow ($id: ID!) {
+    deleteReferenceListRow (id: $id) {
+        row {
+            id
+            updatedAt
+            values {
+                id
+                updatedAt
+                value
+            }
+        }
+        success
+    }
+}
+
+# --- updateReferenceList
+# Update a reference list.
+# Inputs:
+# UpdateReferenceListInput,
+# Return:
+# ReferenceListResponse
+mutation updateReferenceList ($after: String, $columnSelector: ReferenceListColumnSelector, $filter: ReferenceListRowFilter, $first: Int, $order: ReferenceListRowOrder, $input: UpdateReferenceListInput!) {
+    updateReferenceList (input: $input) {
+        referenceList {
+            columns {
+                createdAt
+                description
+                id
+                name
+                type
+                updatedAt
+            }
+            createdAt
+            createdBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            dataTagging
+            description
+            id
+            isBuiltIn
+            name
+            queryReference
+            rows (after: $after, columnSelector: $columnSelector, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            updatedAt
+            updatedBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+        success
+    }
+}
+
+# --- updateReferenceListColumn
+# Update a column and its associated linked GreyMatter fields within a reference list.
+# Inputs:
+# UpdateReferenceListColumnInput,
+# Return:
+# ReferenceListColumnResponse
+mutation updateReferenceListColumn ($input: UpdateReferenceListColumnInput!) {
+    updateReferenceListColumn (input: $input) {
+        column {
+            createdAt
+            createdBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            description
+            id
+            linkedFields {
+                createdAt
+                id
+                updatedAt
+            }
+            name
+            type
+            updatedAt
+            updatedBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+        success
+    }
+}
+
+# --- updateReferenceListRow
+# Update a row's values within a reference list.
+# Inputs:
+# UpdateReferenceListRowInput,
+# Return:
+# ReferenceListRowResponse
+mutation updateReferenceListRow ($input: UpdateReferenceListRowInput!) {
+    updateReferenceListRow (input: $input) {
+        row {
+            id
+            updatedAt
+            values {
+                id
+                updatedAt
+                value
+            }
+        }
+        success
+    }
+}
+
+# --- referenceList
+# Fetch a reference list by its ID.
+# Inputs:
+# ID,
+# Return:
+# ReferenceList
+query referenceList ($after: String, $filter: AccessGroupFilter, $first: Int, $order: AccessGroupOrder, $after1: String, $filter1: PodFilter, $first1: Int, $order1: PodOrder, $after2: String, $filter2: RoleFilter, $first2: Int, $order2: RoleFilter, $after3: String, $columnSelector: ReferenceListColumnSelector, $filter3: ReferenceListRowFilter, $first3: Int, $order3: ReferenceListRowOrder, $after4: String, $filter4: AccessGroupFilter, $first4: Int, $order4: AccessGroupOrder, $after5: String, $filter5: PodFilter, $first5: Int, $order5: PodOrder, $after6: String, $filter6: RoleFilter, $first6: Int, $order6: RoleFilter, $id: ID!) {
+    referenceList (id: $id) {
+        columns {
+            createdAt
+            createdBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            description
+            id
+            linkedFields {
+                createdAt
+                id
+                updatedAt
+            }
+            name
+            type
+            updatedAt
+            updatedBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+        createdAt
+        createdBy {
+            accessGroups (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+                totalCount
+            }
+            roles (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+                totalCount
+            }
+            serviceNowId
+        }
+        dataTagging
+        description
+        id
+        isBuiltIn
+        name
+        queryReference
+        rows (after: $after3, columnSelector: $columnSelector, filter: $filter3, first: $first3, order: $order3) {
+            edges {
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+        updatedAt
+        updatedBy {
+            accessGroups (after: $after4, filter: $filter4, first: $first4, order: $order4) {
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after5, filter: $filter5, first: $first5, order: $order5) {
+                totalCount
+            }
+            roles (after: $after6, filter: $filter6, first: $first6, order: $order6) {
+                totalCount
+            }
+            serviceNowId
+        }
+    }
+}
+
+# --- referenceLists
+# Fetch all reference lists which match the provided filter criteria. This API is paginated.
+# Pagination is handled by these arguments: first = page size, after = Cursor offset position - This will be converted to Page number based on Page size provided.
+# Inputs:
+# String, ReferenceListFilter, Int, ReferenceListOrder,
+# Return:
+# ReferenceListConnection
+query referenceLists ($after: String, $filter: ReferenceListFilter, $first: Int, $order: ReferenceListOrder) {
+    referenceLists (after: $after, filter: $filter, first: $first, order: $order) {
+        edges {
+            cursor
+            node {
+                createdAt
+                dataTagging
+                description
+                id
+                isBuiltIn
+                name
+                queryReference
+                updatedAt
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# ===== Tasks (11 operations) =====
+# --- acknowledgeTask
+# Acknowledge a task.
+# Inputs:
+# AcknowledgeTaskInput,
+# Return:
+# TaskResponse
+mutation acknowledgeTask ($after: String, $filter: TaskCommentFilter, $first: Int, $order: TaskCommentOrder, $input: AcknowledgeTaskInput!) {
+    acknowledgeTask (input: $input) {
+        success
+        task {
+            acknowledgement {
+                actionMethod
+                createdAt
+            }
+            assignee {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            closeCode
+            closeNote
+            closedAt
+            comments (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            createdAt
+            createdBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            description
+            externalId
+            id
+            metadata {
+                ... on EngineeringTaskMetadata {
+                    businessCriticalLogSourceImpact
+                    businessCriticalLogSourceImpactReason
+                    changeWindowRequired
+                    engineeringTaskSubType
+                    environmentImpact
+                    errorMessagesObserved
+                    issue
+                    issueStartedAt
+                    logSourceNotListed
+                    logSources
+                    neededForCompliance
+                    neededForComplianceDetails
+                    recentLogSourceChangeDetails
+                    recentLogSourceChanges
+                    requiredMetadata
+                    retentionReason
+                    retentionRequirements
+                    supportTimeFrame
+                    troubleShootingDetails
+                    troubleShootingStarted
+                }
+            }
+            priority
+            retained
+            serviceNowCategory
+            serviceNowSubCategory
+            slug
+            state
+            title
+            type
+            updatedAt
+            updatedBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+    }
+}
+
+# --- addTaskComment
+# Add comment to task
+# Inputs:
+# TaskCommentInput,
+# Return:
+# TaskResponse
+mutation addTaskComment ($after: String, $filter: TaskCommentFilter, $first: Int, $order: TaskCommentOrder, $input: TaskCommentInput!) {
+    addTaskComment (input: $input) {
+        success
+        task {
+            acknowledgement {
+                actionMethod
+                createdAt
+            }
+            assignee {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            closeCode
+            closeNote
+            closedAt
+            comments (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            createdAt
+            createdBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            description
+            externalId
+            id
+            metadata {
+                ... on EngineeringTaskMetadata {
+                    businessCriticalLogSourceImpact
+                    businessCriticalLogSourceImpactReason
+                    changeWindowRequired
+                    engineeringTaskSubType
+                    environmentImpact
+                    errorMessagesObserved
+                    issue
+                    issueStartedAt
+                    logSourceNotListed
+                    logSources
+                    neededForCompliance
+                    neededForComplianceDetails
+                    recentLogSourceChangeDetails
+                    recentLogSourceChanges
+                    requiredMetadata
+                    retentionReason
+                    retentionRequirements
+                    supportTimeFrame
+                    troubleShootingDetails
+                    troubleShootingStarted
+                }
+            }
+            priority
+            retained
+            serviceNowCategory
+            serviceNowSubCategory
+            slug
+            state
+            title
+            type
+            updatedAt
+            updatedBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+    }
+}
+
+# --- assignTask
+# Assign a user to the task
+# Inputs:
+# AssignTaskInput,
+# Return:
+# TaskResponse
+mutation assignTask ($after: String, $filter: TaskCommentFilter, $first: Int, $order: TaskCommentOrder, $input: AssignTaskInput!) {
+    assignTask (input: $input) {
+        success
+        task {
+            acknowledgement {
+                actionMethod
+                createdAt
+            }
+            assignee {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            closeCode
+            closeNote
+            closedAt
+            comments (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            createdAt
+            createdBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            description
+            externalId
+            id
+            metadata {
+                ... on EngineeringTaskMetadata {
+                    businessCriticalLogSourceImpact
+                    businessCriticalLogSourceImpactReason
+                    changeWindowRequired
+                    engineeringTaskSubType
+                    environmentImpact
+                    errorMessagesObserved
+                    issue
+                    issueStartedAt
+                    logSourceNotListed
+                    logSources
+                    neededForCompliance
+                    neededForComplianceDetails
+                    recentLogSourceChangeDetails
+                    recentLogSourceChanges
+                    requiredMetadata
+                    retentionReason
+                    retentionRequirements
+                    supportTimeFrame
+                    troubleShootingDetails
+                    troubleShootingStarted
+                }
+            }
+            priority
+            retained
+            serviceNowCategory
+            serviceNowSubCategory
+            slug
+            state
+            title
+            type
+            updatedAt
+            updatedBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+    }
+}
+
+# --- bulkResolveTasks
+# Bulk resolve multiple tasks with the same close code and notes
+# Inputs:
+# BulkResolveTasksInput,
+# Return:
+# BulkTaskResponse
+mutation bulkResolveTasks ($input: BulkResolveTasksInput!) {
+    bulkResolveTasks (input: $input) {
+        success
+        tasks {
+            closeCode
+            closeNote
+            id
+            state
+        }
+    }
+}
+
+# --- createTask
+# Create a new task
+# Inputs:
+# CreateTaskInput,
+# Return:
+# TaskResponse
+mutation createTask ($after: String, $filter: TaskCommentFilter, $first: Int, $order: TaskCommentOrder, $input: CreateTaskInput!) {
+    createTask (input: $input) {
+        success
+        task {
+            acknowledgement {
+                actionMethod
+                createdAt
+            }
+            assignee {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            closeCode
+            closeNote
+            closedAt
+            comments (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            createdAt
+            createdBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            description
+            externalId
+            id
+            metadata {
+                ... on EngineeringTaskMetadata {
+                    businessCriticalLogSourceImpact
+                    businessCriticalLogSourceImpactReason
+                    changeWindowRequired
+                    engineeringTaskSubType
+                    environmentImpact
+                    errorMessagesObserved
+                    issue
+                    issueStartedAt
+                    logSourceNotListed
+                    logSources
+                    neededForCompliance
+                    neededForComplianceDetails
+                    recentLogSourceChangeDetails
+                    recentLogSourceChanges
+                    requiredMetadata
+                    retentionReason
+                    retentionRequirements
+                    supportTimeFrame
+                    troubleShootingDetails
+                    troubleShootingStarted
+                }
+            }
+            priority
+            retained
+            serviceNowCategory
+            serviceNowSubCategory
+            slug
+            state
+            title
+            type
+            updatedAt
+            updatedBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+    }
+}
+
+# --- resolveTask
+# Resolve a task
+# Inputs:
+# ResolveTaskInput,
+# Return:
+# TaskResponse
+mutation resolveTask ($after: String, $filter: TaskCommentFilter, $first: Int, $order: TaskCommentOrder, $input: ResolveTaskInput!) {
+    resolveTask (input: $input) {
+        success
+        task {
+            acknowledgement {
+                actionMethod
+                createdAt
+            }
+            assignee {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            closeCode
+            closeNote
+            closedAt
+            comments (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            createdAt
+            createdBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            description
+            externalId
+            id
+            metadata {
+                ... on EngineeringTaskMetadata {
+                    businessCriticalLogSourceImpact
+                    businessCriticalLogSourceImpactReason
+                    changeWindowRequired
+                    engineeringTaskSubType
+                    environmentImpact
+                    errorMessagesObserved
+                    issue
+                    issueStartedAt
+                    logSourceNotListed
+                    logSources
+                    neededForCompliance
+                    neededForComplianceDetails
+                    recentLogSourceChangeDetails
+                    recentLogSourceChanges
+                    requiredMetadata
+                    retentionReason
+                    retentionRequirements
+                    supportTimeFrame
+                    troubleShootingDetails
+                    troubleShootingStarted
+                }
+            }
+            priority
+            retained
+            serviceNowCategory
+            serviceNowSubCategory
+            slug
+            state
+            title
+            type
+            updatedAt
+            updatedBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+    }
+}
+
+# --- unresolveTask
+# Unresolve a resolved task
+# Inputs:
+# UnresolveTaskInput,
+# Return:
+# TaskResponse
+mutation unresolveTask ($after: String, $filter: TaskCommentFilter, $first: Int, $order: TaskCommentOrder, $input: UnresolveTaskInput!) {
+    unresolveTask (input: $input) {
+        success
+        task {
+            acknowledgement {
+                actionMethod
+                createdAt
+            }
+            assignee {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            closeCode
+            closeNote
+            closedAt
+            comments (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            createdAt
+            createdBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            description
+            externalId
+            id
+            metadata {
+                ... on EngineeringTaskMetadata {
+                    businessCriticalLogSourceImpact
+                    businessCriticalLogSourceImpactReason
+                    changeWindowRequired
+                    engineeringTaskSubType
+                    environmentImpact
+                    errorMessagesObserved
+                    issue
+                    issueStartedAt
+                    logSourceNotListed
+                    logSources
+                    neededForCompliance
+                    neededForComplianceDetails
+                    recentLogSourceChangeDetails
+                    recentLogSourceChanges
+                    requiredMetadata
+                    retentionReason
+                    retentionRequirements
+                    supportTimeFrame
+                    troubleShootingDetails
+                    troubleShootingStarted
+                }
+            }
+            priority
+            retained
+            serviceNowCategory
+            serviceNowSubCategory
+            slug
+            state
+            title
+            type
+            updatedAt
+            updatedBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+    }
+}
+
+# --- updateTaskRetainedStatus
+# Update Task retained status
+# Inputs:
+# UpdateTaskRetainedStatusInput,
+# Return:
+# TaskResponse
+mutation updateTaskRetainedStatus ($after: String, $filter: TaskCommentFilter, $first: Int, $order: TaskCommentOrder, $input: UpdateTaskRetainedStatusInput!) {
+    updateTaskRetainedStatus (input: $input) {
+        success
+        task {
+            acknowledgement {
+                actionMethod
+                createdAt
+            }
+            assignee {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            closeCode
+            closeNote
+            closedAt
+            comments (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            createdAt
+            createdBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            description
+            externalId
+            id
+            metadata {
+                ... on EngineeringTaskMetadata {
+                    businessCriticalLogSourceImpact
+                    businessCriticalLogSourceImpactReason
+                    changeWindowRequired
+                    engineeringTaskSubType
+                    environmentImpact
+                    errorMessagesObserved
+                    issue
+                    issueStartedAt
+                    logSourceNotListed
+                    logSources
+                    neededForCompliance
+                    neededForComplianceDetails
+                    recentLogSourceChangeDetails
+                    recentLogSourceChanges
+                    requiredMetadata
+                    retentionReason
+                    retentionRequirements
+                    supportTimeFrame
+                    troubleShootingDetails
+                    troubleShootingStarted
+                }
+            }
+            priority
+            retained
+            serviceNowCategory
+            serviceNowSubCategory
+            slug
+            state
+            title
+            type
+            updatedAt
+            updatedBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+    }
+}
+
+# --- updateTaskState
+# Update Task State
+# Inputs:
+# UpdateTaskStateInput,
+# Return:
+# TaskResponse
+mutation updateTaskState ($after: String, $filter: TaskCommentFilter, $first: Int, $order: TaskCommentOrder, $input: UpdateTaskStateInput!) {
+    updateTaskState (input: $input) {
+        success
+        task {
+            acknowledgement {
+                actionMethod
+                createdAt
+            }
+            assignee {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            closeCode
+            closeNote
+            closedAt
+            comments (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            createdAt
+            createdBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+            customer {
+                active
+                headerSlug
+                id
+                name
+                residency
+                slug
+            }
+            description
+            externalId
+            id
+            metadata {
+                ... on EngineeringTaskMetadata {
+                    businessCriticalLogSourceImpact
+                    businessCriticalLogSourceImpactReason
+                    changeWindowRequired
+                    engineeringTaskSubType
+                    environmentImpact
+                    errorMessagesObserved
+                    issue
+                    issueStartedAt
+                    logSourceNotListed
+                    logSources
+                    neededForCompliance
+                    neededForComplianceDetails
+                    recentLogSourceChangeDetails
+                    recentLogSourceChanges
+                    requiredMetadata
+                    retentionReason
+                    retentionRequirements
+                    supportTimeFrame
+                    troubleShootingDetails
+                    troubleShootingStarted
+                }
+            }
+            priority
+            retained
+            serviceNowCategory
+            serviceNowSubCategory
+            slug
+            state
+            title
+            type
+            updatedAt
+            updatedBy {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+    }
+}
+
+# --- task
+# Fetch Task by id, slug OR externalId.
+# Inputs:
+# TaskBy,
+# Return:
+# Task
+query task ($after: String, $filter: TaskActivityLogFilter, $first: Int, $order: TaskActivityLogOrder, $after1: String, $filter1: AccessGroupFilter, $first1: Int, $order1: AccessGroupOrder, $after2: String, $filter2: PodFilter, $first2: Int, $order2: PodOrder, $after3: String, $filter3: RoleFilter, $first3: Int, $order3: RoleFilter, $after4: String, $filter4: TaskCommentFilter, $first4: Int, $order4: TaskCommentOrder, $after5: String, $filter5: AccessGroupFilter, $first5: Int, $order5: AccessGroupOrder, $after6: String, $filter6: PodFilter, $first6: Int, $order6: PodOrder, $after7: String, $filter7: RoleFilter, $first7: Int, $order7: RoleFilter, $after8: String, $first8: Int, $createdAfter: DateTime, $createdBefore: DateTime, $after9: String, $first9: Int, $after10: String, $filter8: AccessGroupFilter, $first10: Int, $order8: AccessGroupOrder, $after11: String, $filter9: PodFilter, $first11: Int, $order9: PodOrder, $after12: String, $filter10: RoleFilter, $first12: Int, $order10: RoleFilter, $by: TaskBy!) {
+    task (by: $by) {
+        acknowledgement {
+            actionMethod
+            createdAt
+            user {
+                email
+                fullName
+                id
+                serviceNowId
+            }
+        }
+        activity (after: $after, filter: $filter, first: $first, order: $order) {
+            edges {
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+        }
+        assignee {
+            accessGroups (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+                totalCount
+            }
+            roles (after: $after3, filter: $filter3, first: $first3, order: $order3) {
+                totalCount
+            }
+            serviceNowId
+        }
+        closeCode
+        closeNote
+        closedAt
+        comments (after: $after4, filter: $filter4, first: $first4, order: $order4) {
+            edges {
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+        createdAt
+        createdBy {
+            accessGroups (after: $after5, filter: $filter5, first: $first5, order: $order5) {
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after6, filter: $filter6, first: $first6, order: $order6) {
+                totalCount
+            }
+            roles (after: $after7, filter: $filter7, first: $first7, order: $order7) {
+                totalCount
+            }
+            serviceNowId
+        }
+        customer {
+            accessControlPolicies (after: $after8, first: $first8) {
+                totalCount
+            }
+            active
+            deployedRulesCount (createdAfter: $createdAfter, createdBefore: $createdBefore) {
+                count
+            }
+            headerSlug
+            id
+            name
+            residency
+            slug
+            users (after: $after9, first: $first9) {
+                totalCount
+            }
+        }
+        description
+        externalId
+        id
+        metadata {
+            ... on EngineeringTaskMetadata {
+                businessCriticalLogSourceImpact
+                businessCriticalLogSourceImpactReason
+                changeWindowRequired
+                engineeringTaskSubType
+                environmentImpact
+                errorMessagesObserved
+                issue
+                issueStartedAt
+                logSourceNotListed
+                logSources
+                neededForCompliance
+                neededForComplianceDetails
+                recentLogSourceChangeDetails
+                recentLogSourceChanges
+                requiredMetadata
+                retentionReason
+                retentionRequirements
+                supportTimeFrame
+                troubleShootingDetails
+                troubleShootingStarted
+            }
+        }
+        priority
+        retained
+        serviceNowCategory
+        serviceNowSubCategory
+        slug
+        state
+        title
+        type
+        updatedAt
+        updatedBy {
+            accessGroups (after: $after10, filter: $filter8, first: $first10, order: $order8) {
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after11, filter: $filter9, first: $first11, order: $order9) {
+                totalCount
+            }
+            roles (after: $after12, filter: $filter10, first: $first12, order: $order10) {
+                totalCount
+            }
+            serviceNowId
+        }
+    }
+}
+
+# --- tasks
+# Fetch all Tasks which matches provided filter criteria. This API is paginated.
+# Pagination is handled by these arguments: first = Page count, after = Cursor offset position - This will be converted to Page number based on Page size provided.
+# Inputs:
+# String, Int, TaskFilter, TaskOrder,
+# Return:
+# TaskConnection
+query tasks ($after: String, $first: Int, $taskFilter: TaskFilter, $taskOrder: TaskOrder) {
+    tasks (after: $after, first: $first, taskFilter: $taskFilter, taskOrder: $taskOrder) {
+        edges {
+            cursor
+            node {
+                closeCode
+                closeNote
+                closedAt
+                createdAt
+                description
+                externalId
+                id
+                priority
+                retained
+                serviceNowCategory
+                serviceNowSubCategory
+                slug
+                state
+                title
+                type
+                updatedAt
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# ===== User (11 operations) =====
+# --- createUser
+# Create a new user.
+# Inputs:
+# CreateUserInput,
+# Return:
+# UserOperationResponse
+mutation createUser ($after: String, $filter: AccessGroupFilter, $first: Int, $order: AccessGroupOrder, $after1: String, $filter1: PodFilter, $first1: Int, $order1: PodOrder, $after2: String, $filter2: RoleFilter, $first2: Int, $order2: RoleFilter, $input: CreateUserInput!) {
+    createUser (input: $input) {
+        success
+        user {
+            accessGroups (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+                totalCount
+            }
+            roles (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+                totalCount
+            }
+            serviceNowId
+        }
+    }
+}
+
+# --- deleteUser
+# Delete an existing user.
+# Inputs:
+# ID,
+# Return:
+# DeleteUserResponse
+mutation deleteUser ($user: ID!) {
+    deleteUser (user: $user) {
+        success
+    }
+}
+
+# --- disableUser
+# Disable an existing user.
+# Inputs:
+# ID,
+# Return:
+# UserOperationResponse
+mutation disableUser ($after: String, $filter: AccessGroupFilter, $first: Int, $order: AccessGroupOrder, $after1: String, $filter1: PodFilter, $first1: Int, $order1: PodOrder, $after2: String, $filter2: RoleFilter, $first2: Int, $order2: RoleFilter, $user: ID!) {
+    disableUser (user: $user) {
+        success
+        user {
+            accessGroups (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+                totalCount
+            }
+            roles (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+                totalCount
+            }
+            serviceNowId
+        }
+    }
+}
+
+# --- enableUser
+# Enable an existing user.
+# Inputs:
+# ID,
+# Return:
+# UserOperationResponse
+mutation enableUser ($after: String, $filter: AccessGroupFilter, $first: Int, $order: AccessGroupOrder, $after1: String, $filter1: PodFilter, $first1: Int, $order1: PodOrder, $after2: String, $filter2: RoleFilter, $first2: Int, $order2: RoleFilter, $user: ID!) {
+    enableUser (user: $user) {
+        success
+        user {
+            accessGroups (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+                totalCount
+            }
+            roles (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+                totalCount
+            }
+            serviceNowId
+        }
+    }
+}
+
+# --- generatePasswordLink
+# Generate a change password link for an existing user.
+# These do nothing if the customer is SSO enabled.
+# Inputs:
+# ID,
+# Return:
+# GeneratePasswordLinkResponse
+mutation generatePasswordLink ($after: String, $filter: AccessGroupFilter, $first: Int, $order: AccessGroupOrder, $after1: String, $filter1: PodFilter, $first1: Int, $order1: PodOrder, $after2: String, $filter2: RoleFilter, $first2: Int, $order2: RoleFilter, $user: ID!) {
+    generatePasswordLink (user: $user) {
+        link
+        success
+        user {
+            accessGroups (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+                totalCount
+            }
+            roles (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+                totalCount
+            }
+            serviceNowId
+        }
+    }
+}
+
+# --- resendInvite
+# Resend invitation for an existing user.
+# These do nothing if the customer is SSO enabled.
+# Inputs:
+# ID,
+# Return:
+# UserOperationResponse
+mutation resendInvite ($after: String, $filter: AccessGroupFilter, $first: Int, $order: AccessGroupOrder, $after1: String, $filter1: PodFilter, $first1: Int, $order1: PodOrder, $after2: String, $filter2: RoleFilter, $first2: Int, $order2: RoleFilter, $user: ID!) {
+    resendInvite (user: $user) {
+        success
+        user {
+            accessGroups (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+                totalCount
+            }
+            roles (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+                totalCount
+            }
+            serviceNowId
+        }
+    }
+}
+
+# --- resetMfa
+# Reset MFA (Multi-Factor Authentication) for an existing user.
+# These do nothing if the customer is SSO enabled.
+# Inputs:
+# ID,
+# Return:
+# UserOperationResponse
+mutation resetMfa ($after: String, $filter: AccessGroupFilter, $first: Int, $order: AccessGroupOrder, $after1: String, $filter1: PodFilter, $first1: Int, $order1: PodOrder, $after2: String, $filter2: RoleFilter, $first2: Int, $order2: RoleFilter, $user: ID!) {
+    resetMfa (user: $user) {
+        success
+        user {
+            accessGroups (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+                totalCount
+            }
+            roles (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+                totalCount
+            }
+            serviceNowId
+        }
+    }
+}
+
+# --- sendForgotPassword
+# Send a forgot password email for an existing user.
+# These do nothing if the customer is SSO enabled.
+# Inputs:
+# ID,
+# Return:
+# UserOperationResponse
+mutation sendForgotPassword ($after: String, $filter: AccessGroupFilter, $first: Int, $order: AccessGroupOrder, $after1: String, $filter1: PodFilter, $first1: Int, $order1: PodOrder, $after2: String, $filter2: RoleFilter, $first2: Int, $order2: RoleFilter, $user: ID!) {
+    sendForgotPassword (user: $user) {
+        success
+        user {
+            accessGroups (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+                totalCount
+            }
+            roles (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+                totalCount
+            }
+            serviceNowId
+        }
+    }
+}
+
+# --- updateUser
+# Update an existing user.
+# Inputs:
+# UpdateUserInput,
+# Return:
+# UserOperationResponse
+mutation updateUser ($after: String, $filter: AccessGroupFilter, $first: Int, $order: AccessGroupOrder, $after1: String, $filter1: PodFilter, $first1: Int, $order1: PodOrder, $after2: String, $filter2: RoleFilter, $first2: Int, $order2: RoleFilter, $input: UpdateUserInput!) {
+    updateUser (input: $input) {
+        success
+        user {
+            accessGroups (after: $after, filter: $filter, first: $first, order: $order) {
+                totalCount
+            }
+            email
+            fullName
+            id
+            pods (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+                totalCount
+            }
+            roles (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+                totalCount
+            }
+            serviceNowId
+        }
+    }
+}
+
+# --- me
+# Query to fetch the authenticated user's information
+# Return:
+# CurrentUser
+query me ($after: String, $filter: CustomerFilter, $first: Int, $order: CustomerOrder) {
+    me {
+        customers (after: $after, filter: $filter, first: $first, order: $order) {
+            totalCount
+        }
+        email
+        fullName
+        id
+        serviceNowId
+    }
+}
+
+# --- user
+# Inputs:
+# ID,
+# Return:
+# User
+query user ($after: String, $filter: AccessGroupFilter, $first: Int, $order: AccessGroupOrder, $after1: String, $filter1: PodFilter, $first1: Int, $order1: PodOrder, $after2: String, $filter2: RoleFilter, $first2: Int, $order2: RoleFilter, $id: ID!) {
+    user (id: $id) {
+        accessGroups (after: $after, filter: $filter, first: $first, order: $order) {
+            edges {
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+        email
+        fullName
+        id
+        pods (after: $after1, filter: $filter1, first: $first1, order: $order1) {
+            edges {
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+        roles (after: $after2, filter: $filter2, first: $first2, order: $order2) {
+            edges {
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+            }
+            totalCount
+        }
+        serviceNowId
+    }
+}
+
+# ===== User Activity (1 operations) =====
+# --- audits
+# Retrieves user action audits
+# Inputs:
+# String, AuditActionFilter, Int, AuditActionOrder,
+# Return:
+# AuditActionDetailsConnection
+query audits ($after: String, $filter: AuditActionFilter, $first: Int, $order: AuditActionOrder) {
+    audits (after: $after, filter: $filter, first: $first, order: $order) {
+        edges {
+            cursor
+            node {
+                actionType
+                createdAt
+                id
+                objectId
+                objectName
+                objectType
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        totalCount
+    }
+}
+
+# ===== Utilities (2 operations) =====
+# --- node
+# Inputs:
+# ID,
+# Return:
+# Node
+query node ($id: ID!) {
+    node (id: $id) {
+        id
+    }
+}
+
+# --- rateLimit
+# Return:
+# CostEstimationResponse
+query rateLimit {
+    rateLimit {
+        cost
+    }
+}

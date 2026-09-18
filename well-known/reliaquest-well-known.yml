@@ -1,0 +1,245 @@
+generated: '2026-09-18'
+method: probed
+source: direct HTTP probes of every host the record names, 2026-09-18
+hosts:
+- host: reliaquest.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    content_type: text/html
+  - path: /.well-known/openid-configuration
+    status: 404
+    content_type: text/html
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    content_type: text/html
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    content_type: text/html
+  - path: /.well-known/api-catalog
+    status: 404
+    content_type: text/html
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    content_type: text/html
+  - path: /.well-known/ucp.json
+    status: 404
+    content_type: text/html
+  - path: /.well-known/acp.json
+    status: 404
+    content_type: text/html
+  - path: /.well-known/aauth-resource.json
+    status: 404
+    content_type: text/html
+  - path: /.well-known/apis.json
+    status: 404
+    content_type: text/html
+  - path: /apis.json
+    status: 404
+    content_type: text/html
+  - path: /apis.yml
+    status: 404
+    content_type: text/html
+  - path: /.well-known/agent-card.json
+    status: 404
+    content_type: text/html
+  - path: /.well-known/agent.json
+    status: 404
+    content_type: text/html
+- host: www.reliaquest.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    content_type: text/html
+  - path: /.well-known/openid-configuration
+    status: 404
+    content_type: text/html
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    content_type: text/html
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    content_type: text/html
+  - path: /.well-known/api-catalog
+    status: 404
+    content_type: text/html
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    content_type: text/html
+  - path: /.well-known/ucp.json
+    status: 404
+    content_type: text/html
+  - path: /.well-known/acp.json
+    status: 404
+    content_type: text/html
+  - path: /.well-known/aauth-resource.json
+    status: 404
+    content_type: text/html
+  - path: /.well-known/apis.json
+    status: 404
+    content_type: text/html
+  - path: /apis.json
+    status: 404
+    content_type: text/html
+  - path: /apis.yml
+    status: 404
+    content_type: text/html
+  - path: /.well-known/agent-card.json
+    status: 404
+    content_type: text/html
+  - path: /.well-known/agent.json
+    status: 404
+    content_type: text/html
+- host: greymatter.myreliaquest.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+    content_type: text/html
+  - path: /.well-known/openid-configuration
+    status: 403
+    content_type: text/html
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+    content_type: text/html
+  - path: /.well-known/oauth-protected-resource
+    status: 403
+    content_type: text/html
+  - path: /.well-known/api-catalog
+    status: 403
+    content_type: text/html
+  - path: /.well-known/ai-plugin.json
+    status: 403
+    content_type: text/html
+  - path: /.well-known/ucp.json
+    status: 403
+    content_type: text/html
+  - path: /.well-known/acp.json
+    status: 403
+    content_type: text/html
+  - path: /.well-known/aauth-resource.json
+    status: 403
+    content_type: text/html
+  - path: /.well-known/apis.json
+    status: 403
+    content_type: text/html
+  - path: /apis.json
+    status: 200
+    content_type: text/html
+    note: 200 but body is an HTML/SPA shell or does not parse as the document — treated as a miss
+  - path: /apis.yml
+    status: 200
+    content_type: text/html
+    note: 200 but body is an HTML/SPA shell or does not parse as the document — treated as a miss
+  - path: /.well-known/agent-card.json
+    status: 403
+    content_type: text/html
+  - path: /.well-known/agent.json
+    status: 403
+    content_type: text/html
+- host: apidocs.myreliaquest.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    content_type: text/html
+  - path: /.well-known/openid-configuration
+    status: 404
+    content_type: text/html
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    content_type: text/html
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    content_type: text/html
+  - path: /.well-known/api-catalog
+    status: 404
+    content_type: text/html
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    content_type: text/html
+  - path: /.well-known/ucp.json
+    status: 404
+    content_type: text/html
+  - path: /.well-known/acp.json
+    status: 404
+    content_type: text/html
+  - path: /.well-known/aauth-resource.json
+    status: 404
+    content_type: text/html
+  - path: /.well-known/apis.json
+    status: 404
+    content_type: text/html
+  - path: /apis.json
+    status: 404
+    content_type: text/html
+  - path: /apis.yml
+    status: 404
+    content_type: text/html
+  - path: /.well-known/agent-card.json
+    status: 404
+    content_type: text/html
+  - path: /.well-known/agent.json
+    status: 404
+    content_type: text/html
+- host: portal-digitalshadows.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/html
+    note: 200 but body is an HTML/SPA shell or does not parse as the document — treated as a miss
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: text/html
+    note: 200 but body is an HTML/SPA shell or does not parse as the document — treated as a miss
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: text/html
+    note: 200 but body is an HTML/SPA shell or does not parse as the document — treated as a miss
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    content_type: text/html
+    note: 200 but body is an HTML/SPA shell or does not parse as the document — treated as a miss
+  - path: /.well-known/api-catalog
+    status: 200
+    content_type: text/html
+    note: 200 but body is an HTML/SPA shell or does not parse as the document — treated as a miss
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    content_type: text/html
+    note: 200 but body is an HTML/SPA shell or does not parse as the document — treated as a miss
+  - path: /.well-known/ucp.json
+    status: 200
+    content_type: text/html
+    note: 200 but body is an HTML/SPA shell or does not parse as the document — treated as a miss
+  - path: /.well-known/acp.json
+    status: 200
+    content_type: text/html
+    note: 200 but body is an HTML/SPA shell or does not parse as the document — treated as a miss
+  - path: /.well-known/aauth-resource.json
+    status: 200
+    content_type: text/html
+    note: 200 but body is an HTML/SPA shell or does not parse as the document — treated as a miss
+  - path: /.well-known/apis.json
+    status: 200
+    content_type: text/html
+    note: 200 but body is an HTML/SPA shell or does not parse as the document — treated as a miss
+  - path: /apis.json
+    status: 200
+    content_type: text/html
+    note: 200 but body is an HTML/SPA shell or does not parse as the document — treated as a miss
+  - path: /apis.yml
+    status: 200
+    content_type: text/html
+    note: 200 but body is an HTML/SPA shell or does not parse as the document — treated as a miss
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: text/html
+    note: 200 but body is an HTML/SPA shell or does not parse as the document — treated as a miss
+  - path: /.well-known/agent.json
+    status: 200
+    content_type: text/html
+    note: 200 but body is an HTML/SPA shell or does not parse as the document — treated as a miss
+hits: 0
+note: 'No host served a real well-known document: reliaquest.com and www answer 404 on every path; greymatter.myreliaquest.com
+  answers 403 on every path; apidocs.myreliaquest.com (Postman documenter) 404s; portal-digitalshadows.com is an
+  SPA catch-all that returns a 200 HTML ''Loading...'' shell for every path, recorded as a miss. No WellKnown pointer
+  is emitted.'

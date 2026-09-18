@@ -1,0 +1,72 @@
+generated: '2026-09-18'
+method: searched
+source: >-
+  https://apidocs.myreliaquest.com/ (GreyMatter API docs) + postman/reliaquest-greymatter-api.postman_collection.json
+  + https://reliaquest.com/resources/greymatter-faq/data-privacy-and-compliance-faq/ +
+  https://reliaquest.com/security-operations-platform/universal-translator/ + well-known probes, all 2026-09-18
+api: reliaquest:greymatter-api
+conformance:
+  - id: graphql
+    conforms: true
+    evidence: single POST endpoint https://greymatter.myreliaquest.com/graphql; 153 provider-authored query/mutation documents in the Postman collection; docs state introspection is supported for authenticated callers.
+  - id: graphql-cursor-connections
+    label: Relay GraphQL Cursor Connections
+    conforms: true
+    evidence: 'docs: "the API follows the GraphQL Connections standard (https://relay.dev/graphql/connections.htm)"; every list query in the collection returns edges { cursor node } + pageInfo + totalCount with first/after arguments.'
+  - id: relay-global-object-identification
+    conforms: true
+    evidence: 'docs "Global IDs" section (base64 "<Type>:<uuid>") and the `node(id: ID)` query in the Utilities folder.'
+  - id: oauth2
+    conforms: false
+    evidence: API-key header auth only; no OAuth documented; /.well-known/oauth-authorization-server 404/403 on every host (well-known/reliaquest-well-known.yml).
+  - id: oidc
+    conforms: false
+    evidence: /.well-known/openid-configuration 404/403 on every host probed.
+  - id: rfc9457
+    conforms: false
+    evidence: transport errors are a Spring-style {timestamp,status,error,path,errors[]} JSON body, GraphQL errors are the standard errors[] list; no application/problem+json.
+  - id: rfc8594-sunset
+    conforms: false
+    evidence: no deprecation/sunset policy or header documented (lifecycle/reliaquest-lifecycle.yml).
+  - id: idempotency
+    conforms: false
+    evidence: no idempotency mechanism documented; coverage none (conventions/reliaquest-conventions.yml).
+  - id: pagination
+    conforms: true
+    evidence: Relay cursor pagination on all list queries (see graphql-cursor-connections).
+  - id: scim
+    conforms: false
+    evidence: user/role/pod/access-group management is exposed as bespoke GraphQL mutations (createUser, updateUser, deleteUser, createRole...) — no urn:ietf:params:scim schema, no /scim/v2 surface documented.
+domain_standards_note: >-
+    REWARD-ONLY. The security-operations market's data standard is OCSF. ReliaQuest states in prose that
+    its Universal Translator normalizes telemetry "to OCSF in real time", but the API CONTRACT does not
+    declare it: zero occurrences of "OCSF" in the 1.48 MB collection, and no operation exposes an
+    OCSF-shaped event schema (dataSourceSchema returns a DataSourceResponse whose fields are not
+    published). Recorded as a prose claim, not a contract conformance — no domain_standard_conformance
+    credit is asserted.
+domain_standards:
+  - id: ocsf
+    label: Open Cybersecurity Schema Framework
+    conforms: false
+    declared_in_contract: false
+    claimed_in_prose: true
+    evidence: https://reliaquest.com/security-operations-platform/universal-translator/ ("Field-level normalization to OCSF"); 0 matches in postman/reliaquest-greymatter-api.postman_collection.json.
+  - id: stix-taxii
+    conforms: false
+    evidence: indicators/indicator queries use a bespoke Indicator type; no STIX 2.x objects or TAXII collections documented.
+compliance:
+  source: https://reliaquest.com/resources/greymatter-faq/data-privacy-and-compliance-faq/
+  programs:
+    - id: soc2-type2
+      claimed: true
+      evidence: '"ReliaQuest maintains SOC 2 Type II attestation, which is verified through independent annual audits"'
+    - id: hipaa
+      claimed: true
+      evidence: '"ReliaQuest maintains HIPAA and PCI-DSS compliance"'
+    - id: pci-dss
+      claimed: true
+      evidence: '"ReliaQuest maintains HIPAA and PCI-DSS compliance"'
+    - id: gdpr
+      claimed: partial
+      evidence: '"GreyMatter does not process personal data"; pseudonymization on request — a posture statement, not a certification'
+  see: security/reliaquest-trust-center.yml

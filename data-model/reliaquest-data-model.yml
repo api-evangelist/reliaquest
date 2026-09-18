@@ -1,0 +1,1013 @@
+generated: '2026-09-18'
+method: derived
+source: postman/reliaquest-greymatter-api.postman_collection.json — ReliaQuest's public GreyMatter API Postman collection
+  (https://apidocs.myreliaquest.com/), fetched 2026-09-18. Introspection is auth-gated (403) and no SDL is public,
+  so this graph is read from the field selections in the provider's own example query documents, not from the schema.
+api: reliaquest:greymatter-api
+notes: Entities are the node types behind each list/single query; relationships are (a) nested object selections
+  in the provider's example documents and (b) `*Id`/`*Ids` scalar reference fields. Cardinality for nested selections
+  is inferred from the field name (plural = has_many) or from a Relay sub-connection, so it is a reading, not a
+  schema fact. Entity names are the Relay node types implied by each Connection's return type (IncidentConnection
+  -> Incident).
+identifiers:
+  scheme: Global ID
+  format: base64("<Type>:<uuid>")
+  example: Incident:ffb4f0e4-b48d-4cb6-bf85-b9e5f27d2b27 -> SW5jaWRlbnQ6ZmZiNGYwZTQtYjQ4ZC00Y2I2LWJmODUtYjllNWYyN2QyYjI3
+  resolver: 'node(id: ID) — Utilities folder'
+  source: https://apidocs.myreliaquest.com/ ("Global IDs")
+pagination:
+  style: relay-connections
+  args:
+  - first
+  - after
+  response:
+  - pageInfo
+  - edges[].cursor
+  - edges[].node
+  - totalCount
+entity_count: 29
+relationship_count: 102
+entities:
+- entity: Incident
+  group: Incidents
+  queries:
+  - incidents
+  - incident
+  return_types:
+  - Incident
+  - IncidentConnection
+  scalar_field_count: 39
+  global_id: true
+  relationships:
+  - field: acknowledgement
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - acknowledgementMethod
+    - createdAt
+  - field: activity
+    cardinality: has_many
+    via: nested selection
+    sample_fields: []
+  - field: allArtifacts
+    cardinality: has_many
+    via: nested selection
+    sample_fields:
+    - field
+    - values
+  - field: assignee
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - email
+    - fullName
+    - id
+    - serviceNowId
+  - field: comments
+    cardinality: has_many
+    via: nested selection
+    sample_fields: []
+  - field: customer
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - active
+    - headerSlug
+    - id
+    - name
+    - residency
+    - slug
+  - field: metadata
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - type
+  - field: queryBatches
+    cardinality: has_many
+    via: nested selection
+    sample_fields: []
+  - field: rule
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - id
+    - name
+    - version
+  - field: searchHistory
+    cardinality: has_many
+    via: nested selection
+    sample_fields: []
+- entity: Case
+  group: Cases
+  queries:
+  - cases
+  - case
+  return_types:
+  - Case
+  - CaseConnection
+  scalar_field_count: 17
+  global_id: true
+  relationships:
+  - field: activity
+    cardinality: has_many
+    via: nested selection
+    sample_fields:
+    - createdAt
+    - id
+  - field: children
+    cardinality: has_many
+    via: nested selection
+    sample_fields:
+    - closeCode
+    - createdAt
+    - externalId
+    - id
+    - severity
+    - state
+    - summary
+    - title
+  - field: childrenOverview
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - totalChildren
+    - totalClosed
+    - totalInProgress
+    - totalNew
+    - totalOpen
+  - field: comments
+    cardinality: has_many
+    via: nested selection
+    sample_fields:
+    - createdAt
+    - id
+    - text
+    - updatedAt
+  - field: createdBy
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - email
+    - fullName
+    - id
+    - serviceNowId
+  - field: customer
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - active
+    - headerSlug
+    - id
+    - name
+    - residency
+    - slug
+  - field: discoverExposure
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - aiSummary
+    - description
+    - exposure
+    - id
+    - mitigations
+    - type
+  - field: owner
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - email
+    - fullName
+    - id
+    - serviceNowId
+  - field: updatedBy
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - email
+    - fullName
+    - id
+    - serviceNowId
+- entity: Task
+  group: Tasks
+  queries:
+  - tasks
+  - task
+  return_types:
+  - Task
+  - TaskConnection
+  scalar_field_count: 16
+  global_id: true
+  relationships:
+  - field: acknowledgement
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - actionMethod
+    - createdAt
+  - field: activity
+    cardinality: has_many
+    via: nested selection
+    sample_fields: []
+  - field: assignee
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - email
+    - fullName
+    - id
+    - serviceNowId
+  - field: comments
+    cardinality: has_many
+    via: nested selection
+    sample_fields: []
+  - field: createdBy
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - email
+    - fullName
+    - id
+    - serviceNowId
+  - field: customer
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - active
+    - headerSlug
+    - id
+    - name
+    - residency
+    - slug
+  - field: metadata
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - '...'
+    - 'on'
+  - field: updatedBy
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - email
+    - fullName
+    - id
+    - serviceNowId
+  - field: externalId
+    cardinality: belongs_to
+    via: id reference field
+    target_hint: external
+- entity: CustomerDetection
+  group: Detections
+  queries:
+  - customerDetections
+  - customerDetection
+  return_types:
+  - CustomerDetection
+  - CustomerDetectionConnection
+  scalar_field_count: 8
+  global_id: true
+  relationships:
+  - field: activityLogEntries
+    cardinality: has_many
+    via: nested selection
+    sample_fields:
+    - totalCount
+  - field: customer
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - id
+  - field: draftVersion
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - id
+  - field: globalDetection
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - detectionSource
+    - displaySlug
+    - id
+    - logic
+    - macros
+    - sourceType
+    - suppressionExpression
+    - timeRange
+- entity: DetectionRule
+  group: Detections
+  queries:
+  - detectionRules
+  return_types:
+  - DetectionRuleConnection
+  scalar_field_count: 9
+  global_id: true
+  relationships: []
+- entity: Playbook
+  group: Playbooks
+  queries:
+  - playbooks
+  return_types:
+  - Playbook
+  scalar_field_count: 2
+  global_id: true
+  relationships:
+  - field: fieldDefinitions
+    cardinality: has_many
+    via: nested selection
+    sample_fields:
+    - deprecated
+    - field
+    - required
+  - field: metadata
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - description
+    - enabled
+    - name
+    - type
+  - field: supportedTechnologies
+    cardinality: has_many
+    via: nested selection
+    sample_fields:
+    - documentationUrl
+    - id
+    - name
+    - type
+- entity: CustomerPlaybook
+  group: Playbooks
+  queries:
+  - customerPlaybooks
+  return_types:
+  - CustomerPlaybook
+  scalar_field_count: 4
+  global_id: true
+  relationships:
+  - field: fieldDefinitions
+    cardinality: has_many
+    via: nested selection
+    sample_fields:
+    - deprecated
+    - field
+    - required
+  - field: metadata
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - description
+    - enabled
+    - name
+    - type
+  - field: supportedIntegrations
+    cardinality: has_many
+    via: nested selection
+    sample_fields:
+    - connectionStatus
+    - enabled
+    - id
+    - lastConnectionTest
+    - lastUsed
+    - name
+- entity: PlaybookRun
+  group: Playbooks
+  queries:
+  - playbookRuns
+  - playbookRun
+  return_types:
+  - PlaybookRun
+  - PlaybookRunConnection
+  scalar_field_count: 15
+  global_id: true
+  relationships:
+  - field: createdBy
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - email
+    - fullName
+    - id
+    - serviceNowId
+  - field: customer
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - active
+    - headerSlug
+    - id
+    - name
+    - residency
+    - slug
+  - field: executionResult
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - endTime
+    - lastRetriedTime
+    - startTime
+  - field: updatedBy
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - email
+    - fullName
+    - id
+    - serviceNowId
+  - field: tempRuleId
+    cardinality: belongs_to
+    via: id reference field
+    target_hint: tempRule
+- entity: DRPAlert
+  group: DRP Alerts
+  queries:
+  - drpAlerts
+  - drpAlert
+  return_types:
+  - DRPAlert
+  - DRPAlertConnection
+  scalar_field_count: 24
+  global_id: true
+  relationships:
+  - field: activityLogItems
+    cardinality: has_many
+    via: nested selection
+    sample_fields:
+    - actionKey
+    - clientId
+    - created
+    - payload
+    - permissions
+    - scope
+  - field: assetMatches
+    cardinality: has_many
+    via: nested selection
+    sample_fields:
+    - approvalState
+    - archivedState
+    - clientId
+    - created
+    - deleted
+    - id
+    - modified
+    - pending
+  - field: currentAssignment
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - timestamp
+    - version
+  - field: currentFlag
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - timestamp
+  - field: currentState
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - state
+    - timestamp
+    - version
+  - field: currentWatcher
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - timestamp
+  - field: customer
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - active
+    - headerSlug
+    - id
+    - name
+    - residency
+    - slug
+  - field: originator
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - originatorType
+  - field: takedown
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - id
+    - state
+  - field: rejectedByRuleIds
+    cardinality: has_many
+    via: id list field
+    target_hint: rejectedByRule
+- entity: DiscoverTask
+  group: Discover Tasks
+  queries:
+  - discoverTasks
+  - discoverTask
+  return_types:
+  - DiscoverTask
+  - DiscoverTaskConnection
+  scalar_field_count: 7
+  global_id: true
+  relationships:
+  - field: activity
+    cardinality: has_many
+    via: nested selection
+    sample_fields:
+    - createdAt
+    - id
+  - field: assignee
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - email
+    - fullName
+    - id
+    - serviceNowId
+  - field: comments
+    cardinality: has_many
+    via: nested selection
+    sample_fields:
+    - createdAt
+    - id
+    - text
+    - updatedAt
+  - field: customer
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - active
+    - headerSlug
+    - id
+    - name
+    - residency
+    - slug
+  - field: exposure
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - aiSummary
+    - description
+    - exposure
+    - id
+    - mitigations
+    - type
+  - field: integrations
+    cardinality: has_many
+    via: nested selection
+    sample_fields:
+    - connectionStatus
+    - enabled
+    - id
+    - lastConnectionTest
+    - lastUsed
+    - name
+- entity: Asset
+  group: Assets
+  queries:
+  - assets
+  return_types:
+  - AssetConnection
+  scalar_field_count: 9
+  global_id: true
+  relationships:
+  - field: techAssetIds
+    cardinality: has_many
+    via: id list field
+    target_hint: techAsset
+- entity: Identity
+  group: Identities
+  queries:
+  - identities
+  return_types:
+  - IdentityConnection
+  scalar_field_count: 6
+  global_id: true
+  relationships: []
+- entity: Indicator
+  group: Indicators
+  queries:
+  - indicators
+  - indicator
+  return_types:
+  - Indicator
+  - IndicatorConnection
+  scalar_field_count: 14
+  global_id: true
+  relationships: []
+- entity: ReferenceList
+  group: Reference Lists
+  queries:
+  - referenceLists
+  - referenceList
+  return_types:
+  - ReferenceList
+  - ReferenceListConnection
+  scalar_field_count: 8
+  global_id: true
+  relationships:
+  - field: columns
+    cardinality: has_many
+    via: nested selection
+    sample_fields:
+    - createdAt
+    - description
+    - id
+    - name
+    - type
+    - updatedAt
+  - field: createdBy
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - email
+    - fullName
+    - id
+    - serviceNowId
+  - field: rows
+    cardinality: has_many
+    via: nested selection
+    sample_fields: []
+  - field: updatedBy
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - email
+    - fullName
+    - id
+    - serviceNowId
+- entity: EmergencyContact
+  group: Emergency Contacts
+  queries:
+  - emergencyContacts
+  - emergencyContact
+  return_types:
+  - EmergencyContact
+  - EmergencyContactConnection
+  scalar_field_count: 7
+  global_id: true
+  relationships:
+  - field: callWindows
+    cardinality: has_many
+    via: nested selection
+    sample_fields:
+    - daysOfWeek
+    - endTime
+    - startTime
+    - timeZone
+  - field: customer
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - active
+    - headerSlug
+    - id
+    - name
+    - residency
+    - slug
+  - field: user
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - email
+    - fullName
+    - id
+    - serviceNowId
+- entity: AiContext
+  group: Memory
+  queries:
+  - aiContexts
+  - aiContext
+  return_types:
+  - AiContext
+  - AiContextConnection
+  scalar_field_count: 11
+  global_id: true
+  relationships:
+  - field: createdBy
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - email
+    - fullName
+    - id
+    - serviceNowId
+  - field: customer
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - active
+    - headerSlug
+    - id
+    - name
+    - residency
+    - slug
+  - field: mode
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - criteria
+    - mode
+  - field: tags
+    cardinality: has_many
+    via: nested selection
+    sample_fields:
+    - agent
+    - step
+  - field: updatedBy
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - email
+    - fullName
+    - id
+    - serviceNowId
+- entity: AccessGroup
+  group: Access Groups
+  queries:
+  - accessGroups
+  - accessGroup
+  return_types:
+  - AccessGroup
+  - AccessGroupConnection
+  scalar_field_count: 7
+  global_id: true
+  relationships:
+  - field: pods
+    cardinality: has_many
+    via: nested selection
+    sample_fields: []
+  - field: roles
+    cardinality: has_many
+    via: nested selection
+    sample_fields: []
+  - field: users
+    cardinality: has_many
+    via: nested selection
+    sample_fields: []
+- entity: Role
+  group: Access Groups
+  queries:
+  - roles
+  - role
+  return_types:
+  - Role
+  - RoleConnection
+  scalar_field_count: 7
+  global_id: true
+  relationships:
+  - field: accessGroups
+    cardinality: has_many
+    via: nested selection
+    sample_fields: []
+  - field: users
+    cardinality: has_many
+    via: nested selection
+    sample_fields: []
+- entity: Pod
+  group: Access Groups
+  queries:
+  - pods
+  - pod
+  return_types:
+  - Pod
+  - PodConnection
+  scalar_field_count: 5
+  global_id: true
+  relationships:
+  - field: accessGroups
+    cardinality: has_many
+    via: nested selection
+    sample_fields: []
+  - field: customers
+    cardinality: has_many
+    via: nested selection
+    sample_fields: []
+  - field: users
+    cardinality: has_many
+    via: nested selection
+    sample_fields: []
+- entity: ApiKey
+  group: API Keys
+  queries:
+  - apiKeys
+  return_types:
+  - ApiKey
+  scalar_field_count: 6
+  global_id: true
+  relationships:
+  - field: user
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - email
+    - fullName
+    - id
+    - serviceNowId
+- entity: Customer
+  group: Customer
+  queries:
+  - customers
+  - customer
+  return_types:
+  - Customer
+  - CustomerConnection
+  scalar_field_count: 6
+  global_id: true
+  relationships:
+  - field: accessControlPolicies
+    cardinality: has_many
+    via: nested selection
+    sample_fields:
+    - description
+    - displayName
+    - id
+    - name
+    - resource
+    - resourceType
+  - field: deployedRulesCount
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - count
+  - field: users
+    cardinality: has_many
+    via: nested selection
+    sample_fields:
+    - email
+    - fullName
+    - id
+    - serviceNowId
+- entity: AuditActionDetails
+  group: User Activity
+  queries:
+  - audits
+  return_types:
+  - AuditActionDetailsConnection
+  scalar_field_count: 6
+  global_id: true
+  relationships:
+  - field: objectId
+    cardinality: belongs_to
+    via: id reference field
+    target_hint: object
+- entity: DetectionChangeRequest
+  group: Change Control
+  queries:
+  - detectionChangeRequests
+  return_types:
+  - DetectionChangeRequestConnection
+  scalar_field_count: 5
+  global_id: true
+  relationships: []
+- entity: AccessControlPolicy
+  group: DRP Access Control
+  queries:
+  - accessControlPolicies
+  - accessControlPolicy
+  return_types:
+  - AccessControlPolicy
+  - AccessControlPolicyConnection
+  scalar_field_count: 6
+  global_id: true
+  relationships:
+  - field: accessGroups
+    cardinality: has_many
+    via: nested selection
+    sample_fields: []
+  - field: customer
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - active
+    - headerSlug
+    - id
+    - name
+    - residency
+    - slug
+  - field: users
+    cardinality: has_many
+    via: nested selection
+    sample_fields: []
+- entity: Integration
+  group: Query Management
+  queries:
+  - integrations
+  - integration
+  return_types:
+  - Integration
+  - IntegrationConnection
+  scalar_field_count: 6
+  global_id: true
+  relationships:
+  - field: activity
+    cardinality: has_many
+    via: nested selection
+    sample_fields: []
+  - field: connector
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - documentationUrl
+    - id
+    - name
+    - type
+  - field: sharedBy
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - active
+    - headerSlug
+    - id
+    - name
+    - residency
+    - slug
+- entity: GreyMatterField
+  group: Fields
+  queries:
+  - greymatterFields
+  - greymatterField
+  return_types:
+  - GreyMatterField
+  - GreyMatterFieldConnection
+  scalar_field_count: 6
+  global_id: true
+  relationships: []
+- entity: User
+  group: User
+  queries:
+  - user
+  return_types:
+  - User
+  scalar_field_count: 4
+  global_id: true
+  relationships:
+  - field: accessGroups
+    cardinality: has_many
+    via: nested selection
+    sample_fields: []
+  - field: pods
+    cardinality: has_many
+    via: nested selection
+    sample_fields: []
+  - field: roles
+    cardinality: has_many
+    via: nested selection
+    sample_fields: []
+  - field: serviceNowId
+    cardinality: belongs_to
+    via: id reference field
+    target_hint: serviceNow
+- entity: CurrentUser
+  group: User
+  queries:
+  - me
+  return_types:
+  - CurrentUser
+  scalar_field_count: 4
+  global_id: true
+  relationships:
+  - field: customers
+    cardinality: has_many
+    via: nested selection
+    sample_fields:
+    - totalCount
+  - field: serviceNowId
+    cardinality: belongs_to
+    via: id reference field
+    target_hint: serviceNow
+- entity: CustomerDetectionActivityLogEntry
+  group: Detections
+  queries:
+  - customerDetectionActivityLogEntries
+  - customerDetectionActivityLogEntry
+  return_types:
+  - CustomerDetectionActivityLogEntry
+  - CustomerDetectionActivityLogEntryConnection
+  scalar_field_count: 4
+  global_id: true
+  relationships:
+  - field: comments
+    cardinality: has_many
+    via: nested selection
+    sample_fields:
+    - totalCount
+  - field: createdBy
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - id
+  - field: customer
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - id
+  - field: customerDetection
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - id
+  - field: draftCustomerDetection
+    cardinality: has_one
+    via: nested selection
+    sample_fields:
+    - id

@@ -1,0 +1,62 @@
+generated: '2026-09-18'
+method: searched
+source: >-
+  https://apidocs.myreliaquest.com/ + https://reliaquest.com/greymatter-service-level/ +
+  https://reliaquest.com/product-release/ + https://status.digitalshadows.com/ (all fetched 2026-09-18)
+versioning:
+  scheme: unversioned-endpoint
+  notes: >-
+    The GreyMatter API is a single unversioned GraphQL endpoint (https://greymatter.myreliaquest.com/graphql).
+    The docs say the API is "iteratively enhanced" and that introspection "is the best way to stay updated
+    on the latest features" — additive schema evolution, no version segment, no version header. The
+    SearchLight Portal API versions through its vendor media type (application/vnd.polaris-v38+json).
+changelog:
+  url: https://reliaquest.com/product-release/
+  artifact: changelog/reliaquest-changelog.yml
+  cadence: monthly
+  notes: >-
+    Monthly GreyMatter product releases with per-feature entries. They cover platform features; the
+    three most recent (June–August 2026) carry no API-specific entries.
+sla:
+  url: https://reliaquest.com/greymatter-service-level/
+  availability: 99.9% per full calendar quarter of the Order Term
+  credits:
+    - availability: '>= 99.0% and < 99.9%'
+      credit: 1% of the Quarterly Fee
+    - availability: '>= 95.0% and < 99.0%'
+      credit: 2% of the Quarterly Fee
+    - availability: '< 95.0%'
+      credit: 5% of the Quarterly Fee
+  claim_window: written notice within five (5) days following the end of the calendar quarter
+  exclusions: scheduled/emergency maintenance, force majeure, customer-side changes and equipment, free/POC/beta/trial services
+status_page:
+  url: https://status.digitalshadows.com/
+  provider: Site24x7 StatusIQ
+  scope: SearchLight (Digital Shadows) only — titled "SearchLight Status Page"
+  machine_readable_api: false
+  greymatter_status_page: >-
+    None found. status.reliaquest.com, status.myreliaquest.com and trust.myreliaquest.com do not resolve
+    (probed 2026-09-18). The StatusPage pointer is therefore attached to the SearchLight API entry only.
+  probed:
+    - url: https://status.digitalshadows.com/
+      status: 200
+      checked: '2026-09-18'
+    - url: https://status.reliaquest.com/
+      status: 0
+      checked: '2026-09-18'
+api_key_lifecycle:
+  default_expiry: 1 year (set at creation, editable later)
+  renewal: not supported — a new key must be created; creating a new key invalidates the old one
+  expiry_notification: none
+  source: https://apidocs.myreliaquest.com/ (FAQ)
+deprecation:
+  policy_documented: false
+  sunset_header: false
+  deprecated_operations: []
+  notes: >-
+    No deprecation / sunset (RFC 8594) policy is published for the GreyMatter API and no operation in
+    the 153-operation Postman collection is marked deprecated. No Deprecation pointer is emitted.
+data_retention:
+  source: https://reliaquest.com/resources/greymatter-faq/data-privacy-and-compliance-faq/
+  log_data: 72 hours for investigations; 30 to 90 days for hunt campaigns (customer-configured)
+  tickets_and_alerts: 12 months live, then archived a further 6 months (18 months total)

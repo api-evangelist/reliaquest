@@ -1,0 +1,23 @@
+generated: '2026-09-18'
+method: generated
+source: >-
+  Packaged Agent Skills generated from ReliaQuest's public GreyMatter API Postman collection
+  (postman/reliaquest-greymatter-api.postman_collection.json, https://apidocs.myreliaquest.com/). Every
+  step is grounded in an operation name verified verbatim in the collection (see
+  postman/reliaquest-greymatter-operations.txt); cross-cutting rules cite ../authentication/,
+  ../conventions/, ../errors/ and ../rate-limits/. Searched first for provider-published skills or
+  AGENTS.md on reliaquest.com, apidocs.myreliaquest.com and the reliaquest GitHub org — none exist.
+api: reliaquest:greymatter-api
+skills:
+  - file: reliaquest-triage-and-close-an-incident.md
+    name: Triage and close a GreyMatter incident
+    api: postman/reliaquest-greymatter-operations.txt
+    operations: [incidents, incident, acknowledgeIncident, assignIncident, addIncidentComment, updateIncidentState, closeIncident, unresolveIncident]
+  - file: reliaquest-run-a-response-playbook.md
+    name: Run a response playbook and monitor the run
+    api: postman/reliaquest-greymatter-operations.txt
+    operations: [recommendedPlaybooks, playbooks, customerPlaybooks, runPlaybook, playbookRun, playbookRuns, rerunAllFailedTasksForPlaybookRun]
+  - file: reliaquest-work-drp-alerts.md
+    name: Work digital-risk-protection alerts
+    api: postman/reliaquest-greymatter-operations.txt
+    operations: [drpAlerts, drpAlert, assignDRPAlert, watchDRPAlert, addDrpAlertComment, updateDrpAlertState, bulkCloseDrpAlerts]

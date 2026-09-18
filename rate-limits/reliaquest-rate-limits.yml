@@ -1,0 +1,34 @@
+generated: '2026-09-18'
+method: searched
+source: https://apidocs.myreliaquest.com/ (GreyMatter API documentation, "Rate Limiting" section, fetched 2026-09-18)
+api: reliaquest:greymatter-api
+limit_count: 1
+scopes:
+  - scope: per-user
+    surface: GraphQL (https://greymatter.myreliaquest.com/graphql)
+    window: 1 hour
+    limit: 5000
+    unit: tokens
+    burst: null
+    counted: >-
+      "Each Node entity in the request counts as a token" — the cost is the number of Node entities
+      a query touches, not the number of HTTP requests, so a wide paginated query spends its
+      allowance faster than a narrow one.
+    status_on_exhaustion: null
+    status_note: >-
+      The docs say only that 4xx codes indicate a request problem; the exact status returned on
+      exhaustion (429 or otherwise) is not stated and was not observed — the endpoint answers 403 to
+      unauthenticated callers.
+    response_headers: []
+    headers_note: >-
+      No rate-limit response headers (X-RateLimit-*, RateLimit-*, Retry-After) are documented. The
+      runtime signal ReliaQuest provides instead is an in-band GraphQL query, `rateLimit { cost }`
+      (Utilities folder, returns CostEstimationResponse), which reports the token cost — an agent
+      should poll that rather than expect a header.
+    cost_query:
+      operation: rateLimit
+      document: 'query rateLimit { rateLimit { cost } }'
+      returns: CostEstimationResponse
+searchlight_note: >-
+  No rate limits are published for the Digital Shadows SearchLight Portal API; its reference is
+  customer-only. Not counted above.

@@ -64,5 +64,24 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-ReliaQuest is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/reliaquest_stock/
+ReliaQuest is a Tampa-based, privately held cybersecurity company whose GreyMatter platform runs agentic AI security operations on top of the security tools a customer already owns. Customers automate GreyMatter through the **GreyMatter API**, a single-endpoint GraphQL API (58 queries, 95 mutations) documented as a public Postman collection at [apidocs.myreliaquest.com](https://apidocs.myreliaquest.com/) and authenticated with an `X-API-KEY` header. ReliaQuest also operates the Digital Shadows SearchLight Portal API (digital risk protection), acquired with Digital Shadows in 2022, whose reference is customer-only.
+
+- Website: https://reliaquest.com/
+- GreyMatter API documentation (Postman): https://apidocs.myreliaquest.com/
+- GraphQL endpoint: https://greymatter.myreliaquest.com/graphql
+- llms.txt: https://reliaquest.com/llms.txt
+- Product releases: https://reliaquest.com/product-release/
+- Vulnerability disclosure: https://reliaquest.com/report-potential-security-vulnerability/
+
+## What is in this repository
+
+| Path | What | How it was obtained |
+|---|---|---|
+| `postman/reliaquest-greymatter-api.postman_collection.json` | The provider's GreyMatter API Postman collection, verbatim (153 operations) | fetched from apidocs.myreliaquest.com |
+| `postman/reliaquest-greymatter-operations.txt` | The provider's example query/mutation documents extracted from the collection (not a schema) | derived |
+| `llms/reliaquest-llms.txt` | The provider's llms.txt, verbatim | fetched |
+| `authentication/`, `rate-limits/`, `conventions/`, `lifecycle/`, `changelog/`, `plans/` | Auth, limits, pagination/ids/reversibility, SLA, releases, pricing model | read from the provider's docs |
+| `errors/`, `data-model/`, `mcp/`, `conformance/` | Error envelope, entity graph, candidate MCP tools, standards posture | derived from the collection and live probes |
+| `security/`, `well-known/` | TLS/DNS posture, VDP (Bugcrowd), SOC 2 / HIPAA / PCI claims, well-known probes (all misses) | probed |
+| `packages/`, `cli/` | shadowline, the first-party CLI for the SearchLight API | GitHub |
+| `skills/` | Three Agent Skills grounded in verified operation names | generated |

@@ -1,0 +1,57 @@
+generated: '2026-09-18'
+method: searched
+source: https://reliaquest.com/product-release/ (monthly release pages listed in https://reliaquest.com/sitemap.xml, fetched 2026-09-18)
+scheme: monthly product releases (no API version numbers)
+current_version: August 2026 release
+api_specific_entries: 0
+note: >-
+  The changelog is a platform release log, not an API changelog. The listing page is client-rendered,
+  so entries were read from the individual monthly pages named in the sitemap. None of the three most
+  recent releases mentions the GreyMatter API, GraphQL, API keys, webhooks or MCP; API evolution is
+  surfaced through GraphQL introspection instead (see lifecycle/reliaquest-lifecycle.yml).
+entries:
+  - version: August 2026
+    url: https://reliaquest.com/product-release/august-2026/
+    breaking: false
+    highlights:
+      - GreyMatter Custom Reporting
+      - OT Engineer Teammate
+      - Phishing Analyzer — dedicated workspace and remediation enhancements
+      - Discover — expanded exposure rule library, AI visibility, onboarding experience, customizable overview
+      - GreyMatter Ticket Sync — Ivanti
+      - Respond in Mobile
+      - Transit — Forwarders tab and Reference List library
+      - New and enhanced direct sources
+  - version: July 2026
+    url: https://reliaquest.com/product-release/july-2026/
+    breaking: false
+    highlights:
+      - IT Engineer Teammate
+      - Redesigned Workflow Builder
+      - Improved Respond experience
+      - Targeted Search
+      - GreyMatter Ticket Sync — Splunk SOAR, ConnectWise, Freshservice
+      - GreyMatter Cases — attachments and task export
+      - New and enhanced direct sources
+  - version: June 2026
+    url: https://reliaquest.com/product-release/june-2026/
+    breaking: false
+    highlights:
+      - GreyMatter Ticket Sync
+      - GreyMatter Notification Groups
+      - Detection Validation enhancements
+      - GreyMatter Chat in Mobile
+      - GreyMatter Intel in Mobile — reports and subscription notifications
+      - GreyMatter Discover — customer-authored exposures
+      - New and enhanced direct sources
+  - version: March 2026
+    date: '2026-03-01'
+    url: https://reliaquest.com/product-release/product-release-for-march-2026/
+    breaking: false
+    highlights:
+      - Workflows — new triggers, nodes and templates
+      - GreyMatter Phishing Analyzer — verdict updates
+      - GreyMatter Resource Center (new)
+      - GreyMatter Chat — Fast Mode (new)
+      - Discover — intel-driven exposure (new)
+      - Enhanced direct sources

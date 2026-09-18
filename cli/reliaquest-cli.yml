@@ -1,0 +1,74 @@
+generated: '2026-09-18'
+method: searched
+source: https://github.com/digitalshadows/shadowline-api (README.md and shadowline/shadowline.py, fetched 2026-09-18)
+api: reliaquest:searchlight-portal-api
+name: shadowline
+binary: shadowline
+official: true
+status: >-
+  Published by Digital Shadows (now ReliaQuest) for the SearchLight Portal API; version 0.0.1, last
+  pushed 2023-07-20, no releases. Treat as maintenance-mode.
+install:
+  - method: pip (from source)
+    command: pip install .
+    note: run from a clone of the repository; Windows needs C++ 14.0, numpy and windows-curses first
+requirements: Python >= 3.5; a Digital Shadows Portal API key (username/password pair stored in ~/.shadowline/profile)
+global_options:
+  - flag: --profile TEXT
+    description: Name of the credential profile to use ('DEFAULT' if not specified)
+  - flag: --json / -j
+    description: Print colorized JSON output from the API
+  - flag: --raw / -r
+    description: Print the raw JSON output
+  - flag: --csv / -c
+    description: Print CSV output from the API
+  - flag: --output_file / -o
+    description: Output file of results from indicator lookups
+commands:
+  - group: Credentials
+    commands:
+      - name: setup_profile
+        description: Setup a profile to store API credentials
+  - group: Data breaches
+    commands:
+      - name: databreach_summary
+        description: Retrieve a summary of databreaches
+        endpoint: data-breach-summary
+      - name: databreach_list
+        description: Lists the details of a specific breach
+        endpoint: data-breach/find, data-breach/{id}
+      - name: databreach_username
+        description: Lists usernames impacted by a specific breach
+        endpoint: data-breach-usernames/find
+  - group: Domains and IPs
+    commands:
+      - name: domain_lookup
+        description: Perform a DNS lookup for a domain
+        endpoint: dns-lookup/{domain}
+      - name: domain_whois
+        description: Lookup the domain WHOIS information for a domain
+        endpoint: domain-whois/{domain}
+      - name: ipaddr_whois
+        description: Lookup the WHOIS information for an IP address
+        endpoint: ip-whois/{ip}
+  - group: Intelligence
+    commands:
+      - name: cve_search
+        description: Lookup a CVE
+        endpoint: search/find (types VULNERABILITY_EXPLOIT)
+      - name: indicator
+        description: Search for an IP address as an Indicator Of Compromise
+        endpoint: search/find
+      - name: threats
+        description: Look up a threat record
+        endpoint: intel-threats/{id}, intel-threats/find
+      - name: incidents
+        description: Retrieve all incidents or an incident
+        endpoint: incidents/{id}, incidents/find, intel-incidents/find
+key_flows:
+  - name: First run
+    steps: [shadowline setup_profile, shadowline databreach_summary --json]
+transport:
+  base_url: https://portal-digitalshadows.com/api/
+  auth: HTTP Basic (API key id/secret)
+  media_type: application/vnd.polaris-v38+json

@@ -1,0 +1,60 @@
+generated: '2026-09-18'
+method: searched
+source: >-
+  https://apidocs.myreliaquest.com/ (GreyMatter API Postman documentation, "Authentication" and
+  "Managing API Keys" sections + collection-level auth block, fetched 2026-09-18) and
+  https://github.com/digitalshadows/shadowline-api (ReliaQuest/Digital Shadows' own SearchLight client,
+  shadowline/sl_constants.py + sl_helpers.py) corroborated by a live 401 from
+  https://portal-digitalshadows.com/api/ on 2026-09-18.
+docs: https://apidocs.myreliaquest.com/
+summary:
+  types: [apiKey, http]
+  api_key_in: [header]
+  http_schemes: [basic]
+  oauth2_flows: []
+schemes:
+  - name: greymatterApiKey
+    api: reliaquest:greymatter-api
+    type: apiKey
+    in: header
+    parameter_name: X-API-KEY
+    description: >-
+      Every GraphQL request to https://greymatter.myreliaquest.com/graphql must carry a dedicated
+      high-entropy API key in an X-API-KEY header. Keys are minted in GreyMatter > Settings > API Key
+      Management ("New API Key"), shown once at creation, and carry an expiration date (default one
+      year). Normal email/password login credentials cannot be used. All calls must be HTTPS; plain
+      HTTP and unauthenticated requests fail. ReliaQuest stores a one-way hash of the key.
+    key_policy:
+      one_key_per_user: true
+      shown_once: true
+      default_expiry: 1 year
+      renewal: not supported — create a new key; creating a new key invalidates the old one
+      expiry_notification: none
+      storage: one-way hash server-side
+    multi_entity_header:
+      name: x-reliaquest-customer
+      value: the customer headerSlug (from the `customer`/`customers` queries)
+      purpose: override the account's default entity to pull data across company entities
+    management_operations: [createApiKey, deleteApiKeyById, deleteApiKeys, apiKeys]
+    sources: [apidocs.myreliaquest.com]
+  - name: searchlightBasic
+    api: reliaquest:searchlight-portal-api
+    type: http
+    scheme: basic
+    description: >-
+      The SearchLight Portal API authenticates with HTTP Basic credentials (a portal API key id and
+      secret sent as username/password) on every request to https://portal-digitalshadows.com/api/,
+      with the vendor media type application/vnd.polaris-v38+json as both Content-Type and Accept.
+      An unauthenticated request returns 401 with {"code":"PS229","status":401,"message":"Failed to
+      authenticate ... Please contact drpsupport@reliaquest.com"}. Keys are issued inside the portal;
+      the reference documentation is customer-only.
+    probed:
+      url: https://portal-digitalshadows.com/api/
+      status: 401
+      checked: '2026-09-18'
+    sources: [github.com/digitalshadows/shadowline-api, live probe]
+notes: >-
+  No OAuth 2.0 / OIDC surface is documented for either API and no discovery document is served
+  (see well-known/reliaquest-well-known.yml). No scopes artifact is emitted: the GreyMatter API key
+  inherits the creating user's role/permissions (accessGroup, role and permissions queries exist in
+  the API) rather than declaring OAuth scopes.

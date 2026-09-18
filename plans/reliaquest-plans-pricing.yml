@@ -1,0 +1,19 @@
+generated: '2026-09-18'
+method: searched
+source: https://reliaquest.com/resources/greymatter-faq/pricing-and-return-on-investment-faq/ (fetched 2026-09-18)
+plan_count: 0
+pricing_model: >-
+  Enterprise, quote-based. The FAQ states GreyMatter's core platform is priced per endpoint; add-on
+  capabilities are priced by the scope they cover — mailboxes for phishing analysis, employee count
+  for digital risk protection, and data volume for Transit. Pricing is explicitly not based on token
+  usage. No list prices, tiers, quotas or overage rates are published; the API is included with a
+  GreyMatter subscription ("All active customers with a GreyMatter account are eligible to use the GM
+  API" — apidocs.myreliaquest.com FAQ).
+trial: >-
+  Proof-of-value engagements with defined trial periods and success criteria agreed before the
+  engagement; no self-serve trial or sign-up.
+api_access: included with a GreyMatter subscription; keys minted in Settings > API Key Management
+plans: []
+note: >-
+  plan_count is 0 because no priced tier is published — the provider publishes a pricing MODEL, not a
+  price list. Contact path is https://reliaquest.com/request-a-demo.

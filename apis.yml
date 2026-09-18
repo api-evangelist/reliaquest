@@ -1,23 +1,185 @@
 aid: reliaquest
 name: ReliaQuest
-description: 'ReliaQuest is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  ReliaQuest is a Tampa-based, privately held cybersecurity company whose GreyMatter platform
+  runs agentic AI security operations (detection, containment, investigation and response) on top
+  of the security tools a customer already owns, connected through bidirectional APIs to 300+
+  technologies. Customers automate GreyMatter through the GreyMatter API, a single-endpoint GraphQL
+  API (incidents, cases, tasks, detections, playbooks, DRP alerts, discover tasks, users, access
+  groups and API keys) documented as a public Postman collection at apidocs.myreliaquest.com and
+  authenticated with an X-API-KEY header. ReliaQuest also operates the Digital Shadows SearchLight
+  Portal API (digital risk protection) acquired with Digital Shadows in 2022, whose reference is
+  customer-only.
 url: https://raw.githubusercontent.com/api-evangelist/reliaquest/refs/heads/main/apis.yml
+image: https://resources.reliaquest.com/image/upload/c_limit,w_1024,h_1024,f_webp,q_auto/v1725562607/reliaquest-author-logo.jpg
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: enriched
+x-tier-reason: enrichment-pipeline
 specificationVersion: '0.20'
 created: '2026-09-18'
 modified: '2026-09-18'
 tags:
-- Company
-apis: []
+- Cybersecurity
+- Security Operations
+- Threat Detection
+- Incident Response
+- Threat Intelligence
+- Digital Risk Protection
+- Agentic AI
+- GraphQL
+apis:
+- aid: reliaquest:greymatter-api
+  name: GreyMatter API
+  description: >-
+    The GreyMatter API exposes select GreyMatter capabilities through a single GraphQL endpoint.
+    All requests are HTTPS POSTs with JSON bodies authenticated by an X-API-KEY header; 58 queries
+    and 95 mutations cover incidents, cases, tasks, detections and change control, playbooks and
+    playbook runs, DRP alerts and access-control policies, discover tasks, assets, identities,
+    indicators, reference lists, emergency contacts, AI context memory, users, roles, pods, access
+    groups and API keys. Paginated queries follow the Relay GraphQL Connections standard and
+    entities are addressed by base64 Global IDs. Rate limited to 5,000 tokens per user per hour.
+    Introspection is available to authenticated callers; the published contract is a Postman
+    collection served by ReliaQuest at apidocs.myreliaquest.com.
+  image: https://resources.reliaquest.com/image/upload/c_limit,w_1024,h_1024,f_webp,q_auto/v1725562607/reliaquest-author-logo.jpg
+  humanURL: https://apidocs.myreliaquest.com/
+  baseURL: https://greymatter.myreliaquest.com/graphql
+  tags:
+  - GraphQL
+  - Security Operations
+  - Incident Response
+  - Detection Engineering
+  - Playbooks
+  - Digital Risk Protection
+  properties:
+  - type: Documentation
+    url: https://apidocs.myreliaquest.com/
+  - type: APIReference
+    url: https://apidocs.myreliaquest.com/
+  - type: GraphQL
+    url: https://greymatter.myreliaquest.com/graphql
+  - type: Postman
+    url: https://apidocs.myreliaquest.com/api/collections/39440280/2sAYQZJYMC?segregateAuth=true&versionTag=latest
+  - type: PostmanCollection
+    url: postman/reliaquest-greymatter-api.postman_collection.json
+  - type: Examples
+    url: postman/reliaquest-greymatter-operations.txt
+  - type: Authentication
+    url: authentication/reliaquest-authentication.yml
+  - type: RateLimits
+    url: rate-limits/reliaquest-rate-limits.yml
+  - type: Conventions
+    url: conventions/reliaquest-conventions.yml
+  - type: ErrorCatalog
+    url: errors/reliaquest-problem-types.yml
+  - type: DataModel
+    url: data-model/reliaquest-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/reliaquest-lifecycle.yml
+  - type: MCPServer
+    url: mcp/reliaquest-mcp.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+- aid: reliaquest:searchlight-portal-api
+  name: Digital Shadows SearchLight Portal API
+  description: >-
+    REST API of the Digital Shadows SearchLight digital-risk-protection portal, operated by
+    ReliaQuest since its 2022 acquisition of Digital Shadows (unauthenticated calls return a JSON
+    error that names drpsupport@reliaquest.com). Authenticated with HTTP Basic credentials (an API
+    key id and secret) and the vendor media type application/vnd.polaris-v38+json; resources
+    include data breaches, data-breach usernames, DNS lookups, domain and IP WHOIS, search,
+    intel threats, incidents and intel incidents. The API reference lives inside the portal behind
+    a customer login, so no machine-readable contract is publicly reachable; the endpoint set here
+    is read from ReliaQuest's own shadowline client on GitHub.
+  image: https://resources.reliaquest.com/image/upload/c_limit,w_1024,h_1024,f_webp,q_auto/v1725562607/reliaquest-author-logo.jpg
+  humanURL: https://portal-digitalshadows.com/learn/searchlight-api/overview
+  baseURL: https://portal-digitalshadows.com/api/
+  tags:
+  - Digital Risk Protection
+  - Threat Intelligence
+  - Data Breach
+  - WHOIS
+  properties:
+  - type: SourceCode
+    url: https://github.com/digitalshadows/shadowline-api
+  - type: CLI
+    url: cli/reliaquest-cli.yml
+  - type: StatusPage
+    url: https://status.digitalshadows.com/
+  - type: Authentication
+    url: authentication/reliaquest-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/reliaquest-domain-security.yml
 - type: Website
-  url: https://forgeglobal.com/reliaquest_stock/
+  url: https://reliaquest.com/
+- type: Blog
+  url: https://reliaquest.com/blog/
+- type: BlogRSS
+  url: https://reliaquest.com/rss.xml
+- type: Documentation
+  url: https://apidocs.myreliaquest.com/
+- type: APIReference
+  url: https://apidocs.myreliaquest.com/
+- type: Postman
+  url: https://apidocs.myreliaquest.com/
+- type: Integrations
+  url: https://reliaquest.com/integrations/
+- type: ChangeLog
+  url: https://reliaquest.com/product-release/
+- type: ChangeLog
+  url: changelog/reliaquest-changelog.yml
+- type: FAQ
+  url: https://reliaquest.com/resources/greymatter-faq/
+- type: Pricing
+  url: https://reliaquest.com/resources/greymatter-faq/pricing-and-return-on-investment-faq/
+- type: Plans
+  url: plans/reliaquest-plans-pricing.yml
+- type: ServiceLevelAgreement
+  url: https://reliaquest.com/greymatter-service-level/
+- type: TermsOfService
+  url: https://reliaquest.com/greymatter-psa/
+- type: PrivacyPolicy
+  url: https://reliaquest.com/privacy-policy/
+- type: Support
+  url: https://reliaquest.com/contact-us/
+- type: About
+  url: https://reliaquest.com/about-us/
+- type: GitHubOrganization
+  url: https://github.com/reliaquest
+- type: LinkedIn
+  url: https://www.linkedin.com/company/reliaquest/
+- type: LLMsTxt
+  url: https://reliaquest.com/llms.txt
+- type: LLMsTxt
+  url: llms/reliaquest-llms.txt
+- type: VulnerabilityDisclosure
+  url: https://reliaquest.com/report-potential-security-vulnerability/
+- type: SecurityPolicy
+  url: https://bugcrowd.com/engagements/reliaquest-vdpesf
+- type: Packages
+  url: packages/reliaquest-packages.yml
+- type: CLI
+  url: cli/reliaquest-cli.yml
+- type: Conformance
+  url: conformance/reliaquest-conformance.yml
+- type: Compliance
+  url: conformance/reliaquest-conformance.yml
+- type: Lifecycle
+  url: lifecycle/reliaquest-lifecycle.yml
+- type: RateLimits
+  url: rate-limits/reliaquest-rate-limits.yml
+- type: Conventions
+  url: conventions/reliaquest-conventions.yml
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-09-18'
+  status: enriched
+  artifacts_added: 22
+  pass: local-v3

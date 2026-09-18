@@ -1,0 +1,64 @@
+generated: '2026-09-18'
+method: derived
+format: graphql
+source: >-
+  https://apidocs.myreliaquest.com/ ("Responses": 2xx success, 4xx request problem, 5xx server problem) +
+  a live unauthenticated POST to https://greymatter.myreliaquest.com/graphql on 2026-09-18 (HTTP 403) +
+  the closeIncident operation description in the Postman collection. The collection's example responses
+  contain no error examples (zero "errors" keys across 153 responses), so per-operation error catalogs
+  cannot be derived.
+api: reliaquest:greymatter-api
+rfc9457: false
+envelope:
+  graphql:
+    media_type: application/json
+    shape: '{ "data": ..., "errors": [ { "message": string, ... } ] }'
+    note: standard GraphQL error list; field-level detail (extensions, codes) is not documented publicly.
+  transport:
+    media_type: application/json
+    shape: '{ "timestamp": ISO-8601, "status": int, "error": string, "path": string, "errors": [ { "detail": string } ] }'
+    observed: '{"timestamp":"2026-09-18T19:34:06.906Z","status":403,"error":"Forbidden","path":"/error","errors":[{"detail":"Forbidden"}]}'
+    note: returned by the gateway before the GraphQL layer (missing/invalid X-API-KEY).
+problems:
+  - status: 403
+    title: Forbidden
+    meaning: request rejected before reaching GraphQL — no X-API-KEY, an expired/invalid key, or a key removed in API Key Management.
+    remediation: mint a key in GreyMatter > Settings > API Key Management and send it as X-API-KEY over HTTPS; keys are single-use-per-user and expire (default one year).
+    observed: true
+  - status: 405
+    title: Method Not Allowed
+    meaning: the endpoint accepts POST only; a GET to /graphql returns 405.
+    remediation: 'send POST with a JSON body {"query": ..., "variables": ...}.' 
+    observed: true
+  - status: 4xx
+    title: Request problem
+    meaning: '"a problem with the request (e.g., a required parameter was omitted)" — GraphQL validation and input errors surface here.'
+    remediation: read the GraphQL errors[] list; validate inputs against introspection (authenticated).
+    observed: false
+  - status: 5xx
+    title: Server problem
+    meaning: '"a problem on the server side"'
+    remediation: retry with backoff; note there is no idempotency key, so do not blindly retry mutations that create or run things (see conventions/).
+    observed: false
+domain_errors:
+  - operation: closeIncident
+    condition: createExclusion is true but closeCode is not CUSTOMER_FALSE_POSITIVE
+    result: rejected as a validation error
+    source: closeIncident description in the Postman collection
+  - operation: closeIncident
+    condition: the incident closes but the exclusion rule cannot be created
+    result: the mutation still returns; exclusionFailureReason is populated and exclusionRule is null
+    source: closeIncident description in the Postman collection
+rate_limit_error:
+  documented_status: null
+  note: the 5000-token/hour limit's exhaustion status is not documented; see rate-limits/reliaquest-rate-limits.yml.
+searchlight:
+  api: reliaquest:searchlight-portal-api
+  envelope: '{ "code": string, "status": int, "message": string }'
+  observed: '{"code":"PS229","status":401,"message":"Failed to authenticate, details are either incorrect (username and/or password) or the account is locked/disabled. Please contact drpsupport@reliaquest.com, copying in this error response"}'
+  problems:
+    - status: 401
+      code: PS229
+      title: Failed to authenticate
+      remediation: supply a valid portal API key id/secret as HTTP Basic credentials; contact drpsupport@reliaquest.com if the account is locked.
+      observed: true

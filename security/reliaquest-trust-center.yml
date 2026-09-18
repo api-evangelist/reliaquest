@@ -1,0 +1,32 @@
+generated: '2026-09-18'
+method: searched
+probe: true
+source: https://reliaquest.com/resources/greymatter-faq/data-privacy-and-compliance-faq/
+url: https://reliaquest.com/resources/greymatter-faq/data-privacy-and-compliance-faq/
+trust_center_portal: >-
+  None found — trust.reliaquest.com and trust.myreliaquest.com do not resolve (probed 2026-09-18). The
+  compliance posture is published as a Data Privacy & Compliance FAQ on reliaquest.com.
+certifications:
+  - SOC 2 Type II
+  - HIPAA
+  - PCI DSS
+compliance_statements:
+  - standard: SOC 2 Type II
+    claim: "ReliaQuest maintains SOC 2 Type II attestation, which is verified through independent annual audits"
+  - standard: HIPAA
+    claim: "ReliaQuest maintains HIPAA and PCI-DSS compliance"
+  - standard: PCI DSS
+    claim: "ReliaQuest maintains HIPAA and PCI-DSS compliance"
+  - standard: GDPR
+    claim: >-
+      "GreyMatter does not process personal data" — ReliaQuest works with customers to minimize and
+      pseudonymize personal data inadvertently present in logs; not stated as a certification.
+data_handling:
+  residency: original data stays in the customer's environment; GreyMatter processes a limited subset of machine log data
+  retention: 72 hours (investigations); 30–90 days (hunt campaigns); tickets/alerts 12 months + 6 months archive
+  backups: "ReliaQuest does not backup customer data"
+evidence:
+  - source: https://reliaquest.com/resources/greymatter-faq/data-privacy-and-compliance-faq/
+    keywords: [soc 2 type ii, hipaa, pci-dss, gdpr, data residency, data-retention]
+    fetched: '2026-09-18'
+    status: 200

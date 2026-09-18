@@ -1,0 +1,1393 @@
+generated: '2026-09-18'
+method: derived
+status: candidate
+source: 'Searched 2026-09-18: apidocs.myreliaquest.com, reliaquest.com/llms.txt, the reliaquest GitHub org, greymatter.myreliaquest.com/mcp
+  (403), mcp.myreliaquest.com (does not resolve). No official ReliaQuest MCP server exists. Candidate tool list
+  derived from the 153 GraphQL operations in postman/reliaquest-greymatter-api.postman_collection.json.'
+api: reliaquest:greymatter-api
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: api-key
+  verified: searched
+  note: ReliaQuest ships no MCP server. A COMMUNITY server exists — `greymatter-mcp` on PyPI / github.com/Space-C0wboy/Reliaquest-Greymatter-MCP-Server
+    — whose README states it is "an independent, community-built MCP server ... not an official ReliaQuest product
+    and is not affiliated with, endorsed by, or supported by ReliaQuest, LLC" (146 tools across 22 domains, beta,
+    local stdio, generated from the same Postman collection). It is recorded here for completeness and is NOT credited
+    to the provider.
+third_party_servers:
+- name: greymatter-mcp
+  url: https://github.com/Space-C0wboy/Reliaquest-Greymatter-MCP-Server
+  registry: https://pypi.org/project/greymatter-mcp/
+  official: false
+  mode: local-stdio
+  note: unofficial; beta; can perform destructive actions; offers GREYMATTER_READ_ONLY=true
+transport_note: The GreyMatter API is a single GraphQL endpoint authenticated by X-API-KEY, so any MCP server (candidate
+  or community) is a thin GraphQL client; the real inputSchema per tool is the GraphQL input type named in each
+  operation's description (e.g. CloseIncidentRequest, RunPlaybookInput), whose fields are only visible through authenticated
+  introspection.
+candidate_tools:
+  note: one candidate tool per GraphQL operation, grouped by the collection's folders; `inputs` are the GraphQL
+    input/argument type names from the provider's operation descriptions, `returns` the declared return type.
+  count: 153
+  groups:
+  - group: Mutations
+    tools:
+    - tool: createAccessGroup
+      kind: mutation
+      description: Create an access group
+      inputs:
+      - CreateAccessGroupInput
+      - Int
+      - PodFilter
+      - PodOrder
+      - RoleFilter
+      - RoleOrder
+      - String
+      - UserFilter
+      - UserOrder
+      returns: CreateAccessGroupResponse
+    - tool: createPod
+      kind: mutation
+      description: Create a pod
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - CreatePodInput
+      - CustomerFilter
+      - CustomerOrder
+      - Int
+      - String
+      - UserFilter
+      - UserOrder
+      returns: CreatePodResponse
+    - tool: createRole
+      kind: mutation
+      description: Create a role
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - CreateRoleInput
+      - Int
+      - String
+      - UserFilter
+      - UserOrder
+      returns: CreateRoleResponse
+    - tool: deleteAccessGroup
+      kind: mutation
+      description: Delete an access group
+      inputs:
+      - ID
+      returns: DeleteAccessGroupResponse
+    - tool: deletePod
+      kind: mutation
+      description: Delete a pod
+      inputs:
+      - ID
+      returns: DeletePodResponse
+    - tool: deleteRole
+      kind: mutation
+      description: Delete a pod
+      inputs:
+      - ID
+      returns: DeleteRoleResponse
+    - tool: updateAccessGroup
+      kind: mutation
+      description: Update an access group
+      inputs:
+      - Int
+      - PodFilter
+      - PodOrder
+      - RoleFilter
+      - RoleOrder
+      - String
+      - UpdateAccessGroupInput
+      - UserFilter
+      - UserOrder
+      returns: UpdateAccessGroupResponse
+    - tool: updatePod
+      kind: mutation
+      description: Update a pod
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - CustomerFilter
+      - CustomerOrder
+      - Int
+      - String
+      - UpdatePodInput
+      - UserFilter
+      - UserOrder
+      returns: UpdatePodResponse
+    - tool: updateRole
+      kind: mutation
+      description: Update a pod
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - Int
+      - String
+      - UpdateRoleInput
+      - UserFilter
+      - UserOrder
+      returns: UpdateRoleResponse
+    - tool: createApiKey
+      kind: mutation
+      description: Create a new API Key.
+      inputs:
+      - CreateApiKeyInput
+      returns: CreateApiKeyResponse
+    - tool: deleteApiKeyById
+      kind: mutation
+      description: Delete a specific API Key by its ID.
+      inputs:
+      - ID
+      returns: DeleteApiKeyResponse
+    - tool: deleteApiKeys
+      kind: mutation
+      description: Delete all API Keys for the current user.
+      inputs:
+      - ID
+      returns: DeleteApiKeyResponse
+    - tool: deleteAsset
+      kind: mutation
+      description: This API allows user to delete an asset.
+      inputs:
+      - DeleteAssetInput
+      returns: DeleteAssetResponse
+    - tool: addCaseComment
+      kind: mutation
+      description: Add a comment to a case
+      inputs:
+      - CaseCommentInput
+      returns: CaseResponse
+    - tool: addChildrenToCase
+      kind: mutation
+      description: Add a child to a case
+      inputs:
+      - AddChildrenToCaseInput
+      returns: CaseResponse
+    - tool: cancelCase
+      kind: mutation
+      description: Cancel a case
+      inputs:
+      - CancelCaseInput
+      returns: CaseResponse
+    - tool: closeCase
+      kind: mutation
+      description: Close a case
+      inputs:
+      - CloseCaseInput
+      returns: CaseResponse
+    - tool: createCase
+      kind: mutation
+      description: Create a new case.
+      inputs:
+      - CreateCaseInput
+      returns: CaseResponse
+    - tool: removeChildFromCase
+      kind: mutation
+      description: Remove a child from a case
+      inputs:
+      - RemoveChildFromCaseInput
+      returns: CaseResponse
+    - tool: updateCase
+      kind: mutation
+      description: Update a case
+      inputs:
+      - UpdateCaseInput
+      returns: CaseResponse
+    - tool: updateCaseDueDate
+      kind: mutation
+      description: Update case due date
+      inputs:
+      - UpdateCaseDueDateInput
+      returns: CaseResponse
+    - tool: updateCaseOwner
+      kind: mutation
+      description: Update case owner
+      inputs:
+      - UpdateCaseOwnerInput
+      returns: CaseResponse
+    - tool: approveDetectionChangeRequests
+      kind: mutation
+      description: Approves one or more pending detection change requests.
+      inputs:
+      - ApproveDetectionChangeRequestsInput
+      returns: DetectionChangeRequestActionResponse
+    - tool: rejectDetectionChangeRequests
+      kind: mutation
+      description: Rejects one or more pending detection change requests, optionally recording the tuning classification
+        for the change.
+      inputs:
+      - RejectDetectionChangeRequestsInput
+      returns: DetectionChangeRequestActionResponse
+    - tool: createActivityLogEntryComment
+      kind: mutation
+      description: Creates a comment under a given activity log entry.
+      inputs:
+      - CreateActivityLogEntryCommentInput
+      returns: CreateActivityLogEntryCommentResponse
+    - tool: assignDiscoverTask
+      kind: mutation
+      description: Assign a Discover Task
+      inputs:
+      - AssignDiscoverTaskInput
+      returns: DiscoverTaskResponse
+    - tool: closeDiscoverTask
+      kind: mutation
+      description: Close Discover Task
+      inputs:
+      - CloseDiscoverTaskInput
+      returns: DiscoverTaskResponse
+    - tool: updateDiscoverTaskState
+      kind: mutation
+      description: Update Discover Task's state
+      inputs:
+      - UpdateDiscoverTaskStateInput
+      returns: DiscoverTaskResponse
+    - tool: createAccessControlPolicy
+      kind: mutation
+      description: Create an Access Control Policy.
+      inputs:
+      - AccessControlPolicyFieldFilter
+      - AccessGroupOrder
+      - CreateAccessControlPolicyInput
+      - Int
+      - String
+      returns: AccessControlPolicyResponse
+    - tool: deleteAccessControlPolicy
+      kind: mutation
+      description: Delete an Access Control Policy.
+      inputs:
+      - AccessControlPolicyFieldFilter
+      - AccessGroupOrder
+      - ID
+      - Int
+      - String
+      returns: AccessControlPolicyResponse
+    - tool: updateAccessControlPolicies
+      kind: mutation
+      description: Update multiple Access Control Policies.
+      inputs:
+      - AccessControlPolicyFieldFilter
+      - AccessGroupOrder
+      - Int
+      - String
+      - UpdateAccessControlPoliciesInput
+      returns: AccessControlPoliciesResponse
+    - tool: updateAccessControlPolicy
+      kind: mutation
+      description: Update an Access Control Policy from provided input parameters.
+      inputs:
+      - AccessControlPolicyFieldFilter
+      - AccessGroupOrder
+      - Int
+      - String
+      - UpdateAccessControlPolicyInput
+      returns: AccessControlPolicyResponse
+    - tool: addDrpAlertComment
+      kind: mutation
+      description: Add a comment to a DRP Alert.
+      inputs:
+      - DrpAlertCommentInput
+      returns: AddDrpAlertCommentResponse
+    - tool: assignDRPAlert
+      kind: mutation
+      description: Assign the specified DRP Alert to the provided assignee.
+      inputs:
+      - DRPAlertAssignmentInput
+      returns: DRPAlertAssignmentResponse
+    - tool: assignDRPAlerts
+      kind: mutation
+      description: Assign all DRP Alerts for the provided filter to the provided assignee.
+      inputs:
+      - DRPAlertBulkAssignmentInput
+      returns: DRPAlertAssignmentResponse
+    - tool: bulkAddDrpAlertComment
+      kind: mutation
+      description: Add a comment to DRP Alerts.
+      inputs:
+      - DrpAlertBulkCommentInput
+      returns: DrpAlertBulkResponse
+    - tool: bulkCloseDrpAlerts
+      kind: mutation
+      description: Bulk close (set to RESOLVED state) multiple DRP alerts. Wraps the bulk-state endpoint with the
+        resolved state baked in.
+      inputs:
+      - BulkCloseDrpAlertsInput
+      returns: DrpAlertBulkUpdateStateResponse
+    - tool: bulkUpdateDrpAlertState
+      kind: mutation
+      description: Update the state of the several DRP alerts corresponding to the given external IDs
+      inputs:
+      - BulkUpdateDrpAlertStateInput
+      returns: DrpAlertBulkUpdateStateResponse
+    - tool: deleteDrpAlertComment
+      kind: mutation
+      description: Delete a comment from a DRP Alert.
+      inputs:
+      - DrpAlertDeleteCommentInput
+      returns: DrpAlertCommentResponse
+    - tool: unWatchDRPAlert
+      kind: mutation
+      description: Unwatch DRP Alert for the provided short code.
+      inputs:
+      - String
+      returns: DRPAlertWatchResponse
+    - tool: unWatchDRPAlerts
+      kind: mutation
+      description: Unwatch all DRP Alerts with the provided filter.
+      inputs:
+      - DRPAlertBulkUnwatchInput
+      returns: DRPAlertWatchResponse
+    - tool: unassignDRPAlert
+      kind: mutation
+      description: Unassign the specified DRP Alert.
+      inputs:
+      - DRPAlertUnassignmentInput
+      returns: DRPAlertAssignmentResponse
+    - tool: unassignDRPAlerts
+      kind: mutation
+      description: Unassign all DRP Alerts for the provided filter.
+      inputs:
+      - DRPAlertBulkUnassignmentInput
+      returns: DRPAlertAssignmentResponse
+    - tool: updateDrpAlertComment
+      kind: mutation
+      description: Edit a comment on a DRP Alert.
+      inputs:
+      - DrpAlertUpdateCommentInput
+      returns: DrpAlertCommentResponse
+    - tool: updateDrpAlertState
+      kind: mutation
+      description: Update the state of the corresponding DRP Alert of given external ID
+      inputs:
+      - UpdateDrpAlertStateInput
+      returns: DRPAlertResponse
+    - tool: watchDRPAlert
+      kind: mutation
+      description: Watch DRP Alert for the provided short code with the provided watcher.
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - Int
+      - PodFilter
+      - PodOrder
+      - RoleFilter
+      - String
+      returns: DRPAlertWatchDetailResponse
+    - tool: watchDRPAlerts
+      kind: mutation
+      description: Watch all DRP Alerts for the provided filter with the provided watcher.
+      inputs:
+      - DRPAlertBulkWatchInput
+      returns: DRPAlertWatchResponse
+    - tool: createEmergencyContact
+      kind: mutation
+      description: Create an emergency contact
+      inputs:
+      - CreateEmergencyContactInput
+      returns: CreateEmergencyContactResponse
+    - tool: deleteEmergencyContact
+      kind: mutation
+      description: Delete an emergency contact
+      inputs:
+      - ID
+      returns: DeleteEmergencyContactResponse
+    - tool: updateCallOrder
+      kind: mutation
+      description: Update an emergency contact's call order within the call tree
+      inputs:
+      - ID
+      - Int
+      returns: UpdateCallOrderResponse
+    - tool: updateEmergencyContact
+      kind: mutation
+      description: Update an emergency contact
+      inputs:
+      - UpdateEmergencyContactInput
+      returns: UpdateEmergencyContactResponse
+    - tool: acknowledgeAssignAndCloseIncident
+      kind: mutation
+      description: Acknowledge, assign, and close an incident in a single atomic operation.
+      inputs:
+      - AcknowledgeAssignAndCloseIncidentInput
+      returns: IncidentResponse
+    - tool: acknowledgeIncident
+      kind: mutation
+      description: Acknowledge an incident based on the provided input.
+      inputs:
+      - IncidentAcknowledgementInput
+      returns: IncidentResponse
+    - tool: addIncidentComment
+      kind: mutation
+      description: Add comment to incident
+      inputs:
+      - IncidentCommentFilter
+      - IncidentCommentInput
+      - IncidentCommentOrder
+      - Int
+      - String
+      returns: IncidentResponse
+    - tool: assignIncident
+      kind: mutation
+      description: Assign a user to the incident.
+      inputs:
+      - AssignIncidentInput
+      returns: IncidentResponse
+    - tool: bulkCloseIncidents
+      kind: mutation
+      description: Bulk close multiple incidents with the same close code and notes
+      inputs:
+      - BulkCloseIncidentsInput
+      returns: BulkIncidentResponse
+    - tool: closeIncident
+      kind: mutation
+      description: Close Incident with close code.
+      inputs:
+      - CloseIncidentRequest
+      returns: IncidentResponse
+    - tool: releaseIncident
+      kind: mutation
+      description: Release a retained incident
+      inputs:
+      - ArtifactFilter
+      - ID
+      - Int
+      - QueryBatchFilter
+      - QueryBatchOrder
+      - String
+      returns: IncidentResponse
+    - tool: retainIncident
+      kind: mutation
+      description: Retain an incident
+      inputs:
+      - ArtifactFilter
+      - ID
+      - Int
+      - QueryBatchFilter
+      - QueryBatchOrder
+      - String
+      returns: IncidentResponse
+    - tool: unresolveIncident
+      kind: mutation
+      description: Unresolve a resolved incident
+      inputs:
+      - ArtifactFilter
+      - Int
+      - QueryBatchFilter
+      - QueryBatchOrder
+      - String
+      - UnresolveIncidentInput
+      returns: IncidentResponse
+    - tool: updateIncidentState
+      kind: mutation
+      description: Updates incident state and add comment
+      inputs:
+      - UpdateIncidentStateInput
+      returns: IncidentResponse
+    - tool: createAiContext
+      kind: mutation
+      description: Create an AI context.
+      inputs:
+      - CreateAiContextInput
+      returns: AiContextResponse
+    - tool: deleteAiContext
+      kind: mutation
+      description: Delete an AI context.
+      inputs:
+      - ID
+      returns: AiContextResponse
+    - tool: updateAiContext
+      kind: mutation
+      description: Update an AI context.
+      inputs:
+      - UpdateAiContextInput
+      returns: AiContextResponse
+    - tool: rerunAllFailedTasksForPlaybookRun
+      kind: mutation
+      description: Rerun all failed tasks for a playbook run
+      inputs:
+      - ID
+      returns: PlaybookRunResponse
+    - tool: runPlaybook
+      kind: mutation
+      description: Run a playbook with the given input
+      inputs:
+      - RunPlaybookInput
+      returns: PlaybookRunResponse
+    - tool: upsertCustomerPlaybook
+      kind: mutation
+      description: Upsert customer metadata settings for a playbook
+      inputs:
+      - UpsertCustomerPlaybookInput
+      returns: CustomerPlaybookResponse
+    - tool: upsertPlaybookMetadata
+      kind: mutation
+      description: Upsert metadata settings for a playbook
+      inputs:
+      - UpsertPlaybookMetadataInput
+      returns: PlaybookResponse
+    - tool: createReferenceList
+      kind: mutation
+      description: Create a reference list.
+      inputs:
+      - CreateReferenceListInput
+      - Int
+      - ReferenceListColumnSelector
+      - ReferenceListRowFilter
+      - ReferenceListRowOrder
+      - String
+      returns: ReferenceListResponse
+    - tool: createReferenceListColumn
+      kind: mutation
+      description: Create a column and any associated linked GreyMatter fields within a reference list.
+      inputs:
+      - CreateReferenceListColumnInput
+      returns: ReferenceListColumnResponse
+    - tool: createReferenceListRow
+      kind: mutation
+      description: Create a row within a reference list.
+      inputs:
+      - CreateReferenceListRowInput
+      returns: ReferenceListRowResponse
+    - tool: deleteReferenceList
+      kind: mutation
+      description: Delete a reference list.
+      inputs:
+      - ID
+      - Int
+      - ReferenceListColumnSelector
+      - ReferenceListRowFilter
+      - ReferenceListRowOrder
+      - String
+      returns: ReferenceListResponse
+    - tool: deleteReferenceListColumn
+      kind: mutation
+      description: Delete a column within a reference list.
+      inputs:
+      - ID
+      returns: ReferenceListColumnResponse
+    - tool: deleteReferenceListRow
+      kind: mutation
+      description: Delete a row within a reference list.
+      inputs:
+      - ID
+      returns: ReferenceListRowResponse
+    - tool: updateReferenceList
+      kind: mutation
+      description: Update a reference list.
+      inputs:
+      - Int
+      - ReferenceListColumnSelector
+      - ReferenceListRowFilter
+      - ReferenceListRowOrder
+      - String
+      - UpdateReferenceListInput
+      returns: ReferenceListResponse
+    - tool: updateReferenceListColumn
+      kind: mutation
+      description: Update a column and its associated linked GreyMatter fields within a reference list.
+      inputs:
+      - UpdateReferenceListColumnInput
+      returns: ReferenceListColumnResponse
+    - tool: updateReferenceListRow
+      kind: mutation
+      description: Update a row's values within a reference list.
+      inputs:
+      - UpdateReferenceListRowInput
+      returns: ReferenceListRowResponse
+    - tool: acknowledgeTask
+      kind: mutation
+      description: Acknowledge a task.
+      inputs:
+      - AcknowledgeTaskInput
+      - Int
+      - String
+      - TaskCommentFilter
+      - TaskCommentOrder
+      returns: TaskResponse
+    - tool: addTaskComment
+      kind: mutation
+      description: Add comment to task
+      inputs:
+      - Int
+      - String
+      - TaskCommentFilter
+      - TaskCommentInput
+      - TaskCommentOrder
+      returns: TaskResponse
+    - tool: assignTask
+      kind: mutation
+      description: Assign a user to the task
+      inputs:
+      - AssignTaskInput
+      - Int
+      - String
+      - TaskCommentFilter
+      - TaskCommentOrder
+      returns: TaskResponse
+    - tool: bulkResolveTasks
+      kind: mutation
+      description: Bulk resolve multiple tasks with the same close code and notes
+      inputs:
+      - BulkResolveTasksInput
+      returns: BulkTaskResponse
+    - tool: createTask
+      kind: mutation
+      description: Create a new task
+      inputs:
+      - CreateTaskInput
+      - Int
+      - String
+      - TaskCommentFilter
+      - TaskCommentOrder
+      returns: TaskResponse
+    - tool: resolveTask
+      kind: mutation
+      description: Resolve a task
+      inputs:
+      - Int
+      - ResolveTaskInput
+      - String
+      - TaskCommentFilter
+      - TaskCommentOrder
+      returns: TaskResponse
+    - tool: unresolveTask
+      kind: mutation
+      description: Unresolve a resolved task
+      inputs:
+      - Int
+      - String
+      - TaskCommentFilter
+      - TaskCommentOrder
+      - UnresolveTaskInput
+      returns: TaskResponse
+    - tool: updateTaskRetainedStatus
+      kind: mutation
+      description: Update Task retained status
+      inputs:
+      - Int
+      - String
+      - TaskCommentFilter
+      - TaskCommentOrder
+      - UpdateTaskRetainedStatusInput
+      returns: TaskResponse
+    - tool: updateTaskState
+      kind: mutation
+      description: Update Task State
+      inputs:
+      - Int
+      - String
+      - TaskCommentFilter
+      - TaskCommentOrder
+      - UpdateTaskStateInput
+      returns: TaskResponse
+    - tool: createUser
+      kind: mutation
+      description: Create a new user.
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - CreateUserInput
+      - Int
+      - PodFilter
+      - PodOrder
+      - RoleFilter
+      - String
+      returns: UserOperationResponse
+    - tool: deleteUser
+      kind: mutation
+      description: Delete an existing user.
+      inputs:
+      - ID
+      returns: DeleteUserResponse
+    - tool: disableUser
+      kind: mutation
+      description: Disable an existing user.
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - ID
+      - Int
+      - PodFilter
+      - PodOrder
+      - RoleFilter
+      - String
+      returns: UserOperationResponse
+    - tool: enableUser
+      kind: mutation
+      description: Enable an existing user.
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - ID
+      - Int
+      - PodFilter
+      - PodOrder
+      - RoleFilter
+      - String
+      returns: UserOperationResponse
+    - tool: generatePasswordLink
+      kind: mutation
+      description: Generate a change password link for an existing user.
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - ID
+      - Int
+      - PodFilter
+      - PodOrder
+      - RoleFilter
+      - String
+      returns: GeneratePasswordLinkResponse
+    - tool: resendInvite
+      kind: mutation
+      description: Resend invitation for an existing user.
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - ID
+      - Int
+      - PodFilter
+      - PodOrder
+      - RoleFilter
+      - String
+      returns: UserOperationResponse
+    - tool: resetMfa
+      kind: mutation
+      description: Reset MFA (Multi-Factor Authentication) for an existing user.
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - ID
+      - Int
+      - PodFilter
+      - PodOrder
+      - RoleFilter
+      - String
+      returns: UserOperationResponse
+    - tool: sendForgotPassword
+      kind: mutation
+      description: Send a forgot password email for an existing user.
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - ID
+      - Int
+      - PodFilter
+      - PodOrder
+      - RoleFilter
+      - String
+      returns: UserOperationResponse
+    - tool: updateUser
+      kind: mutation
+      description: Update an existing user.
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - Int
+      - PodFilter
+      - PodOrder
+      - RoleFilter
+      - String
+      - UpdateUserInput
+      returns: UserOperationResponse
+  - group: Queries
+    tools:
+    - tool: accessGroup
+      kind: query
+      description: null
+      inputs:
+      - ID
+      - Int
+      - PodFilter
+      - PodOrder
+      - RoleFilter
+      - RoleOrder
+      - String
+      - UserFilter
+      - UserOrder
+      returns: AccessGroup
+    - tool: accessGroups
+      kind: query
+      description: Query the access groups
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - Int
+      - String
+      returns: AccessGroupConnection
+    - tool: permissions
+      kind: query
+      description: Query the available permissions
+      inputs: []
+      returns: Permission
+    - tool: pod
+      kind: query
+      description: null
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - CustomerFilter
+      - CustomerOrder
+      - ID
+      - Int
+      - String
+      - UserFilter
+      - UserOrder
+      returns: Pod
+    - tool: pods
+      kind: query
+      description: Query the pods
+      inputs:
+      - Int
+      - PodFilter
+      - PodOrder
+      - String
+      returns: PodConnection
+    - tool: role
+      kind: query
+      description: null
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - ID
+      - Int
+      - String
+      - UserFilter
+      - UserOrder
+      returns: Role
+    - tool: roles
+      kind: query
+      description: Query the roles
+      inputs:
+      - Int
+      - RoleFilter
+      - RoleOrder
+      - String
+      returns: RoleConnection
+    - tool: apiKeys
+      kind: query
+      description: null
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - ID
+      - Int
+      - PodFilter
+      - PodOrder
+      - RoleFilter
+      - String
+      returns: ApiKey
+    - tool: assets
+      kind: query
+      description: Fetch all assets which matches provided filter criteria. This API is paginated.
+      inputs:
+      - AssetFilter
+      - AssetOrder
+      - Int
+      - String
+      returns: AssetConnection
+    - tool: case
+      kind: query
+      description: Fetch Case by id XOR slug
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - CaseActivityLogFilter
+      - CaseActivityLogOrder
+      - CaseBy
+      - CaseChildFilter
+      - CaseChildOrder
+      - CaseCommentFilter
+      - CaseCommentOrder
+      - DateTime
+      - Int
+      - PodFilter
+      - PodOrder
+      - RoleFilter
+      - String
+      returns: Case
+    - tool: cases
+      kind: query
+      description: Fetch all Cases which matches provided filter criteria. This API is paginated.
+      inputs:
+      - CaseActivityLogFilter
+      - CaseActivityLogOrder
+      - CaseChildFilter
+      - CaseChildOrder
+      - CaseCommentFilter
+      - CaseCommentOrder
+      - CaseFilter
+      - CaseOrder
+      - Int
+      - String
+      returns: CaseConnection
+    - tool: detectionChangeRequests
+      kind: query
+      description: Retrieves a paginated list of detection change requests, with optional filtering and ordering.
+      inputs:
+      - DetectionChangeRequestFilter
+      - DetectionChangeRequestOrder
+      - Int
+      - String
+      returns: DetectionChangeRequestConnection
+    - tool: customer
+      kind: query
+      description: Fetch current customer details
+      inputs:
+      - DateTime
+      - Int
+      - String
+      returns: Customer
+    - tool: customers
+      kind: query
+      description: Fetch All Customers.
+      inputs:
+      - CustomerFilter
+      - CustomerOrder
+      - Int
+      - String
+      returns: CustomerConnection
+    - tool: dataSourceSchema
+      kind: query
+      description: null
+      inputs:
+      - DataBy
+      returns: DataSourceResponse
+    - tool: timeBuckets
+      kind: query
+      description: null
+      inputs:
+      - TimeBucketsFilter
+      returns: TimeBucketResponse
+    - tool: customerDetection
+      kind: query
+      description: null
+      inputs:
+      - CustomerDetectionActivityLogFilter
+      - CustomerDetectionActivityLogOrder
+      - DetectionRuleLogicBy
+      - ID
+      - Int
+      - String
+      returns: CustomerDetection
+    - tool: customerDetectionActivityLogEntries
+      kind: query
+      description: Fetch all Activity log entries which match provided filter criteria. This API is paginated.
+      inputs:
+      - CustomerDetectionActivityLogFilter
+      - CustomerDetectionActivityLogOrder
+      - Int
+      - String
+      returns: CustomerDetectionActivityLogEntryConnection
+    - tool: customerDetectionActivityLogEntry
+      kind: query
+      description: Fetch activity log entry by its ID
+      inputs:
+      - CustomerDetectionActivityLogEntryCommentFilter
+      - CustomerDetectionActivityLogEntryCommentOrder
+      - ID
+      - Int
+      - String
+      returns: CustomerDetectionActivityLogEntry
+    - tool: customerDetections
+      kind: query
+      description: Fetch all customer detections which match provided filter criteria. This API is paginated.
+      inputs:
+      - CustomerDetectionFilter
+      - CustomerDetectionOrder
+      - Int
+      - String
+      returns: CustomerDetectionConnection
+    - tool: detectionRules
+      kind: query
+      description: Retrieves a list of detection rules, with options for filtering, ordering, and pagination.
+      inputs:
+      - DetectionRuleFilter
+      - DetectionRuleOrder
+      - Int
+      - String
+      returns: DetectionRuleConnection
+    - tool: draftCustomerDetection
+      kind: query
+      description: null
+      inputs:
+      - CustomerDetectionActivityLogFilter
+      - CustomerDetectionActivityLogOrder
+      - DraftCustomerDetectionBy
+      - Int
+      - String
+      returns: DraftCustomerDetection
+    - tool: discoverTask
+      kind: query
+      description: Fetch Discover Case by id
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - DateTime
+      - DiscoverTaskActivityFilter
+      - DiscoverTaskActivityOrder
+      - DiscoverTaskBy
+      - DiscoverTaskCommentFilter
+      - DiscoverTaskCommentOrder
+      - Int
+      - IntegrationActivityLogFilter
+      - IntegrationActivityLogOrder
+      - PodFilter
+      - PodOrder
+      - RoleFilter
+      - String
+      returns: DiscoverTask
+    - tool: discoverTasks
+      kind: query
+      description: Fetch all Discover Tasks which match provided filter criteria. This API is paginated.
+      inputs:
+      - DiscoverTaskActivityFilter
+      - DiscoverTaskActivityOrder
+      - DiscoverTaskCommentFilter
+      - DiscoverTaskCommentOrder
+      - DiscoverTaskFilter
+      - DiscoverTaskOrder
+      - Int
+      - String
+      returns: DiscoverTaskConnection
+    - tool: accessControlPolicies
+      kind: query
+      description: Fetch a customer's Access Control Policies with optional filtering and order applied.
+      inputs:
+      - AccessControlPolicyFilter
+      - AccessControlPolicyOrder
+      - ID
+      - Int
+      - String
+      returns: AccessControlPolicyConnection
+    - tool: accessControlPolicy
+      kind: query
+      description: Retrieve an Access Control Policy.
+      inputs:
+      - AccessControlPolicyFieldFilter
+      - AccessGroupOrder
+      - DateTime
+      - ID
+      - Int
+      - String
+      returns: AccessControlPolicy
+    - tool: accessControlResources
+      kind: query
+      description: List of Access Control Resources that can bind to an Access Control Policy.
+      inputs: []
+      returns: String
+    - tool: drpAlert
+      kind: query
+      description: Fetch DRP Alert by id or short code.
+      inputs:
+      - DRPAlertBy
+      - DateTime
+      - Int
+      - String
+      returns: DRPAlert
+    - tool: drpAlerts
+      kind: query
+      description: Fetch all DRP Alerts which match the filter criteria. This API is paginated.
+      inputs:
+      - DRPAlertOrder
+      - DrpReportTriageItemViewFilterInput
+      - Int
+      - String
+      returns: DRPAlertConnection
+    - tool: emergencyContact
+      kind: query
+      description: Fetch an emergency contact by its ID
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - DateTime
+      - ID
+      - Int
+      - PodFilter
+      - PodOrder
+      - RoleFilter
+      - String
+      returns: EmergencyContact
+    - tool: emergencyContacts
+      kind: query
+      description: Query the Emergency contact Call Tree
+      inputs:
+      - EmergencyContactFilter
+      - EmergencyContactOrder
+      - Int
+      - String
+      returns: EmergencyContactConnection
+    - tool: greymatterField
+      kind: query
+      description: Fetch a field.
+      inputs:
+      - GreyMatterFieldBy
+      returns: GreyMatterField
+    - tool: greymatterFields
+      kind: query
+      description: Fetch fields through pageable connection with filter and order capabilities.
+      inputs:
+      - GreyMatterFieldFilter
+      - GreyMatterFieldOrder
+      - Int
+      - String
+      returns: GreyMatterFieldConnection
+    - tool: identities
+      kind: query
+      description: Fetch all identities which match provided filter criteria. This API is paginated.
+      inputs:
+      - IdentityFilter
+      - IdentityOrder
+      - Int
+      - String
+      returns: IdentityConnection
+    - tool: healthIncidents
+      kind: query
+      description: Fetch all Incidents of the HEALTH type which matches provided filter criteria. This API is paginated.
+      inputs:
+      - HealthIncidentFilter
+      - IncidentOrder
+      - Int
+      - String
+      returns: IncidentConnection
+    - tool: incident
+      kind: query
+      description: Fetch Incident by either incidentId OR ticketNumber.
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - ArtifactFilter
+      - DateTime
+      - IncidentActivityLogFilter
+      - IncidentActivityLogOrder
+      - IncidentBy
+      - IncidentCommentFilter
+      - IncidentCommentOrder
+      - Int
+      - PodFilter
+      - PodOrder
+      - QueryBatchFilter
+      - QueryBatchOrder
+      - RoleFilter
+      - String
+      returns: Incident
+    - tool: incidents
+      kind: query
+      description: Fetch all Incidents which matches provided filter criteria. This API is paginated.
+      inputs:
+      - IncidentFilter
+      - IncidentOrder
+      - Int
+      - String
+      returns: IncidentConnection
+    - tool: indicator
+      kind: query
+      description: Fetch a Indicator by IOCBy search filter.
+      inputs:
+      - IOCBy
+      returns: Indicator
+    - tool: indicators
+      kind: query
+      description: Fetch all Indicators that match the provided filter criteria. This API is paginated.
+      inputs:
+      - IndicatorFilter
+      - IndicatorOrder
+      - Int
+      - String
+      returns: IndicatorConnection
+    - tool: aiContext
+      kind: query
+      description: Fetch an AI context by its ID.
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - DateTime
+      - ID
+      - Int
+      - PodFilter
+      - PodOrder
+      - RoleFilter
+      - String
+      returns: AiContext
+    - tool: aiContexts
+      kind: query
+      description: Fetch all AI context. This API is paginated.
+      inputs:
+      - AiContextFilter
+      - AiContextOrder
+      - Int
+      - String
+      returns: AiContextConnection
+    - tool: customerPlaybooks
+      kind: query
+      description: Get the playbooks that are available with the associated custom customer settings
+      inputs:
+      - Int
+      - IntegrationActivityLogFilter
+      - IntegrationActivityLogOrder
+      - String
+      returns: CustomerPlaybook
+    - tool: playbookRun
+      kind: query
+      description: Get a PlaybookRun.
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - DateTime
+      - ID
+      - Int
+      - PodFilter
+      - PodOrder
+      - RoleFilter
+      - String
+      returns: PlaybookRun
+    - tool: playbookRuns
+      kind: query
+      description: Get PlaybookRuns.
+      inputs:
+      - Int
+      - PlaybookRunFilter
+      - PlaybookRunOrder
+      - String
+      returns: PlaybookRunConnection
+    - tool: playbooks
+      kind: query
+      description: Get playbooks that are available.
+      inputs: []
+      returns: Playbook
+    - tool: recommendedPlaybooks
+      kind: query
+      description: Get the recommended playbooks based on the filter parameters.
+      inputs:
+      - RecommendedPlaybookFilter
+      returns: RecommendedPlaybooks
+    - tool: integration
+      kind: query
+      description: Retrieves one integration by ID
+      inputs:
+      - DateTime
+      - ID
+      - Int
+      - IntegrationActivityLogFilter
+      - IntegrationActivityLogOrder
+      - String
+      returns: Integration
+    - tool: integrations
+      kind: query
+      description: Retrieves a list of integrations, optionally filtered by various criteria.
+      inputs:
+      - Int
+      - IntegrationFilter
+      - IntegrationOrder
+      - String
+      returns: IntegrationConnection
+    - tool: searchHistory
+      kind: query
+      description: Retrieve a list of query batches.
+      inputs:
+      - Int
+      - QueryBatchFilter
+      - QueryBatchOrder
+      - QueryBatchSearchBy
+      - String
+      returns: QueryBatchConnection
+    - tool: referenceList
+      kind: query
+      description: Fetch a reference list by its ID.
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - ID
+      - Int
+      - PodFilter
+      - PodOrder
+      - ReferenceListColumnSelector
+      - ReferenceListRowFilter
+      - ReferenceListRowOrder
+      - RoleFilter
+      - String
+      returns: ReferenceList
+    - tool: referenceLists
+      kind: query
+      description: Fetch all reference lists which match the provided filter criteria. This API is paginated.
+      inputs:
+      - Int
+      - ReferenceListFilter
+      - ReferenceListOrder
+      - String
+      returns: ReferenceListConnection
+    - tool: task
+      kind: query
+      description: Fetch Task by id, slug OR externalId.
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - DateTime
+      - Int
+      - PodFilter
+      - PodOrder
+      - RoleFilter
+      - String
+      - TaskActivityLogFilter
+      - TaskActivityLogOrder
+      - TaskBy
+      - TaskCommentFilter
+      - TaskCommentOrder
+      returns: Task
+    - tool: tasks
+      kind: query
+      description: Fetch all Tasks which matches provided filter criteria. This API is paginated.
+      inputs:
+      - Int
+      - String
+      - TaskFilter
+      - TaskOrder
+      returns: TaskConnection
+    - tool: me
+      kind: query
+      description: Query to fetch the authenticated user's information
+      inputs:
+      - CustomerFilter
+      - CustomerOrder
+      - Int
+      - String
+      returns: CurrentUser
+    - tool: user
+      kind: query
+      description: null
+      inputs:
+      - AccessGroupFilter
+      - AccessGroupOrder
+      - ID
+      - Int
+      - PodFilter
+      - PodOrder
+      - RoleFilter
+      - String
+      returns: User
+    - tool: audits
+      kind: query
+      description: Retrieves user action audits
+      inputs:
+      - AuditActionFilter
+      - AuditActionOrder
+      - Int
+      - String
+      returns: AuditActionDetailsConnection
+    - tool: node
+      kind: query
+      description: null
+      inputs:
+      - ID
+      returns: Node
+    - tool: rateLimit
+      kind: query
+      description: null
+      inputs: []
+      returns: CostEstimationResponse

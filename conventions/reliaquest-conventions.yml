@@ -1,0 +1,136 @@
+generated: '2026-09-18'
+method: searched
+source: >-
+  https://apidocs.myreliaquest.com/ (GreyMatter API Postman documentation: Authentication, Requests and
+  Responses, Rate Limiting, Pagination, Global IDs, FAQ) + the 153 operation documents in
+  postman/reliaquest-greymatter-api.postman_collection.json, fetched 2026-09-18. Live probe of
+  https://greymatter.myreliaquest.com/graphql on 2026-09-18 for the error envelope.
+api: reliaquest:greymatter-api
+summary: >-
+  Cross-cutting semantics of the GreyMatter GraphQL API. Single endpoint, POST-only, X-API-KEY auth,
+  Relay-style cursor pagination, base64 Global IDs, a token-cost rate limit. No idempotency mechanism,
+  no versioning, no dry-run mode are documented; reversibility exists for the ticketing objects
+  (incident, task, case) as explicit un-resolve / cancel mutations with no stated window.
+transport:
+  style: graphql
+  endpoint: https://greymatter.myreliaquest.com/graphql
+  method: POST
+  request_media_type: application/json
+  response_media_type: application/json
+  https_only: true
+  note: >-
+    "All requests must use the POST HTTPS method"; plain HTTP fails. GET on the endpoint returns 405 (probed).
+authentication:
+  styles: [api_key_header]
+  api_key_header: X-API-KEY
+  multi_entity_header: x-reliaquest-customer
+  multi_entity_header_note: value = customer headerSlug; overrides the account's default entity
+  see: authentication/reliaquest-authentication.yml
+pagination:
+  style: relay-cursor-connections
+  spec: https://relay.dev/graphql/connections.htm
+  params: [first, after]
+  response_fields: ['pageInfo', 'edges[].cursor', 'edges[].node', 'totalCount']
+  notes: >-
+    Every list query returns a Connection. `first` sets the page size, `after` the cursor to start from
+    (optional). Documented quirk: "If a cursor is passed in that would fit inside of a page (based on the
+    after input), the results will start at the beginning of that page, not specifically where the cursor
+    points within the page." Some operation descriptions also mention `before`.
+identifiers:
+  scheme: global-id
+  format: base64("<Type>:<uuid>")
+  resolver: node(id)
+  note: a query that returns an entity includes an `id` field carrying its Global ID
+field_selection:
+  supported: true
+  notes: GraphQL field selection; the provider's example documents select the full field set per entity.
+versioning:
+  style: none
+  notes: unversioned single endpoint; additive evolution surfaced through introspection. See lifecycle/reliaquest-lifecycle.yml.
+idempotency:
+  coverage: none
+  documented: false
+  header: null
+  scope: []
+  notes: >-
+    No idempotency key, request-id or replay-protection mechanism is documented anywhere in the API
+    documentation, and no operation document or variable in the 95 mutations carries one (zero matches
+    for "idempot", "requestId", "clientToken" across the 1.48 MB collection). Some mutations are
+    idempotent by nature (closeIncident on an already-closed incident, watchDRPAlert) but the docs do not
+    say so, and creates (createCase, createTask, createUser, createApiKey, createReferenceListRow,
+    runPlaybook) are plain non-idempotent mutations. No Idempotency pointer is emitted.
+  agent_risk: >-
+    An agent that retries runPlaybook, createCase or createTask after a timeout has no safe replay
+    primitive and may execute a response playbook twice or open duplicate tickets.
+dry_run_mode:
+  supported: false
+  notes: no dry-run / validate-only argument is documented on any mutation; rateLimit { cost } is a cost estimate, not a rehearsal.
+request_id_tracing:
+  documented: false
+error_envelope:
+  shape: graphql-standard
+  transport_errors: '{ timestamp, status, error, path, errors: [ { detail } ] }'
+  see: errors/reliaquest-problem-types.yml
+rate_limit_signaling:
+  headers: []
+  in_band: 'query rateLimit { rateLimit { cost } }'
+  see: rate-limits/reliaquest-rate-limits.yml
+reversibility:
+  grade: documented
+  grade_basis: >-
+    Reversal operations exist and are documented by name for the incident, task, case and DRP-alert
+    objects, but NO window is stated for any of them (the docs say only "Unresolve a resolved incident" /
+    "Unresolve a resolved task" / "Cancel a case"). Per the 0.12.0 rubric a reversal path without a stated
+    window is `documented` (0.4), not `verified`. No window is asserted here because none is published.
+  write_surfaces:
+    - surface: Incident state
+      forward: [closeIncident, bulkCloseIncidents, acknowledgeAssignAndCloseIncident, updateIncidentState]
+      reversal: unresolveIncident
+      reversal_description: "Unresolve a resolved incident"
+      window: null
+      docs: https://apidocs.myreliaquest.com/
+    - surface: Incident retention
+      forward: [retainIncident]
+      reversal: releaseIncident
+      reversal_description: "Release a retained incident"
+      window: null
+      docs: https://apidocs.myreliaquest.com/
+    - surface: Task state
+      forward: [resolveTask, bulkResolveTasks, updateTaskState]
+      reversal: unresolveTask
+      reversal_description: "Unresolve a resolved task"
+      window: null
+      docs: https://apidocs.myreliaquest.com/
+    - surface: Case state
+      forward: [closeCase, cancelCase]
+      reversal: null
+      note: closeCase and cancelCase are terminal; no reopen mutation is documented. updateCase exists for edits.
+      window: null
+    - surface: DRP alert watch / assignment
+      forward: [watchDRPAlert, watchDRPAlerts, assignDRPAlert, assignDRPAlerts]
+      reversal: [unWatchDRPAlert, unWatchDRPAlerts, unassignDRPAlert, unassignDRPAlerts]
+      window: null
+      docs: https://apidocs.myreliaquest.com/
+    - surface: DRP alert state / comments
+      forward: [updateDrpAlertState, bulkUpdateDrpAlertState, bulkCloseDrpAlerts, addDrpAlertComment]
+      reversal: ['updateDrpAlertState (state can be set again)', updateDrpAlertComment, deleteDrpAlertComment]
+      window: null
+    - surface: User enablement
+      forward: [disableUser]
+      reversal: enableUser
+      window: null
+    - surface: Playbook execution
+      forward: [runPlaybook]
+      reversal: null
+      note: >-
+        A playbook run executes response actions in connected technologies; no undo is documented.
+        rerunAllFailedTasksForPlaybookRun re-executes, it does not reverse.
+    - surface: Deletes (deleteUser, deleteAsset, deleteApiKeyById, deleteApiKeys, deleteAccessGroup, deletePod, deleteRole, deleteReferenceList, deleteReferenceListColumn, deleteReferenceListRow, deleteAccessControlPolicy, deleteEmergencyContact, deleteAiContext)
+      forward: delete mutations
+      reversal: null
+      note: no restore / undelete mutation is documented for any deleted object.
+  read_only_api: false
+searchlight_note: >-
+  The Digital Shadows SearchLight Portal API (reliaquest:searchlight-portal-api) is REST with HTTP Basic
+  auth, JSON filter bodies and offset/size pagination ({"pagination":{"offset":0,"size":25}}) per the
+  shadowline client; its reference is customer-only, so nothing beyond that is asserted.
