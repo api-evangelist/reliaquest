@@ -1,0 +1,21 @@
+{
+  "repo": "reliaquest",
+  "feeds": [
+    {
+      "source": "https://reliaquest.com/blog/",
+      "feed_url": "https://reliaquest.com/blog/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
+      "source": "https://reliaquest.com/",
+      "feed_url": "https://reliaquest.com/rss.xml",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-09-19T20:17:39Z"
+}
