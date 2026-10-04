@@ -11,6 +11,21 @@ description: >-
   Portal API (digital risk protection) acquired with Digital Shadows in 2022, whose reference is
   customer-only.
 url: https://raw.githubusercontent.com/api-evangelist/reliaquest/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  license_evidence:
+    not_product:
+    - digitalshadows/shadowline-api
+  open_source: unknown
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: low
+  source:
+  - pricing
+  - repository-not-product
+  generated: '2026-09-25'
+  method: derived
 image: https://resources.reliaquest.com/image/upload/c_limit,w_1024,h_1024,f_webp,q_auto/v1725562607/reliaquest-author-logo.jpg
 x-type: company
 x-source: harvest:secondary-market
@@ -20,6 +35,15 @@ specificationVersion: '0.20'
 created: '2026-09-18'
 modified: '2026-09-18'
 tags:
+- Cybersecurity
+- Security Operations
+- Threat Detection
+- Incident Response
+- Threat Intelligence
+- Digital Risk Protection
+- AI Agents
+- GraphQL
+tags_raw:
 - Cybersecurity
 - Security Operations
 - Threat Detection
