@@ -9,17 +9,17 @@
       "method": "none"
     },
     {
+      "source": "https://reliaquest.com/rss.xml",
+      "error": "HTTPError"
+    },
+    {
       "source": "https://reliaquest.com/",
       "feed_url": "https://reliaquest.com/",
       "title": "",
       "saved": 0,
       "method": "none"
-    },
-    {
-      "source": "https://reliaquest.com/rss.xml",
-      "error": "HTTPError"
     }
   ],
   "post_count": 10,
-  "fetched": "2026-10-03T12:30:02Z"
+  "fetched": "2026-10-10T13:15:00Z"
 }
