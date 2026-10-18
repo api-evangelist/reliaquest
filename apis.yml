@@ -121,6 +121,11 @@ apis:
   tags:
   - Digital Risk Protection
   - Threat Intelligence
+  - Data Breaches
+  - WHOIS
+  tags_raw:
+  - Digital Risk Protection
+  - Threat Intelligence
   - Data Breach
   - WHOIS
   properties:
