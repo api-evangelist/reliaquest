@@ -3,6 +3,7 @@ method: searched
 checked:
 - https://marketplace.atlassian.com/
 - microsoft-teams/integrations/microsoft-teams-integration-edges.yml
+- palo-alto-networks/integrations/palo-alto-networks-integration-edges.yml
 - slack/integrations/slack-integration-edges.yml
 marketplace_apps: []
 edges:
@@ -41,6 +42,26 @@ edges:
   category: Microsoft Teams app
   publisher_verified:
   - Microsoft 365 Certified
+- partner_name: Palo Alto Networks (own)
+  partner: palo-alto-networks
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://cortex.marketplace.pan.dev/marketplace/details/DigitalShadows/
+  mirror_of: palo-alto-networks/integrations/palo-alto-networks-integration-edges.yml
+  apps:
+  - ReliaQuest Digital Risk Protection
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: Data Enrichment & Threat Intelligence
+  badges:
+  - support:partner
+  - certification:certified
 - partner_name: Slack (own)
   partner: slack
   partner_match: mirror

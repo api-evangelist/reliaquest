@@ -28,6 +28,19 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: reliaquest-palo-alto-networks-own
+  label: Palo Alto Networks (own)
+  partner: palo-alto-networks
+  partner_name: Palo Alto Networks (own)
+  category: Data Enrichment & Threat Intelligence
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://cortex.marketplace.pan.dev/marketplace/details/DigitalShadows/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
 - slug: reliaquest-slack-own
   label: Slack (own)
   partner: slack
