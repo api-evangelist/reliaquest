@@ -54,3 +54,29 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: reliaquest-cisco-identity-services-engine-own
+  label: Cisco Identity Services Engine (own)
+  partner: cisco-ise
+  partner_name: Cisco Identity Services Engine (own)
+  category: Cyber Threat Response, Observability
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/530194
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: reliaquest-cisco-meraki-own
+  label: Cisco Meraki (own)
+  partner: cisco-meraki
+  partner_name: Cisco Meraki (own)
+  category: Cyber Threat Response, Observability
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/530194
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
