@@ -64,24 +64,120 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-ReliaQuest is a Tampa-based, privately held cybersecurity company whose GreyMatter platform runs agentic AI security operations on top of the security tools a customer already owns. Customers automate GreyMatter through the **GreyMatter API**, a single-endpoint GraphQL API (58 queries, 95 mutations) documented as a public Postman collection at [apidocs.myreliaquest.com](https://apidocs.myreliaquest.com/) and authenticated with an `X-API-KEY` header. ReliaQuest also operates the Digital Shadows SearchLight Portal API (digital risk protection), acquired with Digital Shadows in 2022, whose reference is customer-only.
+ReliaQuest is a Tampa-based, privately held cybersecurity company whose GreyMatter platform runs agentic AI security operations (detection, containment, investigation and response) on top of the security tools a customer already owns, connected through bidirectional APIs to 300+ technologies. Customers automate GreyMatter through the GreyMatter API, a single-endpoint GraphQL API (incidents, cases, tasks, detections, playbooks, DRP alerts, discover tasks, users, access groups and API keys) documented as a public Postman collection at apidocs.myreliaquest.com and authenticated with an X-API-KEY header. ReliaQuest also operates the Digital Shadows SearchLight Portal API (digital risk protection) acquired with Digital Shadows in 2022, whose reference is customer-only.
 
-- Website: https://reliaquest.com/
-- GreyMatter API documentation (Postman): https://apidocs.myreliaquest.com/
-- GraphQL endpoint: https://greymatter.myreliaquest.com/graphql
-- llms.txt: https://reliaquest.com/llms.txt
-- Product releases: https://reliaquest.com/product-release/
-- Vulnerability disclosure: https://reliaquest.com/report-potential-security-vulnerability/
+**Areas:** Cybersecurity · Security Operations · Threat Detection · Incident Response · Threat Intelligence · Digital Risk Protection · AI Agents · GraphQL
 
-## What is in this repository
+## ReliaQuest on APIs.io
 
-| Path | What | How it was obtained |
-|---|---|---|
-| `postman/reliaquest-greymatter-api.postman_collection.json` | The provider's GreyMatter API Postman collection, verbatim (153 operations) | fetched from apidocs.myreliaquest.com |
-| `postman/reliaquest-greymatter-operations.txt` | The provider's example query/mutation documents extracted from the collection (not a schema) | derived |
-| `llms/reliaquest-llms.txt` | The provider's llms.txt, verbatim | fetched |
-| `authentication/`, `rate-limits/`, `conventions/`, `lifecycle/`, `changelog/`, `plans/` | Auth, limits, pagination/ids/reversibility, SLA, releases, pricing model | read from the provider's docs |
-| `errors/`, `data-model/`, `mcp/`, `conformance/` | Error envelope, entity graph, candidate MCP tools, standards posture | derived from the collection and live probes |
-| `security/`, `well-known/` | TLS/DNS posture, VDP (Bugcrowd), SOC 2 / HIPAA / PCI claims, well-known probes (all misses) | probed |
-| `packages/`, `cli/` | shadowline, the first-party CLI for the SearchLight API | GitHub |
-| `skills/` | Three Agent Skills grounded in verified operation names | generated |
+Everything profiled for ReliaQuest is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/reliaquest/](https://apis.io/providers/reliaquest/)** — or go straight to one of the APIs or properties below.
+
+### APIs (2)
+
+- [GreyMatter API](https://apis.io/apis/reliaquest/greymatter-api/) — The GreyMatter API exposes select GreyMatter capabilities through a single GraphQL endpoint. All requests are HTTPS POSTs with JSON bodies authenticated by…
+- [Digital Shadows SearchLight Portal API](https://apis.io/apis/reliaquest/searchlight-portal-api/) — REST API of the Digital Shadows SearchLight digital-risk-protection portal, operated by ReliaQuest since its 2022 acquisition of Digital Shadows…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [reliaquest-mcp.yml](https://apis.io/servers/reliaquest/reliaquest-mcp-yml/)
+
+#### Collections (1)
+
+Postman and Open Collection request collections.
+
+- [GreyMatter API](https://apis.io/collections/reliaquest/postman-reliaquest-greymatter-api/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Reliaquest Authentication](https://apis.io/security/reliaquest/reliaquest-authentication/)
+- [Reliaquest Domain Security](https://apis.io/security/reliaquest/reliaquest-domain-security/)
+- [Reliaquest Trust Center](https://apis.io/security/reliaquest/reliaquest-trust-center/)
+- [Reliaquest Vulnerability Disclosure](https://apis.io/security/reliaquest/reliaquest-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Reliaquest Plans Pricing](https://apis.io/plans/reliaquest/reliaquest-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Reliaquest Rate Limits](https://apis.io/rate-limits/reliaquest/reliaquest-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://reliaquest.com/)
+- [Documentation](https://apidocs.myreliaquest.com/)
+- [API reference](https://apidocs.myreliaquest.com/)
+- [Pricing](https://reliaquest.com/resources/greymatter-faq/pricing-and-return-on-investment-faq/)
+- [Support](https://reliaquest.com/contact-us/)
+- [Changelog](https://reliaquest.com/product-release/)
+- [Blog](https://reliaquest.com/blog/)
+- [Terms of service](https://reliaquest.com/greymatter-psa/)
+- [Privacy policy](https://reliaquest.com/privacy-policy/)
+- [GitHub](https://github.com/reliaquest)
+
+## API Evangelist rating
+
+**Kin Score 37.8** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 6.5 |
+| Contract governance | 18.2 |
+| Operational transparency | 44.7 |
+| Developer ergonomics | 49.4 |
+| Access clarity | 39.5 |
+
+**Agent readiness 7.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/reliaquest/](https://apis.io/providers/reliaquest/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for ReliaQuest: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/reliaquest/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
